@@ -1,193 +1,263 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Maya's Multispeciality Hospital | Kurnool</title>
+<title>Maya's Hospital</title>
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Maya's Hospital">
-<meta name="theme-color" content="#f43f5e">
+<meta name="theme-color" content="#e11d48">
 <script src="https://cdn.tailwindcss.com"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800;900&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
 <script>
-tailwind.config={theme:{extend:{colors:{primary:'#f43f5e',secondary:'#1e293b',lightbg:'#f8fafc',accent:'#fff1f2',cardbg:'#ffffff'},fontFamily:{sans:['"Roboto Slab"','serif']}}}};
+tailwind.config={theme:{extend:{colors:{primary:'#e11d48',primaryLight:'#f43f5e',primaryDark:'#9f1239',secondary:'#0f172a',lightbg:'#f8fafc',accent:'#fff1f2',cardbg:'#ffffff'},fontFamily:{sans:['"Poppins"','sans-serif'],display:['"Montserrat"','sans-serif'],body:['"Inter"','sans-serif']},boxShadow:{'glow':'0 14px 35px -5px rgba(225, 29, 72, 0.45)','soft':'0 12px 32px -8px rgba(15, 23, 42, 0.08)','card':'0 20px 40px -12px rgba(225, 29, 72, 0.18)'}}}};
 </script>
 <style>
-/* CM001 - CSS Reset & Body */
-html{scroll-behavior:smooth;}body{font-family:'Roboto Slab',serif;color:#333;margin:0;padding:0;background-color:#f8fafc;}
+/* CM001 - CSS Base, Scrollbar & Clean Modern Typography */
+html{scroll-behavior:smooth;overflow-x:hidden;}
+body{font-family:'Poppins',sans-serif;color:#1e293b;background-color:#f8fafc;overflow-x:hidden;margin:0;padding:0;}
+.font-display{font-family:'Montserrat',sans-serif;letter-spacing:-0.02em;}
+.font-body{font-family:'Inter',sans-serif;}
+::-webkit-scrollbar{width:8px;}
+::-webkit-scrollbar-track{background:#f1f5f9;}
+::-webkit-scrollbar-thumb{background:linear-gradient(180deg,#f43f5e,#be123c);border-radius:9999px;}
 
-/* CM002 - CSS Top Bar */
-.top-bar{background-color:#fff1f2;border-bottom:1px solid #ffe4e6;color:#1e293b;}
+/* CM002 - CSS Keyframe Animations, Floating Badges & Pulse Rings */
+#scroll-progress{position:fixed;top:0;left:0;height:4px;background:linear-gradient(90deg,#f43f5e,#fb7185,#e11d48);width:0%;z-index:100;box-shadow:0 0 12px rgba(244,63,94,0.8);transition:width 0.1s ease-out;}
+@keyframes floatUpDown{0%,100%{transform:translateY(0px);}50%{transform:translateY(-12px);}}
+@keyframes floatBlob{0%,100%{transform:translate(0px,0px) scale(1);}50%{transform:translate(25px,-20px) scale(1.1);}}
+@keyframes pulseGlow{0%,100%{box-shadow:0 0 0 0 rgba(225,29,72,0.55);}50%{box-shadow:0 0 0 14px rgba(225,29,72,0);}}
+@keyframes gradientShift{0%{background-position:0% 50%;}50%{background-position:100% 50%;}100%{background-position:0% 50%;}}
+@keyframes shineSweep{0%{left:-120%;}100%{left:140%;}}
+.float-badge{animation:floatUpDown 3.8s ease-in-out infinite;}
+.float-badge-delayed{animation:floatUpDown 4.4s ease-in-out 1.5s infinite;}
+.ambient-blob{animation:floatBlob 8s ease-in-out infinite;}
+.ambient-blob-delayed{animation:floatBlob 10s ease-in-out 2s infinite reverse;}
+.pulse-glow-btn{animation:pulseGlow 2.4s infinite;}
+.animated-gradient-text{background:linear-gradient(270deg,#e11d48,#f43f5e,#be123c,#e11d48);background-size:300% 300%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:gradientShift 5s ease infinite;}
 
-/* CM003 - CSS Header & Navigation (Removed Sticky Position as Requested) */
-.header-bg{background-color:#ffffff;box-shadow:0 4px 20px rgba(0,0,0,0.05);position:relative;z-index:40;} .nav-link{transition:all 0.3s;position:relative;} .nav-link:hover{color:#f43f5e;} .nav-link::after{content:'';position:absolute;width:0;height:2px;bottom:-4px;left:0;background-color:#f43f5e;transition:width 0.3s;} .nav-link:hover::after{width:100%;}
+/* CM003 - CSS Visible Scroll Reveal & Stagger Effects */
+.reveal{opacity:0;transform:translateY(45px) scale(0.97);filter:blur(4px);transition:opacity 0.8s cubic-bezier(0.16,1,0.3,1),transform 0.8s cubic-bezier(0.16,1,0.3,1),filter 0.8s cubic-bezier(0.16,1,0.3,1);}
+.reveal-left{opacity:0;transform:translateX(-55px);filter:blur(4px);transition:opacity 0.85s cubic-bezier(0.16,1,0.3,1),transform 0.85s cubic-bezier(0.16,1,0.3,1),filter 0.85s cubic-bezier(0.16,1,0.3,1);}
+.reveal-right{opacity:0;transform:translateX(55px);filter:blur(4px);transition:opacity 0.85s cubic-bezier(0.16,1,0.3,1),transform 0.85s cubic-bezier(0.16,1,0.3,1),filter 0.85s cubic-bezier(0.16,1,0.3,1);}
+.reveal-scale{opacity:0;transform:scale(0.88) translateY(30px);filter:blur(4px);transition:opacity 0.8s cubic-bezier(0.34,1.56,0.64,1),transform 0.8s cubic-bezier(0.34,1.56,0.64,1),filter 0.8s ease;}
+.reveal.active,.reveal-left.active,.reveal-right.active,.reveal-scale.active{opacity:1;transform:translate(0,0) scale(1);filter:blur(0);}
+.delay-100{transition-delay:100ms;}
+.delay-200{transition-delay:200ms;}
+.delay-300{transition-delay:300ms;}
+.delay-400{transition-delay:400ms;}
 
-/* CM004 - CSS Hero Banner */
-.hero-img{width:100%;height:140px;object-fit:cover;border:2px solid #ffffff;border-radius:1rem;box-shadow:0 10px 15px -3px rgba(0,0,0,0.1);transition:transform 0.3s;} .hero-img:hover{transform:scale(1.02);}
+/* CM004 - CSS Modern Shimmer & Interactive Buttons */
+.btn-modern{position:relative;overflow:hidden;background:linear-gradient(135deg,#f43f5e 0%,#e11d48 50%,#be123c 100%);color:#ffffff;transition:all 0.35s cubic-bezier(0.16,1,0.3,1);box-shadow:0 10px 25px -5px rgba(225,29,72,0.45);}
+.btn-modern:hover{transform:translateY(-4px) scale(1.02);box-shadow:0 18px 32px -6px rgba(225,29,72,0.65);}
+.btn-modern::before{content:'';position:absolute;top:0;left:-120%;width:65%;height:100%;background:linear-gradient(120deg,transparent,rgba(255,255,255,0.45),transparent);transform:skewX(-20deg);transition:all 0.65s ease;}
+.btn-modern:hover::before{left:140%;}
+.btn-outline-modern{background:#ffffff;border:2px solid #fecdd3;color:#0f172a;transition:all 0.35s cubic-bezier(0.16,1,0.3,1);box-shadow:0 6px 16px -4px rgba(15,23,42,0.06);}
+.btn-outline-modern:hover{border-color:#e11d48;color:#e11d48;background:#fff1f2;transform:translateY(-4px) scale(1.02);box-shadow:0 14px 26px -6px rgba(225,29,72,0.22);}
 
-/* CM005 - CSS Highlights & About */
-.highlight-box{background:linear-gradient(135deg,#f43f5e,#be123c);border-radius:1rem;box-shadow:0 10px 25px rgba(244,63,94,0.3);} .highlight-text{color:#ffffff;} .about-img{width:100%;height:100%;object-fit:cover;border-radius:1rem;box-shadow:0 10px 15px -3px rgba(0,0,0,0.1);}
+/* CM005 - CSS Top Bar & Glass Header Navigation */
+.nav-link{position:relative;transition:all 0.3s ease;padding:0.5rem 0.95rem;border-radius:9999px;}
+.nav-link::after{content:'';position:absolute;bottom:4px;left:50%;width:0;height:2.5px;background:#e11d48;border-radius:9999px;transition:all 0.3s ease;transform:translateX(-50%);}
+.nav-link:hover{color:#e11d48;background-color:#fff1f2;}
+.nav-link:hover::after{width:55%;}
 
-/* CM006 - CSS Specialties Grid & Hover Cards */
-.hover-card{transition:all 0.4s cubic-bezier(0.4,0,0.2,1);background-color:#ffffff;border:1px solid #f1f5f9;border-radius:1rem;} .hover-card:hover{transform:translateY(-5px);box-shadow:0 15px 20px -5px rgba(0,0,0,0.1);border-color:#ffe4e6;} .specialty-card{background-color:#ffffff;border:1px solid #e2e8f0;border-radius:1rem;height:100%;transition:all 0.3s ease;box-shadow:0 4px 6px rgba(0,0,0,0.02);} .specialty-card:hover{border-color:#f43f5e;box-shadow:0 10px 15px rgba(244,63,94,0.08);transform:translateY(-3px);}
+/* CM006 - CSS Hero Collage & Image Overlay */
+.hero-img-wrapper{position:relative;overflow:hidden;border-radius:1.25rem;border:3px solid #ffffff;box-shadow:0 16px 32px -8px rgba(15,23,42,0.16);transition:all 0.45s cubic-bezier(0.16,1,0.3,1);}
+.hero-img-wrapper:hover{transform:translateY(-6px) scale(1.02);box-shadow:0 22px 40px -8px rgba(225,29,72,0.28);border-color:#fecdd3;}
+.hero-img{width:100%;height:165px;object-fit:cover;transition:transform 0.75s cubic-bezier(0.16,1,0.3,1);}
+@media (min-width:768px){.hero-img{height:195px;}}
+.hero-img-wrapper:hover .hero-img{transform:scale(1.12);}
+.hero-img-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(15,23,42,0.78) 0%,rgba(225,29,72,0.2) 55%,transparent 100%);opacity:0;transition:opacity 0.35s ease;display:flex;align-items:flex-end;padding:0.85rem 1rem;}
+.hero-img-wrapper:hover .hero-img-overlay{opacity:1;}
 
-/* CM007 - CSS Doctors & Modal Popup */
-.doc-photo{width:100%;height:220px;object-fit:cover;border-bottom:4px solid #f43f5e;} .doc-contact-btn{background:linear-gradient(to right,#f43f5e,#e11d48);color:#fff;transition:all 0.3s;box-shadow:0 4px 6px rgba(225,29,72,0.3);} .doc-contact-btn:hover{box-shadow:0 6px 12px rgba(225,29,72,0.4);transform:translateY(-2px);}
+/* CM007 - CSS Highlights Counter Box */
+.highlight-box{background:linear-gradient(135deg,#0f172a 0%,#1e293b 50%,#881337 100%);border-radius:1.5rem;box-shadow:0 22px 45px -10px rgba(15,23,42,0.4);position:relative;overflow:hidden;}
+.highlight-box::before{content:'';position:absolute;top:-40%;right:-10%;width:320px;height:320px;background:radial-gradient(circle,rgba(244,63,94,0.38) 0%,transparent 70%);pointer-events:none;}
+.stat-card{transition:transform 0.35s ease;padding:0.75rem;}
+.stat-card:hover{transform:translateY(-5px);}
 
-/* CM008 - CSS OPD Info Block & Help Desk */
-.opd-gradient-card{background:linear-gradient(135deg,#f43f5e 0%,#be123c 100%);color:white;} .help-card{background-color:#ffffff;border:1px solid #e2e8f0;border-radius:0.75rem;transition:all 0.3s;box-shadow:0 2px 4px rgba(0,0,0,0.02);} .help-card:hover{border-color:#f43f5e;box-shadow:0 8px 12px rgba(244,63,94,0.1);transform:translateY(-2px);}
+/* CM008 - CSS About Profile & Why Choose Strip */
+.about-card-wrap{position:relative;overflow:hidden;border-radius:1.25rem;box-shadow:0 14px 28px -8px rgba(15,23,42,0.12);transition:all 0.4s ease;}
+.about-card-wrap:hover{transform:translateY(-5px);box-shadow:0 20px 36px -8px rgba(225,29,72,0.22);}
+.about-card-img{transition:transform 0.7s cubic-bezier(0.16,1,0.3,1);}
+.about-card-wrap:hover .about-card-img{transform:scale(1.1);}
+.why-card{background:rgba(30,41,59,0.75);border:1px solid rgba(255,255,255,0.1);border-radius:1.25rem;transition:all 0.4s cubic-bezier(0.16,1,0.3,1);position:relative;overflow:hidden;}
+.why-card:hover{transform:translateY(-8px);border-color:#f43f5e;background:rgba(30,41,59,0.95);box-shadow:0 20px 38px -10px rgba(244,63,94,0.3);}
 
-/* CM009 - CSS Insurance Grid */
-.ins-card{border:1px solid #e2e8f0;transition:all 0.4s ease;display:flex;align-items:center;justify-content:center;padding:12px;height:90px;border-radius:0.75rem;box-shadow:0 2px 4px rgba(0,0,0,0.02);} .ins-card:hover{border-color:#f43f5e;box-shadow:0 10px 15px rgba(244,63,94,0.15);transform:translateY(-3px) scale(1.02);} .ins-logo{max-height:100%;max-width:100%;object-fit:contain;transition:filter 0.3s;}
+/* CM009 - CSS Doctors Cards & Glossy Hover Shine */
+.hover-card{background:#ffffff;border:1.5px solid #e2e8f0;border-radius:1.5rem;transition:all 0.45s cubic-bezier(0.16,1,0.3,1);box-shadow:0 10px 28px -8px rgba(15,23,42,0.06);position:relative;overflow:hidden;}
+.hover-card::after{content:'';position:absolute;top:0;left:-120%;width:50%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.5),transparent);transform:skewX(-25deg);transition:left 0.75s ease;pointer-events:none;}
+.hover-card:hover::after{left:140%;}
+.hover-card:hover{transform:translateY(-8px);border-color:#fb7185;box-shadow:0 24px 48px -12px rgba(225,29,72,0.22);}
+.doc-photo-wrap{overflow:hidden;position:relative;background:linear-gradient(180deg,#fff1f2 0%,#ffe4e6 100%);}
+.doc-photo{width:100%;height:260px;object-fit:cover;object-position:top center;transition:transform 0.65s cubic-bezier(0.16,1,0.3,1);}
+@media (min-width:640px){.doc-photo{height:100%;min-height:270px;}}
+.hover-card:hover .doc-photo{transform:scale(1.09);}
 
-/* CM010 - CSS Gallery Slider */
-.slider-container{overflow:hidden;width:100%;position:relative;background-color:#ffffff;padding:1.5rem 0;} .slider-track{display:flex;width:calc(280px * 14);animation:scroll 35s linear infinite;} .slider-slide{width:280px;padding:0 8px;} .slider-slide img{width:100%;height:180px;object-fit:cover;border-radius:0.75rem;box-shadow:0 4px 10px rgba(0,0,0,0.1);transition:transform 0.3s;} .slider-slide img:hover{transform:scale(1.05);} @keyframes scroll{0%{transform:translateX(0);}100%{transform:translateX(calc(-280px * 7));}}
+/* CM010 - CSS Specialties Grid & Animated Top Bar Cards */
+.specialty-card{background:#ffffff;border:1.5px solid #e2e8f0;border-radius:1.5rem;position:relative;overflow:hidden;transition:all 0.45s cubic-bezier(0.16,1,0.3,1);box-shadow:0 10px 25px -8px rgba(15,23,42,0.05);}
+.specialty-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:5px;background:linear-gradient(90deg,#f43f5e,#e11d48,#fb7185);transform:scaleX(0);transform-origin:left;transition:transform 0.45s cubic-bezier(0.16,1,0.3,1);}
+.specialty-card:hover{transform:translateY(-8px);border-color:#fda4af;box-shadow:0 24px 44px -12px rgba(225,29,72,0.2);}
+.specialty-card:hover::before{transform:scaleX(1);}
+.spec-icon-box{transition:all 0.4s cubic-bezier(0.34,1.56,0.64,1);}
+.specialty-card:hover .spec-icon-box{transform:scale(1.15) rotate(6deg);box-shadow:0 10px 20px -4px rgba(225,29,72,0.45);}
 
-/* CM011 - CSS Footer & Contact */
-.footer-bg{background-color:#0f172a;border-top:4px solid #f43f5e;} .map-container{height:200px;width:100%;border-radius:0.75rem;overflow:hidden;box-shadow:0 5px 15px rgba(0,0,0,0.2);border:1px solid #334155;} .action-btn{background-color:#1e293b;color:#fff;transition:all 0.3s;border:1px solid #334155;} .action-btn:hover{background-color:#f43f5e;border-color:#f43f5e;transform:translateY(-2px);}
+/* CM011 - CSS OPD Help Desk & Insurance Cards */
+.opd-gradient-card{background:linear-gradient(145deg,#e11d48 0%,#be123c 55%,#881337 100%);color:white;position:relative;overflow:hidden;}
+.help-card{background:#ffffff;border:1.5px solid #e2e8f0;border-radius:1.15rem;transition:all 0.35s cubic-bezier(0.16,1,0.3,1);}
+.help-card:hover{border-color:#f43f5e;background:linear-gradient(180deg,#ffffff 0%,#fff1f2 100%);transform:translateY(-6px) scale(1.02);box-shadow:0 16px 30px -8px rgba(225,29,72,0.18);}
+.ins-card{border:1.5px solid #e2e8f0;transition:all 0.35s cubic-bezier(0.16,1,0.3,1);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:16px;height:96px;border-radius:1.15rem;position:relative;overflow:hidden;}
+.ins-card:hover{border-color:#f43f5e;box-shadow:0 16px 28px -6px rgba(244,63,94,0.22);transform:translateY(-6px) scale(1.04);}
 
-/* CM012 - CSS Mobile Navigation */
-.mobile-nav{box-shadow:0 -4px 20px rgba(0,0,0,0.1);background-color:#ffffff;border-top:1px solid #e2e8f0;}
+/* CM012 - CSS Gallery Marquee Slider */
+.slider-container{overflow:hidden;width:100%;position:relative;padding:1rem 0;}
+.slider-container::before,.slider-container::after{content:'';position:absolute;top:0;width:80px;height:100%;z-index:10;pointer-events:none;}
+.slider-container::before{left:0;background:linear-gradient(to right,#f8fafc,transparent);}
+.slider-container::after{right:0;background:linear-gradient(to left,#f8fafc,transparent);}
+.slider-track{display:flex;width:calc(300px * 14);animation:scroll 32s linear infinite;}
+.slider-track:hover{animation-play-state:paused;}
+.slider-slide{width:300px;padding:0 10px;flex-shrink:0;}
+.slider-slide img{width:100%;height:195px;object-fit:cover;border-radius:1.15rem;box-shadow:0 10px 22px -6px rgba(15,23,42,0.14);transition:all 0.4s cubic-bezier(0.16,1,0.3,1);cursor:pointer;border:3px solid #ffffff;}
+.slider-slide img:hover{transform:scale(1.06) translateY(-5px);box-shadow:0 18px 34px -6px rgba(225,29,72,0.3);border-color:#fda4af;}
+@keyframes scroll{0%{transform:translateX(0);}100%{transform:translateX(calc(-300px * 7));}}
+
+/* CM013 - CSS Footer, Map & Mobile Navigation */
+.footer-bg{background:linear-gradient(180deg,#0f172a 0%,#090d16 100%);border-top:4px solid #e11d48;}
+.map-container{height:200px;width:100%;border-radius:1rem;overflow:hidden;border:1px solid #334155;}
+.mobile-nav{box-shadow:0 -8px 28px rgba(15,23,42,0.12);background:rgba(255,255,255,0.96);backdrop-filter:blur(12px);border-top:1px solid #f1f5f9;}
 </style>
 </head>
-<body>
+<body class="antialiased selection:bg-rose-100 selection:text-rose-700">
 
-<!-- CM013 - HTML Top Bar -->
-<div class="top-bar hidden md:flex justify-between items-center w-full py-1.5 px-6 text-[11px] font-medium tracking-wide">
+<!-- CM014 - HTML Top Scroll Progress Bar & Top Bar -->
+<div id="scroll-progress"></div>
+<div class="bg-secondary text-slate-200 hidden md:block border-b border-slate-800 text-xs">
+<div class="container mx-auto max-w-7xl py-2.5 px-6 flex justify-between items-center">
 <div class="flex items-center space-x-6">
-<span><i class="fas fa-map-marker-alt text-primary mr-1"></i> Maddur Nagar, 3rd Lane, Kurnool</span>
-<span><i class="fas fa-envelope text-primary mr-1"></i> <span class="dyn-email"></span></span>
+<span class="flex items-center text-slate-300 font-medium"><i class="fas fa-map-marker-alt text-rose-400 mr-2"></i>Maddur Nagar, 3rd Lane, Kurnool</span>
+<span class="h-3.5 w-[1px] bg-slate-700"></span>
+<a href="mailto:mayashospitals@gmail.com" class="flex items-center text-slate-300 hover:text-white transition font-medium"><i class="fas fa-envelope text-rose-400 mr-2"></i><span class="dyn-email"></span></a>
 </div>
-<div class="flex items-center space-x-6">
-<span><i class="fas fa-phone-alt text-primary mr-1"></i> <span class="dyn-phone1"></span> / <span class="dyn-phone2"></span></span>
-<a href="#opd-info" class="text-primary font-bold hover:text-rose-700 transition flex items-center bg-rose-50 px-3 py-0.5 rounded-full"><i class="fas fa-headset mr-1"></i> Call Appointment</a>
+<div class="flex items-center space-x-5">
+<div class="flex items-center text-white font-semibold">
+<span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping mr-2"></span>
+<i class="fas fa-phone-alt text-rose-400 mr-1.5"></i>
+<a href="#" class="call-action-btn hover:text-rose-400 transition"><span class="dyn-phone1"></span></a>
+<span class="mx-1.5 text-slate-500">/</span>
+<a href="#" class="call-action-btn2 hover:text-rose-400 transition"><span class="dyn-phone2"></span></a>
+</div>
+<button onclick="openFaviconModal()" class="bg-slate-800 hover:bg-slate-700 text-rose-300 border border-rose-500/40 font-semibold px-3 py-1 rounded-full transition flex items-center text-xs" title="Preview & Download Favicon"><i class="fas fa-download mr-1.5"></i>Favicon</button>
+<a href="#opd-info" class="bg-gradient-to-r from-rose-500 to-rose-600 hover:from-rose-600 hover:to-rose-700 text-white font-bold px-4 py-1 rounded-full transition flex items-center text-xs shadow-sm"><i class="fas fa-headset mr-1.5"></i>Call Appointment</a>
+</div>
 </div>
 </div>
 
-<!-- CM014 - HTML Header & Nav -->
-<header class="w-full header-bg">
-<div class="container mx-auto px-4 py-2 flex justify-between items-center">
-<a href="#" class="flex items-center space-x-3 group">
-<img src="" alt="Maya's Hospital Logo" class="dyn-logo h-10 md:h-14 object-contain transition-transform group-hover:scale-105">
+<!-- CM015 - HTML Glass Header & Navigation -->
+<header id="main-header" class="w-full bg-white/95 backdrop-blur-md border-b border-slate-100 sticky top-0 z-40 transition-all duration-300 shadow-sm">
+<div class="container mx-auto max-w-7xl px-4 sm:px-6 py-3.5 flex justify-between items-center">
+<a href="#" class="flex items-center space-x-3.5 group">
+<div class="relative p-1.5 rounded-2xl bg-gradient-to-tr from-rose-50 to-white border border-rose-100 shadow-sm">
+<img src="" alt="Maya's Hospital Logo" class="dyn-logo h-12 md:h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-105">
+</div>
 <div class="leading-tight">
-<h1 class="text-lg md:text-xl font-bold text-secondary m-0 tracking-tight">MAYA'S</h1>
-<p class="text-[8px] md:text-[10px] text-primary font-bold uppercase tracking-widest m-0">Multispeciality Hospital</p>
-<p class="text-[8px] text-gray-500 italic m-0 font-medium">The Healing Touch</p>
+<h1 class="text-xl md:text-2xl font-extrabold text-secondary m-0 font-display tracking-tight">MAYA'S HOSPITAL</h1>
+<p class="text-[10px] md:text-xs text-primary font-bold uppercase tracking-widest m-0">Multispeciality Healthcare</p>
+<p class="text-[11px] text-slate-500 italic m-0 font-medium">The Healing Touch</p>
 </div>
 </a>
-<nav class="hidden lg:flex space-x-5 text-[13px] font-bold text-secondary items-center">
-<a href="#home" class="nav-link py-1">Home</a>
-<a href="#about" class="nav-link py-1">About</a>
-<a href="#specialties" class="nav-link py-1">Specialties</a>
-<a href="#doctors" class="nav-link py-1">Doctors</a>
-<a href="#opd-info" class="nav-link py-1">Help Desk</a>
-<a href="#insurance" class="nav-link py-1">Insurance</a>
-<a href="#contact" class="nav-link py-1">Contact</a>
+<nav class="hidden lg:flex items-center space-x-1 text-sm font-semibold text-slate-700">
+<a href="#home" class="nav-link">Home</a>
+<a href="#about" class="nav-link">About Us</a>
+<a href="#doctors" class="nav-link">Doctors</a>
+<a href="#specialties" class="nav-link">Specialties</a>
+<a href="#workflow" class="nav-link">How It Works</a>
+<a href="#opd-info" class="nav-link">Help Desk</a>
+<a href="#insurance" class="nav-link">Insurance</a>
+<a href="#contact" class="nav-link">Contact</a>
 </nav>
 <div class="hidden md:flex items-center space-x-3">
-<a href="#opd-info" class="bg-gradient-to-r from-primary to-rose-600 text-white px-5 py-2 rounded-full text-xs font-bold hover:shadow-lg transition-all transform hover:-translate-y-0.5"><i class="fas fa-phone-volume mr-2"></i> Book OP</a>
+<a href="#opd-info" class="btn-modern pulse-glow-btn px-6 py-2.5 rounded-full text-xs sm:text-sm font-bold tracking-wide flex items-center"><i class="fas fa-phone-volume mr-2"></i>Book Consultation</a>
 </div>
-<button class="lg:hidden text-secondary focus:outline-none text-xl p-2" onclick="toggleMobileMenu()">
-<i class="fas fa-bars"></i>
-</button>
+<button aria-label="Toggle Menu" class="lg:hidden w-11 h-11 rounded-xl bg-rose-50 text-primary flex items-center justify-center focus:outline-none text-lg border border-rose-100" onclick="toggleMobileMenu()"><i id="mobile-menu-icon" class="fas fa-bars"></i></button>
 </div>
-<div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-gray-100 flex flex-col shadow-2xl absolute w-full left-0 z-50">
-<a href="#about" class="p-3 text-sm text-center font-bold text-secondary border-b border-gray-50" onclick="toggleMobileMenu()">About Us</a>
-<a href="#specialties" class="p-3 text-sm text-center font-bold text-secondary border-b border-gray-50" onclick="toggleMobileMenu()">Specialties</a>
-<a href="#doctors" class="p-3 text-sm text-center font-bold text-secondary border-b border-gray-50" onclick="toggleMobileMenu()">Doctors</a>
-<a href="#opd-info" class="p-3 text-sm text-center font-bold text-white bg-primary" onclick="toggleMobileMenu()">Call Appointment</a>
+<div id="mobile-menu" class="hidden lg:hidden bg-white/98 backdrop-blur-xl border-t border-slate-100 flex flex-col shadow-2xl absolute w-full left-0 z-50 px-5 py-4 space-y-2">
+<a href="#home" class="p-3 rounded-xl text-sm font-bold text-secondary hover:bg-rose-50 flex items-center justify-between" onclick="toggleMobileMenu()"><span><i class="fas fa-home w-6 text-primary"></i>Home</span><i class="fas fa-chevron-right text-xs text-slate-300"></i></a>
+<a href="#about" class="p-3 rounded-xl text-sm font-bold text-secondary hover:bg-rose-50 flex items-center justify-between" onclick="toggleMobileMenu()"><span><i class="fas fa-hospital w-6 text-primary"></i>About Us</span><i class="fas fa-chevron-right text-xs text-slate-300"></i></a>
+<a href="#doctors" class="p-3 rounded-xl text-sm font-bold text-secondary hover:bg-rose-50 flex items-center justify-between" onclick="toggleMobileMenu()"><span><i class="fas fa-user-md w-6 text-primary"></i>Consult Doctors</span><i class="fas fa-chevron-right text-xs text-slate-300"></i></a>
+<a href="#specialties" class="p-3 rounded-xl text-sm font-bold text-secondary hover:bg-rose-50 flex items-center justify-between" onclick="toggleMobileMenu()"><span><i class="fas fa-stethoscope w-6 text-primary"></i>Specialties</span><i class="fas fa-chevron-right text-xs text-slate-300"></i></a>
+<a href="#insurance" class="p-3 rounded-xl text-sm font-bold text-secondary hover:bg-rose-50 flex items-center justify-between" onclick="toggleMobileMenu()"><span><i class="fas fa-shield-alt w-6 text-primary"></i>Insurance &amp; TPA</span><i class="fas fa-chevron-right text-xs text-slate-300"></i></a>
+<button onclick="toggleMobileMenu();openFaviconModal();" class="p-3 rounded-xl text-sm font-bold text-rose-600 bg-rose-50/80 flex items-center justify-between"><span><i class="fas fa-download w-6 text-primary"></i>Download Favicon Icon</span><i class="fas fa-sparkles text-xs"></i></button>
+<a href="#opd-info" class="btn-modern p-3.5 rounded-xl text-sm text-center font-bold text-white flex items-center justify-center" onclick="toggleMobileMenu()"><i class="fas fa-calendar-check mr-2"></i>Book Appointment</a>
 </div>
 </header>
 
-<!-- CM015 - HTML Hero Section -->
-<section id="home" class="pt-6 pb-8 bg-lightbg relative overflow-hidden">
-<div class="container mx-auto px-4 flex flex-col lg:flex-row items-center gap-8">
-<div class="lg:w-1/2 text-center lg:text-left">
-<div class="inline-block bg-white text-primary font-bold px-3 py-1 rounded-full text-[10px] mb-3 shadow-sm border border-rose-100">
-<i class="fas fa-hospital-symbol mr-1"></i> Established 2021 | 50 Beds Facility
+<!-- CM016 - HTML Hero Section -->
+<section id="home" class="pt-8 pb-16 md:pt-14 md:pb-24 bg-gradient-to-br from-rose-50/80 via-white to-slate-50 relative overflow-hidden">
+<div class="ambient-blob absolute -top-20 -left-20 w-80 h-80 bg-rose-200/45 rounded-full blur-3xl pointer-events-none"></div>
+<div class="ambient-blob-delayed absolute top-1/4 -right-24 w-96 h-96 bg-pink-200/40 rounded-full blur-3xl pointer-events-none"></div>
+<div class="container mx-auto max-w-7xl px-4 sm:px-6 relative z-10">
+<div class="flex flex-col lg:flex-row items-center gap-10 lg:gap-12">
+<div class="lg:w-1/2 text-center lg:text-left reveal-left">
+<div class="inline-flex items-center gap-2 bg-white text-primary font-bold px-4 py-1.5 rounded-full text-xs mb-5 shadow-md border border-rose-100">
+<span class="w-2.5 h-2.5 rounded-full bg-primary animate-ping"></span>
+<i class="fas fa-hospital-symbol"></i>
+<span>WELCOME TO MAYA'S MULTISPECIALITY HOSPITAL &bull; ESTD 2021</span>
 </div>
-<h2 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-secondary leading-tight mb-4 tracking-tight">
-Advanced Care,<br> <span class="text-primary">Exceptional Healing</span>
+<h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-secondary leading-tight mb-5 font-display">
+Advanced Medical Care,<br>
+<span class="animated-gradient-text">Exceptional Healing</span>
 </h2>
-<p class="text-gray-600 text-xs md:text-sm mb-6 max-w-xl mx-auto lg:mx-0 font-medium leading-relaxed">
-Providing state-of-the-art technology and dedicated patient care under one roof. Expert services in Dermatology, Plastic Surgery, Obstetrics & Gynecology, and Aesthetic Medicine.
+<p class="text-slate-600 text-sm sm:text-base mb-8 max-w-xl mx-auto lg:mx-0 font-normal leading-relaxed font-body">
+Providing state-of-the-art technology, precision surgery, and compassionate patient care under one roof in Kurnool. Specialized excellence in <strong class="text-secondary font-semibold">Dermatology, Plastic &amp; Cosmetic Surgery, Obstetrics &amp; Gynecology, and Aesthetic Medicine</strong>.
 </p>
-<div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-3">
-<a href="#opd-info" class="bg-primary text-white px-6 py-2.5 rounded-full font-bold text-xs shadow-lg hover:shadow-xl hover:bg-rose-700 transition-all flex items-center justify-center"><i class="fas fa-calendar-check mr-2 text-sm"></i> Book Appointment</a>
-<a href="#specialties" class="bg-white text-secondary border border-gray-200 px-6 py-2.5 rounded-full font-bold text-xs shadow-sm hover:bg-gray-50 transition-all flex items-center justify-center"><i class="fas fa-stethoscope mr-2 text-sm"></i> Explore Specialties</a>
+<div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 mb-8">
+<a href="#opd-info" class="btn-modern pulse-glow-btn px-8 py-3.5 rounded-full font-bold text-sm flex items-center justify-center"><i class="fas fa-calendar-check mr-2.5 text-base"></i>Book Your Consultation</a>
+<a href="#specialties" class="btn-outline-modern px-8 py-3.5 rounded-full font-bold text-sm flex items-center justify-center"><i class="fas fa-stethoscope mr-2.5 text-primary text-base"></i>Explore Our Services</a>
 </div>
+<div class="grid grid-cols-3 gap-4 max-w-lg mx-auto lg:mx-0 pt-5 border-t border-slate-200">
+<div class="flex items-center gap-3 justify-center lg:justify-start">
+<div class="w-10 h-10 rounded-xl bg-rose-100 text-primary flex items-center justify-center shrink-0 shadow-sm"><i class="fas fa-user-md text-base"></i></div>
+<div class="text-left"><p class="text-sm font-extrabold text-secondary leading-tight">4+ Doctors</p><p class="text-xs text-slate-500 font-medium">Super-Specialists</p></div>
 </div>
-<div class="lg:w-1/2 w-full px-2 lg:px-0 mt-6 lg:mt-0">
-<div class="grid grid-cols-2 grid-rows-2 gap-2">
-<img src="" alt="Hospital View 1" class="dyn-img6 hero-img rounded-tl-2xl rounded-br-lg">
-<img src="" alt="Hospital View 2" class="dyn-img2 hero-img rounded-tr-2xl rounded-bl-lg">
-<img src="" alt="Hospital View 3" class="dyn-img3 hero-img rounded-bl-2xl rounded-tr-lg">
-<img src="" alt="Hospital View 4" class="dyn-img7 hero-img rounded-br-2xl rounded-tl-lg">
+<div class="flex items-center gap-3 justify-center lg:justify-start">
+<div class="w-10 h-10 rounded-xl bg-rose-100 text-primary flex items-center justify-center shrink-0 shadow-sm"><i class="fas fa-shield-alt text-base"></i></div>
+<div class="text-left"><p class="text-sm font-extrabold text-secondary leading-tight">Cashless TPA</p><p class="text-xs text-slate-500 font-medium">12+ Insurances</p></div>
 </div>
-</div>
-</div>
-</section>
-
-<!-- CM016 - HTML Highlights -->
-<section class="highlight-box py-4 relative z-20 container mx-auto w-11/12 lg:w-full mt-2 -mb-8 lg:-mb-10 border-4 border-white">
-<div class="grid grid-cols-2 md:grid-cols-4 gap-2 text-center divide-x divide-rose-400/50">
-<div class="px-2">
-<i class="fas fa-procedures highlight-text text-2xl mb-1"></i>
-<h4 class="font-extrabold highlight-text text-lg">50 Beds</h4>
-<p class="text-[9px] highlight-text uppercase font-bold tracking-wider opacity-90">Capacity</p>
-</div>
-<div class="px-2">
-<i class="fas fa-microscope highlight-text text-2xl mb-1"></i>
-<h4 class="font-extrabold highlight-text text-lg">3 OTs</h4>
-<p class="text-[9px] highlight-text uppercase font-bold tracking-wider opacity-90">Laminar-Flow</p>
-</div>
-<div class="px-2">
-<i class="fas fa-heartbeat highlight-text text-2xl mb-1"></i>
-<h4 class="font-extrabold highlight-text text-lg">ICU Care</h4>
-<p class="text-[9px] highlight-text uppercase font-bold tracking-wider opacity-90">Critical Care</p>
-</div>
-<div class="px-2 border-r-0">
-<i class="fas fa-snowflake highlight-text text-2xl mb-1"></i>
-<h4 class="font-extrabold highlight-text text-lg">Central AC</h4>
-<p class="text-[9px] highlight-text uppercase font-bold tracking-wider opacity-90">Environment</p>
-</div>
-</div>
-</section>
-
-<!-- CM017 - HTML About History -->
-<section id="about" class="pt-16 lg:pt-20 pb-10 bg-white border-b border-gray-100">
-<div class="container mx-auto px-4 max-w-7xl">
-<div class="flex flex-col lg:flex-row gap-8 items-center">
-<div class="lg:w-1/2 w-full">
-<div class="grid grid-cols-2 gap-3">
-<img src="" alt="OP Room" class="dyn-img-op about-img rounded-xl shadow border border-gray-100">
-<div class="space-y-3 flex flex-col">
-<img src="" alt="Ward Room" class="dyn-img-ward about-img rounded-xl h-32 shadow border border-gray-100">
-<img src="" alt="Corridor" class="dyn-img-corridor about-img rounded-xl h-32 shadow border border-gray-100">
+<div class="flex items-center gap-3 justify-center lg:justify-start">
+<div class="w-10 h-10 rounded-xl bg-rose-100 text-primary flex items-center justify-center shrink-0 shadow-sm"><i class="fas fa-magic text-base"></i></div>
+<div class="text-left"><p class="text-sm font-extrabold text-secondary leading-tight">US-FDA Tech</p><p class="text-xs text-slate-500 font-medium">Lasers &amp; 3 OTs</p></div>
 </div>
 </div>
 </div>
-<div class="lg:w-1/2 w-full">
-<div class="flex items-center space-x-2 mb-2">
-<span class="w-6 h-1 bg-primary rounded-full"></span>
-<p class="text-primary font-bold uppercase tracking-widest text-[10px]">Hospital Profile</p>
+<div class="lg:w-1/2 w-full relative reveal-right">
+<div class="float-badge hidden sm:flex absolute -top-5 -left-5 z-20 bg-white/95 backdrop-blur-md px-4 py-2.5 rounded-2xl shadow-xl border border-rose-100 items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-emerald-500 text-white flex items-center justify-center text-base shadow"><i class="fas fa-heartbeat"></i></div>
+<div><p class="text-xs font-extrabold text-secondary">24/7 ICU &amp; Emergency</p><p class="text-[11px] text-slate-500 font-medium">50 Beds Multispeciality</p></div>
 </div>
-<h2 class="text-2xl md:text-3xl font-extrabold text-secondary mb-4 leading-tight">Maya's Multispeciality <br>Healthcare Facility</h2>
-<p class="text-gray-600 mb-3 text-xs md:text-sm font-medium leading-relaxed">
-Established in 2021 in Kurnool, Andhra Pradesh, Maya's Hospital was created with the vision of providing comprehensive healthcare services under one roof.
-</p>
-<p class="text-gray-600 mb-5 text-xs md:text-sm font-medium leading-relaxed">
-The hospital combines specialist consultation, diagnostic services, inpatient care, advanced surgical infrastructure, and modern aesthetic technology to provide compassionate patient care.
-</p>
-<div class="bg-slate-50 p-4 rounded-xl border border-slate-200 shadow-sm">
-<h4 class="font-bold text-secondary text-sm mb-3 flex items-center"><i class="fas fa-building text-primary mr-2 text-lg"></i> Infrastructure Overview</h4>
-<div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-gray-700 font-medium">
-<div class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-1.5"></i> Male & Female Wards</div>
-<div class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-1.5"></i> Sharing, AC & Suite Rooms</div>
-<div class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-1.5"></i> Advanced OT Infrastructure</div>
-<div class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-1.5"></i> Post-Operative Care</div>
+<div class="float-badge-delayed hidden sm:flex absolute -bottom-5 -right-4 z-20 bg-white/95 backdrop-blur-md px-4 py-2.5 rounded-2xl shadow-xl border border-rose-100 items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-primary text-white flex items-center justify-center text-base shadow"><i class="fas fa-award"></i></div>
+<div><p class="text-xs font-extrabold text-secondary">Zero-Infection OTs</p><p class="text-[11px] text-slate-500 font-medium">3 Laminar-Flow Theatres</p></div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="hero-img-wrapper cursor-pointer" onclick="openLightbox(this.querySelector('img').src)">
+<img src="" alt="Hospital View 1" class="dyn-img6 hero-img">
+<div class="hero-img-overlay"><span class="text-white text-xs font-bold"><i class="fas fa-search-plus mr-1.5"></i>Hospital Exterior</span></div>
+</div>
+<div class="hero-img-wrapper cursor-pointer mt-4" onclick="openLightbox(this.querySelector('img').src)">
+<img src="" alt="Hospital View 2" class="dyn-img2 hero-img">
+<div class="hero-img-overlay"><span class="text-white text-xs font-bold"><i class="fas fa-search-plus mr-1.5"></i>Modular OT Complex</span></div>
+</div>
+<div class="hero-img-wrapper cursor-pointer -mt-4" onclick="openLightbox(this.querySelector('img').src)">
+<img src="" alt="Hospital View 3" class="dyn-img3 hero-img">
+<div class="hero-img-overlay"><span class="text-white text-xs font-bold"><i class="fas fa-search-plus mr-1.5"></i>Patient Care Area</span></div>
+</div>
+<div class="hero-img-wrapper cursor-pointer" onclick="openLightbox(this.querySelector('img').src)">
+<img src="" alt="Hospital View 4" class="dyn-img7 hero-img">
+<div class="hero-img-overlay"><span class="text-white text-xs font-bold"><i class="fas fa-search-plus mr-1.5"></i>Reception Lobby</span></div>
 </div>
 </div>
 </div>
@@ -195,390 +265,548 @@ The hospital combines specialist consultation, diagnostic services, inpatient ca
 </div>
 </section>
 
-<!-- CM018 - HTML Doctors First Row -->
-<section id="doctors" class="pt-12 pb-6 bg-slate-50">
-<div class="container mx-auto px-4 max-w-7xl">
-<div class="mb-8 text-center">
-<h2 class="text-2xl md:text-3xl font-extrabold text-secondary mb-2">Consult Our Experts</h2>
-<p class="text-gray-500 text-xs font-medium">Dedicated specialists providing advanced medical and surgical care.</p>
+<!-- CM017 - HTML Highlights Counter Section -->
+<section class="container mx-auto max-w-6xl px-4 sm:px-6 relative z-20 -mt-10 mb-6 reveal-scale">
+<div class="highlight-box py-6 px-6 sm:px-10 border-4 border-white">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center divide-y md:divide-y-0 md:divide-x divide-slate-700/80">
+<div class="stat-card flex flex-col items-center">
+<div class="w-12 h-12 rounded-2xl bg-rose-500/20 border border-rose-400/30 flex items-center justify-center mb-2.5"><i class="fas fa-procedures text-rose-400 text-2xl"></i></div>
+<h4 class="font-extrabold text-white text-2xl sm:text-3xl font-display"><span class="counter" data-target="50">0</span>+ Beds</h4>
+<p class="text-xs text-rose-200 uppercase font-semibold tracking-wider mt-1">Inpatient Capacity</p>
 </div>
-<div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-<!-- Dr. Swamy -->
-<div class="hover-card overflow-hidden flex flex-col sm:flex-row shadow-sm">
-<div class="sm:w-2/5"><img class="dyn-doc4 doc-photo h-full" src="" alt="Dr. M. Subramanya Swamy"></div>
-<div class="sm:w-3/5 p-4 flex flex-col justify-between bg-white">
-<div>
-<h3 class="text-lg font-bold text-secondary mb-0.5">Dr. M. Subramanya Swamy</h3>
-<p class="text-[10px] font-extrabold text-primary mb-2 uppercase tracking-wide">MBBS, MD (Dermatology)</p>
-<div class="mb-3">
-<p class="text-[11px] text-gray-600 font-bold mb-1"><i class="fas fa-star-of-life text-primary mr-1 opacity-70"></i> Dermatologist</p>
-<p class="text-[10px] text-gray-500 font-medium leading-relaxed">Specializing in Dermatology & Hair, Aesthetic Medicine, Laser Treatments.</p>
+<div class="stat-card flex flex-col items-center">
+<div class="w-12 h-12 rounded-2xl bg-rose-500/20 border border-rose-400/30 flex items-center justify-center mb-2.5"><i class="fas fa-microscope text-rose-400 text-2xl"></i></div>
+<h4 class="font-extrabold text-white text-2xl sm:text-3xl font-display"><span class="counter" data-target="3">0</span> Modular OTs</h4>
+<p class="text-xs text-rose-200 uppercase font-semibold tracking-wider mt-1">Laminar-Flow</p>
 </div>
-<div class="mb-3 bg-slate-50 p-2 rounded border border-slate-100 flex items-center">
-<i class="far fa-clock text-rose-500 mr-2 text-base"></i>
-<div>
-<p class="text-[9px] text-gray-500 uppercase font-bold">Consultation Timings</p>
-<p class="text-[11px] font-bold text-secondary">Mon - Sat: 10:00 AM – 9:30 PM</p>
+<div class="stat-card flex flex-col items-center">
+<div class="w-12 h-12 rounded-2xl bg-rose-500/20 border border-rose-400/30 flex items-center justify-center mb-2.5"><i class="fas fa-heartbeat text-rose-400 text-2xl"></i></div>
+<h4 class="font-extrabold text-white text-2xl sm:text-3xl font-display"><span class="counter" data-target="24">0</span>/7 ICU</h4>
+<p class="text-xs text-rose-200 uppercase font-semibold tracking-wider mt-1">Critical Care Support</p>
 </div>
-</div>
-</div>
-<a href="#opd-info" class="doc-contact-btn text-[11px] font-bold py-2 px-4 rounded w-full text-center shadow flex items-center justify-center"><i class="fas fa-calendar-check mr-1.5"></i> Book Appointment</a>
-</div>
-</div>
-<!-- Dr. Siddharth -->
-<div class="hover-card overflow-hidden flex flex-col sm:flex-row shadow-sm">
-<div class="sm:w-2/5"><img class="dyn-doc1 doc-photo h-full" src="" alt="Dr. M. Siddharth"></div>
-<div class="sm:w-3/5 p-4 flex flex-col justify-between bg-white">
-<div>
-<h3 class="text-lg font-bold text-secondary mb-0.5">Dr. M. Siddharth Mayakuntla</h3>
-<p class="text-[10px] font-extrabold text-primary mb-2 uppercase tracking-wide">MBBS, MS, MCh (Plastic Surgery)</p>
-<div class="mb-3">
-<p class="text-[11px] text-gray-600 font-bold mb-1"><i class="fas fa-star-of-life text-primary mr-1 opacity-70"></i> Plastic & Reconstructive Surgeon</p>
-<p class="text-[10px] text-gray-500 font-medium leading-relaxed">Specializing in Plastic & Aesthetic Surgery, General Plastic & Microvascular Reconstruction.</p>
-</div>
-<div class="mb-3 bg-slate-50 p-2 rounded border border-slate-100 flex items-center">
-<i class="far fa-clock text-rose-500 mr-2 text-base"></i>
-<div>
-<p class="text-[9px] text-gray-500 uppercase font-bold">Consultation Timings</p>
-<p class="text-[11px] font-bold text-secondary">Mon - Sat: 10:00 AM – 9:30 PM</p>
+<div class="stat-card flex flex-col items-center">
+<div class="w-12 h-12 rounded-2xl bg-rose-500/20 border border-rose-400/30 flex items-center justify-center mb-2.5"><i class="fas fa-snowflake text-rose-400 text-2xl"></i></div>
+<h4 class="font-extrabold text-white text-2xl sm:text-3xl font-display"><span class="counter" data-target="100">0</span>% Central AC</h4>
+<p class="text-xs text-rose-200 uppercase font-semibold tracking-wider mt-1">Sterile Environment</p>
 </div>
 </div>
 </div>
-<a href="#opd-info" class="doc-contact-btn text-[11px] font-bold py-2 px-4 rounded w-full text-center shadow flex items-center justify-center"><i class="fas fa-calendar-check mr-1.5"></i> Book Appointment</a>
+</section>
+
+<!-- CM018 - HTML About History Section -->
+<section id="about" class="py-14 lg:py-20 bg-white border-b border-slate-100">
+<div class="container mx-auto px-4 sm:px-6 max-w-7xl">
+<div class="flex flex-col lg:flex-row gap-10 lg:gap-14 items-center">
+<div class="lg:w-1/2 w-full reveal-left">
+<div class="grid grid-cols-12 gap-4 items-stretch">
+<div class="col-span-7 about-card-wrap border border-slate-100 cursor-pointer" onclick="openLightbox(this.querySelector('img').src)">
+<img src="" alt="OP Room" class="dyn-img-op about-card-img w-full h-full min-h-[280px] object-cover">
+<div class="absolute bottom-3 left-3 bg-secondary/85 backdrop-blur-md text-white text-xs font-bold px-3.5 py-1.5 rounded-full"><i class="fas fa-shield-virus text-rose-400 mr-1.5"></i>Modular OT Complex</div>
+</div>
+<div class="col-span-5 flex flex-col gap-4">
+<div class="about-card-wrap border border-slate-100 h-36 flex-1 cursor-pointer" onclick="openLightbox(this.querySelector('img').src)">
+<img src="" alt="Ward Room" class="dyn-img-ward about-card-img w-full h-full object-cover">
+<div class="absolute bottom-2.5 left-2.5 bg-secondary/85 text-white text-[11px] font-bold px-3 py-1 rounded-full">Suite &amp; AC Wards</div>
+</div>
+<div class="about-card-wrap border border-slate-100 h-36 flex-1 cursor-pointer" onclick="openLightbox(this.querySelector('img').src)">
+<img src="" alt="Corridor" class="dyn-img-corridor about-card-img w-full h-full object-cover">
+<div class="absolute bottom-2.5 left-2.5 bg-secondary/85 text-white text-[11px] font-bold px-3 py-1 rounded-full">Reception &amp; Lobby</div>
+</div>
+</div>
+</div>
+</div>
+<div class="lg:w-1/2 w-full reveal-right">
+<div class="inline-flex items-center space-x-2 bg-rose-50 border border-rose-200 px-3.5 py-1 rounded-full mb-3">
+<span class="w-2 h-2 bg-primary rounded-full"></span>
+<p class="text-primary font-bold uppercase tracking-widest text-xs">About Our Hospital</p>
+</div>
+<h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-secondary mb-4 leading-tight font-display">Dedicated to <span class="text-primary">Excellence, Trust &amp; Compassionate Care</span></h2>
+<p class="text-slate-600 mb-4 text-sm sm:text-base leading-relaxed font-body">Established in 2021 in Kurnool, Andhra Pradesh, <strong>Maya's Multispeciality Hospital</strong> was built with the vision of delivering comprehensive, super-specialty healthcare services under one roof.</p>
+<p class="text-slate-600 mb-6 text-sm sm:text-base leading-relaxed font-body">We combine experienced specialist consultations, advanced diagnostic facilities, 24/7 inpatient care, zero-infection modular surgical theatres, and US-FDA approved aesthetic technology for safe, natural, and lasting outcomes.</p>
+<div class="bg-slate-50 p-5 rounded-2xl border border-slate-200/90 shadow-sm">
+<h4 class="font-extrabold text-secondary text-base mb-3.5 flex items-center font-display"><i class="fas fa-building text-primary mr-2.5 text-lg"></i>World-Class Infrastructure Overview</h4>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs sm:text-sm text-slate-700 font-semibold">
+<div class="flex items-center bg-white p-3 rounded-xl border border-slate-100 shadow-sm"><i class="fas fa-check-circle text-emerald-500 mr-2.5 text-base"></i>Male &amp; Female General Wards</div>
+<div class="flex items-center bg-white p-3 rounded-xl border border-slate-100 shadow-sm"><i class="fas fa-check-circle text-emerald-500 mr-2.5 text-base"></i>Sharing, AC &amp; Luxury Suite Rooms</div>
+<div class="flex items-center bg-white p-3 rounded-xl border border-slate-100 shadow-sm"><i class="fas fa-check-circle text-emerald-500 mr-2.5 text-base"></i>3 Laminar-Flow Modular OTs</div>
+<div class="flex items-center bg-white p-3 rounded-xl border border-slate-100 shadow-sm"><i class="fas fa-check-circle text-emerald-500 mr-2.5 text-base"></i>Dedicated Post-Operative ICU</div>
+</div>
 </div>
 </div>
 </div>
 </div>
 </section>
 
-<!-- CM019 - HTML Doctors Second Row -->
-<section class="pb-12 bg-slate-50 border-b border-gray-200">
-<div class="container mx-auto px-4 max-w-7xl">
-<div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-<!-- Dr. Annapurna -->
-<div class="hover-card overflow-hidden flex flex-col sm:flex-row shadow-sm">
-<div class="sm:w-2/5"><img class="dyn-doc2 doc-photo h-full" src="" alt="Dr. K. Annapurna"></div>
-<div class="sm:w-3/5 p-4 flex flex-col justify-between bg-white">
+<!-- CM019 - HTML Why Choose Us Strip -->
+<section class="py-14 bg-slate-900 text-white relative overflow-hidden">
+<div class="container mx-auto px-4 sm:px-6 max-w-7xl relative z-10">
+<div class="text-center max-w-2xl mx-auto mb-10 reveal">
+<span class="text-rose-400 text-xs font-bold uppercase tracking-widest bg-rose-500/15 border border-rose-500/30 px-4 py-1 rounded-full">Why Choose Maya's Hospital</span>
+<h3 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold mt-3 font-display">Trusted Care, <span class="text-rose-400">Proven Clinical Results</span></h3>
+<p class="text-slate-300 text-sm mt-2 font-body">Combining super-specialist surgical expertise, modern technology, and personalized care.</p>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+<div class="why-card p-6 reveal delay-100">
+<div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-rose-500 to-pink-600 text-white flex items-center justify-center text-xl mb-4 shadow-lg"><i class="fas fa-user-md"></i></div>
+<h4 class="font-extrabold text-lg mb-2 font-display">Experienced Specialists</h4>
+<p class="text-xs sm:text-sm text-slate-300 leading-relaxed font-body">Highly qualified MD, MS &amp; MCh super-specialists across Plastic Surgery, Dermatology &amp; OBG.</p>
+</div>
+<div class="why-card p-6 reveal delay-200">
+<div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-rose-500 to-pink-600 text-white flex items-center justify-center text-xl mb-4 shadow-lg"><i class="fas fa-shield-virus"></i></div>
+<h4 class="font-extrabold text-lg mb-2 font-display">3 Laminar-Flow OTs</h4>
+<p class="text-xs sm:text-sm text-slate-300 leading-relaxed font-body">Zero-infection modular operation theatres equipped with operating microscopes &amp; anesthesia workstations.</p>
+</div>
+<div class="why-card p-6 reveal delay-300">
+<div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-rose-500 to-pink-600 text-white flex items-center justify-center text-xl mb-4 shadow-lg"><i class="fas fa-magic"></i></div>
+<h4 class="font-extrabold text-lg mb-2 font-display">Advanced US-FDA Tech</h4>
+<p class="text-xs sm:text-sm text-slate-300 leading-relaxed font-body">Equipped with CO₂, Diode &amp; Triple-Wave Lasers, MNRF, HIFU, VASER &amp; MicroAire Liposuction.</p>
+</div>
+<div class="why-card p-6 reveal delay-400">
+<div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-rose-500 to-pink-600 text-white flex items-center justify-center text-xl mb-4 shadow-lg"><i class="fas fa-hand-holding-heart"></i></div>
+<h4 class="font-extrabold text-lg mb-2 font-display">Cashless TPA Support</h4>
+<p class="text-xs sm:text-sm text-slate-300 leading-relaxed font-body">Seamless pre-authorization and cashless treatment across 12+ major health insurance &amp; TPA networks.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- CM020 - HTML Doctors Consult Section -->
+<section id="doctors" class="py-16 lg:py-20 bg-slate-50 border-b border-slate-200/80">
+<div class="container mx-auto px-4 sm:px-6 max-w-7xl">
+<div class="mb-12 text-center reveal">
+<span class="text-primary font-bold uppercase tracking-widest text-xs bg-rose-50 border border-rose-200 px-4 py-1 rounded-full">Meet Your Specialists</span>
+<h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-secondary mt-3 font-display">Consult Our <span class="text-primary">Medical Experts</span></h2>
+<p class="text-slate-500 text-sm sm:text-base mt-1.5 font-body">Dedicated super-specialists providing precision medical, surgical, and aesthetic care.</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+<div class="hover-card flex flex-col sm:flex-row reveal delay-100">
+<div class="sm:w-2/5 doc-photo-wrap">
+<img class="dyn-doc4 doc-photo" src="" alt="Dr. M. Subramanya Swamy">
+<span class="absolute top-3 left-3 bg-secondary/90 backdrop-blur-sm text-white text-xs font-bold px-3 py-1 rounded-full shadow">Dermatology</span>
+</div>
+<div class="sm:w-3/5 p-6 flex flex-col justify-between bg-white">
 <div>
-<h3 class="text-lg font-bold text-secondary mb-0.5">Dr. K. Annapurna</h3>
-<p class="text-[10px] font-extrabold text-primary mb-2 uppercase tracking-wide">MBBS, MD (OBG)</p>
-<div class="mb-3">
-<p class="text-[11px] text-gray-600 font-bold mb-1"><i class="fas fa-star-of-life text-primary mr-1 opacity-70"></i> Obstetrician & Gynecologist</p>
-<p class="text-[10px] text-gray-500 font-medium leading-relaxed">Specializing in Obstetrics & Gynecology, High-Risk Pregnancy Care, Fertility Services.</p>
+<h3 class="text-xl sm:text-2xl font-extrabold text-secondary leading-snug font-display">Dr. M. Subramanya Swamy</h3>
+<p class="text-xs font-extrabold text-primary mb-3 uppercase tracking-wider mt-1">MBBS, MD (Dermatology)</p>
+<p class="text-xs sm:text-sm text-slate-800 font-bold mb-1.5"><i class="fas fa-user-check text-primary mr-2"></i>Senior Consultant Dermatologist</p>
+<p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4 font-body">Specializing in Clinical Dermatology &amp; Hair Restoration, Aesthetic Medicine, and Advanced US-FDA Laser Treatments.</p>
+<div class="mb-4 bg-rose-50/70 p-3 rounded-xl border border-rose-100 flex items-center">
+<div class="w-9 h-9 rounded-lg bg-white text-primary flex items-center justify-center mr-3 shadow-sm"><i class="far fa-clock text-base"></i></div>
+<div><p class="text-[10px] text-slate-500 uppercase font-bold">Consultation Timings</p><p class="text-xs sm:text-sm font-extrabold text-secondary">Mon - Sat: 10:00 AM – 9:30 PM</p></div>
 </div>
-<div class="mb-3 bg-slate-50 p-2 rounded border border-slate-100 flex items-center">
-<i class="far fa-clock text-rose-500 mr-2 text-base"></i>
+</div>
+<a href="#opd-info" class="btn-modern text-xs sm:text-sm font-bold py-3 px-5 rounded-xl w-full text-center flex items-center justify-center"><i class="fas fa-calendar-check mr-2"></i>Book Appointment</a>
+</div>
+</div>
+<div class="hover-card flex flex-col sm:flex-row reveal delay-200">
+<div class="sm:w-2/5 doc-photo-wrap">
+<img class="dyn-doc1 doc-photo" src="" alt="Dr. M. Siddharth Mayakuntla">
+<span class="absolute top-3 left-3 bg-secondary/90 backdrop-blur-sm text-white text-xs font-bold px-3 py-1 rounded-full shadow">Plastic Surgery</span>
+</div>
+<div class="sm:w-3/5 p-6 flex flex-col justify-between bg-white">
 <div>
-<p class="text-[9px] text-gray-500 uppercase font-bold">Consultation Timings</p>
-<p class="text-[11px] font-bold text-secondary">Mon - Sat: 10:00 AM – 9:30 PM</p>
+<h3 class="text-xl sm:text-2xl font-extrabold text-secondary leading-snug font-display">Dr. M. Siddharth Mayakuntla</h3>
+<p class="text-xs font-extrabold text-primary mb-3 uppercase tracking-wider mt-1">MBBS, MS, MCh (Plastic Surgery)</p>
+<p class="text-xs sm:text-sm text-slate-800 font-bold mb-1.5"><i class="fas fa-user-check text-primary mr-2"></i>Plastic, Cosmetic &amp; Reconstructive Surgeon</p>
+<p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4 font-body">Specializing in VASER Liposuction, Body Contouring, Rhinoplasty, Gynecomastia, Burns &amp; Microvascular Reconstruction.</p>
+<div class="mb-4 bg-rose-50/70 p-3 rounded-xl border border-rose-100 flex items-center">
+<div class="w-9 h-9 rounded-lg bg-white text-primary flex items-center justify-center mr-3 shadow-sm"><i class="far fa-clock text-base"></i></div>
+<div><p class="text-[10px] text-slate-500 uppercase font-bold">Consultation Timings</p><p class="text-xs sm:text-sm font-extrabold text-secondary">Mon - Sat: 10:00 AM – 9:30 PM</p></div>
 </div>
 </div>
+<a href="#opd-info" class="btn-modern text-xs sm:text-sm font-bold py-3 px-5 rounded-xl w-full text-center flex items-center justify-center"><i class="fas fa-calendar-check mr-2"></i>Book Appointment</a>
 </div>
-<a href="#opd-info" class="doc-contact-btn text-[11px] font-bold py-2 px-4 rounded w-full text-center shadow flex items-center justify-center"><i class="fas fa-calendar-check mr-1.5"></i> Book Appointment</a>
 </div>
+<div class="hover-card flex flex-col sm:flex-row reveal delay-100">
+<div class="sm:w-2/5 doc-photo-wrap">
+<img class="dyn-doc2 doc-photo" src="" alt="Dr. K. Annapurna">
+<span class="absolute top-3 left-3 bg-secondary/90 backdrop-blur-sm text-white text-xs font-bold px-3 py-1 rounded-full shadow">OBG &amp; Fertility</span>
 </div>
-<!-- Dr. Mounika -->
-<div class="hover-card overflow-hidden flex flex-col sm:flex-row shadow-sm">
-<div class="sm:w-2/5"><img class="dyn-doc3 doc-photo h-full" src="" alt="Dr. S. Sai Mounika"></div>
-<div class="sm:w-3/5 p-4 flex flex-col justify-between bg-white">
+<div class="sm:w-3/5 p-6 flex flex-col justify-between bg-white">
 <div>
-<h3 class="text-lg font-bold text-secondary mb-0.5">Dr. S. Sai Mounika</h3>
-<p class="text-[10px] font-extrabold text-primary mb-2 uppercase tracking-wide">MBBS, MS (OBG)</p>
-<div class="mb-3">
-<p class="text-[11px] text-gray-600 font-bold mb-1"><i class="fas fa-star-of-life text-primary mr-1 opacity-70"></i> Obstetrician & Gynecologist</p>
-<p class="text-[10px] text-gray-500 font-medium leading-relaxed">Specializing in Obstetrics & Gynecology, Cosmetic Gynecology, Laparoscopic Procedures.</p>
+<h3 class="text-xl sm:text-2xl font-extrabold text-secondary leading-snug font-display">Dr. K. Annapurna</h3>
+<p class="text-xs font-extrabold text-primary mb-3 uppercase tracking-wider mt-1">MBBS, MD (OBG)</p>
+<p class="text-xs sm:text-sm text-slate-800 font-bold mb-1.5"><i class="fas fa-user-check text-primary mr-2"></i>Senior Obstetrician &amp; Gynecologist</p>
+<p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4 font-body">Specializing in Comprehensive Obstetrics &amp; Gynecology, High-Risk Pregnancy Care, and Advanced Fertility Services.</p>
+<div class="mb-4 bg-rose-50/70 p-3 rounded-xl border border-rose-100 flex items-center">
+<div class="w-9 h-9 rounded-lg bg-white text-primary flex items-center justify-center mr-3 shadow-sm"><i class="far fa-clock text-base"></i></div>
+<div><p class="text-[10px] text-slate-500 uppercase font-bold">Consultation Timings</p><p class="text-xs sm:text-sm font-extrabold text-secondary">Mon - Sat: 10:00 AM – 9:30 PM</p></div>
 </div>
-<div class="mb-3 bg-slate-50 p-2 rounded border border-slate-100 flex items-center">
-<i class="far fa-clock text-rose-500 mr-2 text-base"></i>
+</div>
+<a href="#opd-info" class="btn-modern text-xs sm:text-sm font-bold py-3 px-5 rounded-xl w-full text-center flex items-center justify-center"><i class="fas fa-calendar-check mr-2"></i>Book Appointment</a>
+</div>
+</div>
+<div class="hover-card flex flex-col sm:flex-row reveal delay-200">
+<div class="sm:w-2/5 doc-photo-wrap">
+<img class="dyn-doc3 doc-photo" src="" alt="Dr. S. Sai Mounika">
+<span class="absolute top-3 left-3 bg-secondary/90 backdrop-blur-sm text-white text-xs font-bold px-3 py-1 rounded-full shadow">OBG &amp; Laparoscopy</span>
+</div>
+<div class="sm:w-3/5 p-6 flex flex-col justify-between bg-white">
 <div>
-<p class="text-[9px] text-gray-500 uppercase font-bold">Consultation Timings</p>
-<p class="text-[11px] font-bold text-secondary">Mon - Sat: 10:00 AM – 9:30 PM</p>
+<h3 class="text-xl sm:text-2xl font-extrabold text-secondary leading-snug font-display">Dr. S. Sai Mounika</h3>
+<p class="text-xs font-extrabold text-primary mb-3 uppercase tracking-wider mt-1">MBBS, MS (OBG)</p>
+<p class="text-xs sm:text-sm text-slate-800 font-bold mb-1.5"><i class="fas fa-user-check text-primary mr-2"></i>Consultant Obstetrician &amp; Gynecologist</p>
+<p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4 font-body">Specializing in Obstetrics &amp; Gynecology, Cosmetic Gynecology, and Minimally Invasive Laparoscopic Procedures.</p>
+<div class="mb-4 bg-rose-50/70 p-3 rounded-xl border border-rose-100 flex items-center">
+<div class="w-9 h-9 rounded-lg bg-white text-primary flex items-center justify-center mr-3 shadow-sm"><i class="far fa-clock text-base"></i></div>
+<div><p class="text-[10px] text-slate-500 uppercase font-bold">Consultation Timings</p><p class="text-xs sm:text-sm font-extrabold text-secondary">Mon - Sat: 10:00 AM – 9:30 PM</p></div>
 </div>
 </div>
-</div>
-<a href="#opd-info" class="doc-contact-btn text-[11px] font-bold py-2 px-4 rounded w-full text-center shadow flex items-center justify-center"><i class="fas fa-calendar-check mr-1.5"></i> Book Appointment</a>
+<a href="#opd-info" class="btn-modern text-xs sm:text-sm font-bold py-3 px-5 rounded-xl w-full text-center flex items-center justify-center"><i class="fas fa-calendar-check mr-2"></i>Book Appointment</a>
 </div>
 </div>
 </div>
 </div>
 </section>
 
-<!-- CM020 - HTML Comprehensive Specialties Grid (3 Columns) -->
-<section id="specialties" class="py-12 bg-white border-b border-gray-100">
-<div class="container mx-auto px-4 max-w-7xl">
-<div class="flex items-center space-x-3 mb-8">
-<div class="w-1.5 h-8 bg-primary rounded-full"></div>
+<!-- CM021 - HTML Comprehensive Specialties Grid -->
+<section id="specialties" class="py-16 lg:py-20 bg-white border-b border-slate-100">
+<div class="container mx-auto px-4 sm:px-6 max-w-7xl">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4 reveal">
 <div>
-<h2 class="text-2xl font-extrabold text-secondary">Medical Specialties</h2>
-<p class="text-gray-500 text-xs font-medium mt-0.5">Comprehensive treatments, procedures, and advanced equipment.</p>
+<span class="text-primary font-bold uppercase tracking-widest text-xs bg-rose-50 border border-rose-200 px-3.5 py-1 rounded-full">Our Services &amp; Departments</span>
+<h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-secondary mt-2.5 font-display">Advanced Surgical &amp; <span class="text-primary">Medical Specialties</span></h2>
+<p class="text-slate-500 text-sm sm:text-base mt-1 font-body">Comprehensive treatments, modern surgical procedures, and US-FDA approved equipment.</p>
+</div>
+<div class="flex flex-wrap gap-2" id="specialty-filters">
+<button onclick="filterSpecialties('all',this)" class="spec-filter-btn bg-primary text-white text-xs sm:text-sm font-bold px-4 py-2 rounded-full shadow-md transition">All Specialties (6)</button>
+<button onclick="filterSpecialties('skin',this)" class="spec-filter-btn bg-slate-100 hover:bg-rose-50 text-slate-700 text-xs sm:text-sm font-bold px-4 py-2 rounded-full transition">Dermatology &amp; Aesthetic</button>
+<button onclick="filterSpecialties('plastic',this)" class="spec-filter-btn bg-slate-100 hover:bg-rose-50 text-slate-700 text-xs sm:text-sm font-bold px-4 py-2 rounded-full transition">Plastic Surgery</button>
+<button onclick="filterSpecialties('obg',this)" class="spec-filter-btn bg-slate-100 hover:bg-rose-50 text-slate-700 text-xs sm:text-sm font-bold px-4 py-2 rounded-full transition">OBG &amp; Diagnostics</button>
 </div>
 </div>
-
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-<!-- Dermatology -->
-<div class="specialty-card p-5 flex flex-col">
-<div class="flex items-center mb-4 border-b border-slate-100 pb-2"><i class="fas fa-hand-sparkles text-primary text-xl mr-3 bg-rose-50 p-2.5 rounded-lg"></i><h3 class="font-extrabold text-secondary text-base leading-tight">Dermatology & Hair</h3></div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7" id="specialties-grid">
+<div class="specialty-card p-6 flex flex-col reveal delay-100" data-category="skin">
+<div class="flex items-center mb-5 border-b border-slate-100 pb-4">
+<div class="spec-icon-box w-12 h-12 rounded-2xl bg-gradient-to-br from-rose-500 to-pink-600 text-white flex items-center justify-center text-xl mr-3.5 shrink-0 shadow-md"><i class="fas fa-hand-sparkles"></i></div>
+<div><span class="text-[11px] font-bold uppercase tracking-widest text-primary">Department 01</span><h3 class="font-extrabold text-secondary text-lg leading-snug font-display">Dermatology &amp; Hair</h3></div>
+</div>
 <div class="space-y-4 flex-1">
-<div><h4 class="font-bold text-primary mb-1.5 text-[10px] uppercase tracking-wide bg-rose-50 inline-block px-2 py-0.5 rounded">Treatments</h4><ul class="text-[11px] font-medium text-gray-600 space-y-1 list-disc pl-4 marker:text-rose-300"><li>Acne, Scars & Pigmentation</li><li>Skin Brightening & Anti-Ageing</li><li>Laser Hair Reduction</li><li>Hair Fall (PRP, GFC, Exosome)</li><li>Eczema, Psoriasis & Dermatitis</li><li>Tattoo, Mole & Wart Removal</li></ul></div>
-<div><h4 class="font-bold text-primary mb-1.5 text-[10px] uppercase tracking-wide bg-rose-50 inline-block px-2 py-0.5 rounded">Procedures & Equipment</h4><ul class="text-[11px] font-medium text-gray-600 space-y-1 list-disc pl-4 marker:text-rose-300"><li>CO₂, Fractional, Diode & Triple-Wave Lasers</li><li>MNRF & HIFU Systems</li><li>Cryolipolysis & Carbon Laser</li><li>Hair Transplantation (FUE/FUT/DHI)</li></ul></div>
+<div><h4 class="font-bold text-primary mb-2 text-xs uppercase tracking-wider bg-rose-50 inline-block px-3 py-1 rounded-lg">Treatments</h4><ul class="text-xs sm:text-sm text-slate-600 space-y-1.5 list-disc pl-5 marker:text-rose-500 font-body"><li>Acne, Scars &amp; Pigmentation</li><li>Skin Brightening &amp; Anti-Ageing</li><li>Laser Hair Reduction</li><li>Hair Fall (PRP, GFC, Exosome)</li><li>Eczema, Psoriasis &amp; Dermatitis</li><li>Tattoo, Mole &amp; Wart Removal</li></ul></div>
+<div><h4 class="font-bold text-secondary mb-2 text-xs uppercase tracking-wider bg-slate-100 inline-block px-3 py-1 rounded-lg">Procedures &amp; Equipment</h4><ul class="text-xs sm:text-sm text-slate-600 space-y-1.5 list-disc pl-5 marker:text-rose-500 font-body"><li>CO₂, Fractional, Diode &amp; Triple-Wave Lasers</li><li>MNRF &amp; HIFU Systems</li><li>Cryolipolysis &amp; Carbon Laser</li><li>Hair Transplantation (FUE/FUT/DHI)</li></ul></div>
 </div>
 </div>
-
-<!-- Aesthetic Medicine -->
-<div class="specialty-card p-5 flex flex-col">
-<div class="flex items-center mb-4 border-b border-slate-100 pb-2"><i class="fas fa-magic text-primary text-xl mr-3 bg-rose-50 p-2.5 rounded-lg"></i><h3 class="font-extrabold text-secondary text-base leading-tight">Aesthetic Medicine</h3></div>
+<div class="specialty-card p-6 flex flex-col reveal delay-200" data-category="skin">
+<div class="flex items-center mb-5 border-b border-slate-100 pb-4">
+<div class="spec-icon-box w-12 h-12 rounded-2xl bg-gradient-to-br from-rose-500 to-pink-600 text-white flex items-center justify-center text-xl mr-3.5 shrink-0 shadow-md"><i class="fas fa-magic"></i></div>
+<div><span class="text-[11px] font-bold uppercase tracking-widest text-primary">Department 02</span><h3 class="font-extrabold text-secondary text-lg leading-snug font-display">Aesthetic Medicine</h3></div>
+</div>
 <div class="space-y-4 flex-1">
-<div><h4 class="font-bold text-primary mb-1.5 text-[10px] uppercase tracking-wide bg-rose-50 inline-block px-2 py-0.5 rounded">Treatments</h4><ul class="text-[11px] font-medium text-gray-600 space-y-1 list-disc pl-4 marker:text-rose-300"><li>Advanced Skin Rejuvenation</li><li>Skin Tightening & Contouring</li><li>Non-Surgical Facial Rejuvenation</li><li>Localized Fat Reduction</li><li>Acne Scar Correction</li></ul></div>
-<div><h4 class="font-bold text-primary mb-1.5 text-[10px] uppercase tracking-wide bg-rose-50 inline-block px-2 py-0.5 rounded">Procedures</h4><ul class="text-[11px] font-medium text-gray-600 space-y-1 list-disc pl-4 marker:text-rose-300"><li>Botox & Dermal Fillers</li><li>Carbon / Hollywood Peel</li><li>Cryolipolysis / Fat Freezing</li><li>Chemical & Pumpkin Peels</li></ul></div>
+<div><h4 class="font-bold text-primary mb-2 text-xs uppercase tracking-wider bg-rose-50 inline-block px-3 py-1 rounded-lg">Treatments</h4><ul class="text-xs sm:text-sm text-slate-600 space-y-1.5 list-disc pl-5 marker:text-rose-500 font-body"><li>Advanced Skin Rejuvenation</li><li>Skin Tightening &amp; Contouring</li><li>Non-Surgical Facial Rejuvenation</li><li>Localized Fat Reduction</li><li>Acne Scar Correction</li></ul></div>
+<div><h4 class="font-bold text-secondary mb-2 text-xs uppercase tracking-wider bg-slate-100 inline-block px-3 py-1 rounded-lg">Procedures</h4><ul class="text-xs sm:text-sm text-slate-600 space-y-1.5 list-disc pl-5 marker:text-rose-500 font-body"><li>Botox &amp; Dermal Fillers</li><li>Carbon / Hollywood Peel</li><li>Cryolipolysis / Fat Freezing</li><li>Chemical &amp; Pumpkin Peels</li></ul></div>
 </div>
 </div>
-
-<!-- Plastic Surgery -->
-<div class="specialty-card p-5 flex flex-col">
-<div class="flex items-center mb-4 border-b border-slate-100 pb-2"><i class="fas fa-user-md text-primary text-xl mr-3 bg-rose-50 p-2.5 rounded-lg"></i><h3 class="font-extrabold text-secondary text-base leading-tight">Plastic & Aesthetic Surgery</h3></div>
+<div class="specialty-card p-6 flex flex-col reveal delay-300" data-category="plastic">
+<div class="flex items-center mb-5 border-b border-slate-100 pb-4">
+<div class="spec-icon-box w-12 h-12 rounded-2xl bg-gradient-to-br from-rose-500 to-pink-600 text-white flex items-center justify-center text-xl mr-3.5 shrink-0 shadow-md"><i class="fas fa-user-md"></i></div>
+<div><span class="text-[11px] font-bold uppercase tracking-widest text-primary">Department 03</span><h3 class="font-extrabold text-secondary text-lg leading-snug font-display">Plastic &amp; Aesthetic Surgery</h3></div>
+</div>
 <div class="space-y-4 flex-1">
-<div><h4 class="font-bold text-primary mb-1.5 text-[10px] uppercase tracking-wide bg-rose-50 inline-block px-2 py-0.5 rounded">Aesthetic Surgeries</h4><ul class="text-[11px] font-medium text-gray-600 space-y-1 list-disc pl-4 marker:text-rose-300"><li>VASER & MicroAire Liposuction</li><li>360° Body Contouring & 6-Pack</li><li>Tummy Tuck / Mommy Makeover</li><li>Breast Augmentation, Lift & Reduction</li><li>Gynecomastia & Rhinoplasty</li><li>Facelift, Neck Lift & Blepharoplasty</li></ul></div>
-<div><h4 class="font-bold text-primary mb-1.5 text-[10px] uppercase tracking-wide bg-rose-50 inline-block px-2 py-0.5 rounded">Equipment</h4><ul class="text-[11px] font-medium text-gray-600 space-y-1 list-disc pl-4 marker:text-rose-300"><li>FLIR Infrared Thermography</li><li>Advanced Anesthesia Workstation</li></ul></div>
+<div><h4 class="font-bold text-primary mb-2 text-xs uppercase tracking-wider bg-rose-50 inline-block px-3 py-1 rounded-lg">Aesthetic Surgeries</h4><ul class="text-xs sm:text-sm text-slate-600 space-y-1.5 list-disc pl-5 marker:text-rose-500 font-body"><li>VASER &amp; MicroAire Liposuction</li><li>360° Body Contouring &amp; 6-Pack</li><li>Tummy Tuck / Mommy Makeover</li><li>Breast Augmentation, Lift &amp; Reduction</li><li>Gynecomastia &amp; Rhinoplasty</li><li>Facelift, Neck Lift &amp; Blepharoplasty</li></ul></div>
+<div><h4 class="font-bold text-secondary mb-2 text-xs uppercase tracking-wider bg-slate-100 inline-block px-3 py-1 rounded-lg">Equipment</h4><ul class="text-xs sm:text-sm text-slate-600 space-y-1.5 list-disc pl-5 marker:text-rose-500 font-body"><li>FLIR Infrared Thermography</li><li>Advanced Anesthesia Workstation</li></ul></div>
 </div>
 </div>
-
-<!-- Reconstructive Surgery -->
-<div class="specialty-card p-5 flex flex-col">
-<div class="flex items-center mb-4 border-b border-slate-100 pb-2"><i class="fas fa-band-aid text-primary text-xl mr-3 bg-rose-50 p-2.5 rounded-lg"></i><h3 class="font-extrabold text-secondary text-base leading-tight">Reconstructive Surgery</h3></div>
+<div class="specialty-card p-6 flex flex-col reveal delay-100" data-category="plastic">
+<div class="flex items-center mb-5 border-b border-slate-100 pb-4">
+<div class="spec-icon-box w-12 h-12 rounded-2xl bg-gradient-to-br from-rose-500 to-pink-600 text-white flex items-center justify-center text-xl mr-3.5 shrink-0 shadow-md"><i class="fas fa-band-aid"></i></div>
+<div><span class="text-[11px] font-bold uppercase tracking-widest text-primary">Department 04</span><h3 class="font-extrabold text-secondary text-lg leading-snug font-display">Reconstructive Surgery</h3></div>
+</div>
 <div class="space-y-4 flex-1">
-<div><h4 class="font-bold text-primary mb-1.5 text-[10px] uppercase tracking-wide bg-rose-50 inline-block px-2 py-0.5 rounded">Treatments & Surgeries</h4><ul class="text-[11px] font-medium text-gray-600 space-y-1 list-disc pl-4 marker:text-rose-300"><li>Complex Burn & Wound Care</li><li>Diabetic & Pressure Sores</li><li>Skin Grafting & Flap Surgery</li><li>Microvascular Free-Flap</li><li>Hand & Facial Trauma Reconstruction</li><li>Congenital Deformity Correction</li></ul></div>
-<div><h4 class="font-bold text-primary mb-1.5 text-[10px] uppercase tracking-wide bg-rose-50 inline-block px-2 py-0.5 rounded">Equipment</h4><ul class="text-[11px] font-medium text-gray-600 space-y-1 list-disc pl-4 marker:text-rose-300"><li>Operating Microscope & Loupes</li><li>Microvascular Instruments</li><li>Negative-Pressure Wound Therapy</li></ul></div>
+<div><h4 class="font-bold text-primary mb-2 text-xs uppercase tracking-wider bg-rose-50 inline-block px-3 py-1 rounded-lg">Treatments &amp; Surgeries</h4><ul class="text-xs sm:text-sm text-slate-600 space-y-1.5 list-disc pl-5 marker:text-rose-500 font-body"><li>Complex Burn &amp; Wound Care</li><li>Diabetic &amp; Pressure Sores</li><li>Skin Grafting &amp; Flap Surgery</li><li>Microvascular Free-Flap</li><li>Hand &amp; Facial Trauma Reconstruction</li><li>Congenital Deformity Correction</li></ul></div>
+<div><h4 class="font-bold text-secondary mb-2 text-xs uppercase tracking-wider bg-slate-100 inline-block px-3 py-1 rounded-lg">Equipment</h4><ul class="text-xs sm:text-sm text-slate-600 space-y-1.5 list-disc pl-5 marker:text-rose-500 font-body"><li>Operating Microscope &amp; Loupes</li><li>Microvascular Instruments</li><li>Negative-Pressure Wound Therapy</li></ul></div>
 </div>
 </div>
-
-<!-- Gynecology -->
-<div class="specialty-card p-5 flex flex-col">
-<div class="flex items-center mb-4 border-b border-slate-100 pb-2"><i class="fas fa-female text-primary text-xl mr-3 bg-rose-50 p-2.5 rounded-lg"></i><h3 class="font-extrabold text-secondary text-base leading-tight">Obstetrics & Gynecology</h3></div>
+<div class="specialty-card p-6 flex flex-col reveal delay-200" data-category="obg">
+<div class="flex items-center mb-5 border-b border-slate-100 pb-4">
+<div class="spec-icon-box w-12 h-12 rounded-2xl bg-gradient-to-br from-rose-500 to-pink-600 text-white flex items-center justify-center text-xl mr-3.5 shrink-0 shadow-md"><i class="fas fa-female"></i></div>
+<div><span class="text-[11px] font-bold uppercase tracking-widest text-primary">Department 05</span><h3 class="font-extrabold text-secondary text-lg leading-snug font-display">Obstetrics &amp; Gynecology</h3></div>
+</div>
 <div class="space-y-4 flex-1">
-<div><h4 class="font-bold text-primary mb-1.5 text-[10px] uppercase tracking-wide bg-rose-50 inline-block px-2 py-0.5 rounded">Care & Treatments</h4><ul class="text-[11px] font-medium text-gray-600 space-y-1 list-disc pl-4 marker:text-rose-300"><li>Antenatal & High-Risk Pregnancy</li><li>PCOS, Fibroids & Endometriosis</li><li>Fertility Services & Evaluation</li><li>Cosmetic Gynecology</li><li>Menopause Management</li></ul></div>
-<div><h4 class="font-bold text-primary mb-1.5 text-[10px] uppercase tracking-wide bg-rose-50 inline-block px-2 py-0.5 rounded">Procedures & Equipment</h4><ul class="text-[11px] font-medium text-gray-600 space-y-1 list-disc pl-4 marker:text-rose-300"><li>Cesarean Section & D&C</li><li>Laparoscopic & Hysteroscopy</li><li>Obstetric Ultrasound & Fetal Doppler</li><li>Neonatal Resuscitation Equipment</li></ul></div>
+<div><h4 class="font-bold text-primary mb-2 text-xs uppercase tracking-wider bg-rose-50 inline-block px-3 py-1 rounded-lg">Care &amp; Treatments</h4><ul class="text-xs sm:text-sm text-slate-600 space-y-1.5 list-disc pl-5 marker:text-rose-500 font-body"><li>Antenatal &amp; High-Risk Pregnancy</li><li>PCOS, Fibroids &amp; Endometriosis</li><li>Fertility Services &amp; Evaluation</li><li>Cosmetic Gynecology</li><li>Menopause Management</li></ul></div>
+<div><h4 class="font-bold text-secondary mb-2 text-xs uppercase tracking-wider bg-slate-100 inline-block px-3 py-1 rounded-lg">Procedures &amp; Equipment</h4><ul class="text-xs sm:text-sm text-slate-600 space-y-1.5 list-disc pl-5 marker:text-rose-500 font-body"><li>Cesarean Section &amp; D&amp;C</li><li>Laparoscopic &amp; Hysteroscopy</li><li>Obstetric Ultrasound &amp; Fetal Doppler</li><li>Neonatal Resuscitation Equipment</li></ul></div>
 </div>
 </div>
-
-<!-- Diagnostics -->
-<div class="specialty-card p-5 flex flex-col">
-<div class="flex items-center mb-4 border-b border-slate-100 pb-2"><i class="fas fa-vial text-primary text-xl mr-3 bg-rose-50 p-2.5 rounded-lg"></i><h3 class="font-extrabold text-secondary text-base leading-tight">Lab & Diagnostic Services</h3></div>
-<div class="grid grid-cols-2 gap-3 flex-1">
-<div><h4 class="font-bold text-primary mb-1 text-[10px] uppercase">Hematology</h4><p class="text-[10px] font-medium text-gray-600 leading-tight">CBC, Hb, Platelet, ESR, Blood Grouping.</p></div>
-<div><h4 class="font-bold text-primary mb-1 text-[10px] uppercase">Biochemistry</h4><p class="text-[10px] font-medium text-gray-600 leading-tight">Blood Sugar, HbA1c, LFT, RFT, Lipid Profile.</p></div>
-<div><h4 class="font-bold text-primary mb-1 text-[10px] uppercase">Hormonal</h4><p class="text-[10px] font-medium text-gray-600 leading-tight">Thyroid, FSH, LH, AMH, Prolactin, β-hCG.</p></div>
-<div><h4 class="font-bold text-primary mb-1 text-[10px] uppercase">Pathology</h4><p class="text-[10px] font-medium text-gray-600 leading-tight">Skin Biopsy, Cultures, Viral Screen, ECG.</p></div>
+<div class="specialty-card p-6 flex flex-col reveal delay-300" data-category="obg">
+<div class="flex items-center mb-5 border-b border-slate-100 pb-4">
+<div class="spec-icon-box w-12 h-12 rounded-2xl bg-gradient-to-br from-rose-500 to-pink-600 text-white flex items-center justify-center text-xl mr-3.5 shrink-0 shadow-md"><i class="fas fa-vial"></i></div>
+<div><span class="text-[11px] font-bold uppercase tracking-widest text-primary">Department 06</span><h3 class="font-extrabold text-secondary text-lg leading-snug font-display">Lab &amp; Diagnostics</h3></div>
+</div>
+<div class="grid grid-cols-2 gap-3.5 flex-1">
+<div class="bg-slate-50 p-3.5 rounded-xl border border-slate-100"><h4 class="font-extrabold text-primary mb-1 text-xs uppercase">Hematology</h4><p class="text-xs text-slate-600 leading-relaxed font-body">CBC, Hb, Platelet, ESR, Blood Grouping.</p></div>
+<div class="bg-slate-50 p-3.5 rounded-xl border border-slate-100"><h4 class="font-extrabold text-primary mb-1 text-xs uppercase">Biochemistry</h4><p class="text-xs text-slate-600 leading-relaxed font-body">Blood Sugar, HbA1c, LFT, RFT, Lipid Profile.</p></div>
+<div class="bg-slate-50 p-3.5 rounded-xl border border-slate-100"><h4 class="font-extrabold text-primary mb-1 text-xs uppercase">Hormonal</h4><p class="text-xs text-slate-600 leading-relaxed font-body">Thyroid, FSH, LH, AMH, Prolactin, β-hCG.</p></div>
+<div class="bg-slate-50 p-3.5 rounded-xl border border-slate-100"><h4 class="font-extrabold text-primary mb-1 text-xs uppercase">Pathology</h4><p class="text-xs text-slate-600 leading-relaxed font-body">Skin Biopsy, Cultures, Viral Screen, ECG.</p></div>
 </div>
 </div>
 </div>
 </div>
 </section>
 
-<!-- CM021 - HTML Redesigned Help Desk (No Title) -->
-<section id="opd-info" class="py-12 bg-slate-100 border-b border-slate-200">
-<div class="container mx-auto px-4 max-w-7xl">
-<div class="grid grid-cols-1 lg:grid-cols-3 gap-5 items-start">
-<!-- Book Appointment Action Card -->
-<div class="lg:col-span-1 opd-gradient-card p-6 rounded-xl shadow-lg text-center flex flex-col justify-center h-full">
-<div class="bg-white/20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 shadow-inner">
-<i class="fas fa-calendar-check text-3xl text-white"></i>
+<!-- CM022 - HTML How We Work / Patient Journey Section (Reference Hospital Feature) -->
+<section id="workflow" class="py-16 bg-gradient-to-b from-rose-50/50 to-white border-b border-slate-100">
+<div class="container mx-auto px-4 sm:px-6 max-w-7xl">
+<div class="text-center max-w-2xl mx-auto mb-12 reveal">
+<span class="text-primary font-bold uppercase tracking-widest text-xs bg-white border border-rose-200 px-4 py-1 rounded-full shadow-sm">How We Work</span>
+<h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-secondary mt-3 font-display">Simple Process, <span class="text-primary">Exceptional Results</span></h2>
+<p class="text-slate-500 text-sm sm:text-base mt-1.5 font-body">A streamlined patient journey ensuring personalized care, safe procedures, and smooth recovery.</p>
 </div>
-<h3 class="text-xl font-bold mb-1">Book Appointment</h3>
-<p class="text-rose-100 text-[11px] font-medium mb-5">Call our reception desk directly to secure your slot instantly.</p>
-<div class="space-y-3">
-<a href="#" class="call-action-btn bg-white text-rose-700 py-2.5 px-5 rounded-full font-bold text-sm hover:bg-gray-50 transition shadow-md inline-block w-full"><i class="fas fa-phone-alt mr-2"></i> +91 <span class="dyn-phone1"></span></a>
-<a href="#" class="call-action-btn2 bg-rose-800 border border-rose-400 text-white py-2.5 px-5 rounded-full font-bold text-sm hover:bg-rose-900 transition shadow inline-block w-full"><i class="fas fa-phone-alt mr-2"></i> +91 <span class="dyn-phone2"></span></a>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+<div class="hover-card p-6 text-center reveal delay-100">
+<div class="w-14 h-14 rounded-2xl bg-rose-50 text-primary font-extrabold text-xl flex items-center justify-center mx-auto mb-4 border border-rose-200 shadow-sm font-display">01</div>
+<h4 class="font-extrabold text-secondary text-base sm:text-lg mb-2 font-display">Initial Consultation</h4>
+<p class="text-xs sm:text-sm text-slate-600 leading-relaxed font-body">Detailed evaluation with our super-specialists to understand your symptoms, medical history, and goals.</p>
 </div>
-<div class="mt-5 pt-4 border-t border-rose-400/50">
-<p class="text-[9px] text-rose-100 uppercase tracking-widest font-bold mb-0.5">Landline</p>
-<p class="text-xs font-bold"><span class="dyn-landline"></span></p>
+<div class="hover-card p-6 text-center reveal delay-200">
+<div class="w-14 h-14 rounded-2xl bg-rose-50 text-primary font-extrabold text-xl flex items-center justify-center mx-auto mb-4 border border-rose-200 shadow-sm font-display">02</div>
+<h4 class="font-extrabold text-secondary text-base sm:text-lg mb-2 font-display">Accurate Diagnosis</h4>
+<p class="text-xs sm:text-sm text-slate-600 leading-relaxed font-body">In-house laboratory, ultrasound, and clinical imaging to identify the exact root cause with precision.</p>
+</div>
+<div class="hover-card p-6 text-center reveal delay-300">
+<div class="w-14 h-14 rounded-2xl bg-rose-50 text-primary font-extrabold text-xl flex items-center justify-center mx-auto mb-4 border border-rose-200 shadow-sm font-display">03</div>
+<h4 class="font-extrabold text-secondary text-base sm:text-lg mb-2 font-display">Advanced Treatment</h4>
+<p class="text-xs sm:text-sm text-slate-600 leading-relaxed font-body">Personalized medical, laser, or surgical treatment in our zero-infection Laminar-Flow OTs.</p>
+</div>
+<div class="hover-card p-6 text-center reveal delay-400">
+<div class="w-14 h-14 rounded-2xl bg-rose-50 text-primary font-extrabold text-xl flex items-center justify-center mx-auto mb-4 border border-rose-200 shadow-sm font-display">04</div>
+<h4 class="font-extrabold text-secondary text-base sm:text-lg mb-2 font-display">Recovery &amp; Follow-Up</h4>
+<p class="text-xs sm:text-sm text-slate-600 leading-relaxed font-body">Dedicated post-operative monitoring, cashless discharge support, and continuous follow-up care.</p>
 </div>
 </div>
+</div>
+</section>
 
-<!-- Help Desk Grid & Timings -->
-<div class="lg:col-span-2 space-y-5">
-<!-- Timings Box -->
-<div class="bg-white p-5 rounded-xl shadow-sm border border-slate-200 flex flex-col sm:flex-row justify-between items-center gap-4">
+<!-- CM023 - HTML OPD Help Desk & Timings Section -->
+<section id="opd-info" class="py-16 bg-slate-100 border-b border-slate-200">
+<div class="container mx-auto px-4 sm:px-6 max-w-7xl">
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-7 items-stretch">
+<div class="lg:col-span-1 opd-gradient-card p-7 rounded-3xl shadow-glow text-center flex flex-col justify-between reveal-left">
+<div>
+<div class="bg-white/20 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 border border-white/30 shadow-inner"><i class="fas fa-calendar-check text-3xl text-white"></i></div>
+<h3 class="text-2xl font-extrabold mb-2 font-display">Book Appointment</h3>
+<p class="text-rose-100 text-xs sm:text-sm mb-6 font-body">Call our hospital reception desk directly to book your consultation slot instantly.</p>
+</div>
+<div class="space-y-3.5">
+<a href="#" class="call-action-btn bg-white text-rose-700 py-3.5 px-6 rounded-2xl font-extrabold text-sm sm:text-base hover:bg-rose-50 transition shadow-lg flex items-center justify-center w-full"><i class="fas fa-phone-alt mr-2.5"></i>+91 <span class="dyn-phone1 ml-1"></span></a>
+<a href="#" class="call-action-btn2 bg-rose-900/80 border border-rose-300/40 text-white py-3.5 px-6 rounded-2xl font-extrabold text-sm sm:text-base hover:bg-rose-950 transition flex items-center justify-center w-full"><i class="fas fa-phone-alt mr-2.5"></i>+91 <span class="dyn-phone2 ml-1"></span></a>
+</div>
+<div class="mt-6 pt-4 border-t border-rose-400/40 flex items-center justify-center gap-2 text-sm">
+<span class="text-rose-200 uppercase text-xs font-bold">Landline:</span>
+<span class="font-extrabold text-white dyn-landline"></span>
+</div>
+</div>
+<div class="lg:col-span-2 flex flex-col justify-between space-y-6 reveal-right">
+<div class="bg-white p-6 rounded-3xl shadow-soft border border-slate-200/90 flex flex-col sm:flex-row justify-between items-center gap-5">
 <div class="flex items-center w-full sm:w-auto">
-<div class="bg-rose-50 text-primary p-3 rounded-lg mr-3"><i class="far fa-clock text-xl"></i></div>
-<div>
-<h4 class="font-bold text-secondary text-base">OPD Timings</h4>
-<p class="text-[10px] text-gray-500 font-medium">Prior appointment is recommended.</p>
+<div class="bg-rose-50 text-primary p-4 rounded-2xl mr-4 shadow-sm"><i class="far fa-clock text-2xl"></i></div>
+<div><h4 class="font-extrabold text-secondary text-lg sm:text-xl font-display">OPD Consultation Timings</h4><p class="text-xs sm:text-sm text-slate-500 font-body">Prior phone appointment is recommended for faster service.</p></div>
+</div>
+<div class="flex flex-row gap-3.5 w-full sm:w-auto">
+<div class="bg-rose-50/80 border border-rose-200 p-3.5 rounded-2xl text-center flex-1 sm:min-w-[160px]"><p class="text-xs text-slate-500 font-bold uppercase mb-1">Mon – Sat</p><p class="text-sm font-extrabold text-primary">10:00 AM - 9:30 PM</p></div>
+<div class="bg-rose-50/80 border border-rose-200 p-3.5 rounded-2xl text-center flex-1 sm:min-w-[145px]"><p class="text-xs text-slate-500 font-bold uppercase mb-1">Sunday</p><p class="text-sm font-extrabold text-primary">10:00 AM - 3:00 PM</p></div>
 </div>
 </div>
-<div class="flex flex-row gap-3 w-full sm:w-auto overflow-x-auto pb-1 sm:pb-0">
-<div class="bg-slate-50 border border-slate-100 p-2.5 rounded-lg text-center flex-1 sm:min-w-[130px]">
-<p class="text-[9px] text-gray-500 font-bold uppercase mb-0.5">Mon - Sat</p>
-<p class="text-xs font-extrabold text-primary">10:00 AM - 9:30 PM</p>
-</div>
-<div class="bg-slate-50 border border-slate-100 p-2.5 rounded-lg text-center flex-1 sm:min-w-[130px]">
-<p class="text-[9px] text-gray-500 font-bold uppercase mb-0.5">Sunday</p>
-<p class="text-xs font-extrabold text-primary">10:00 AM - 3:00 PM</p>
-</div>
-</div>
-</div>
-
-<!-- Services Grid -->
-<div class="grid grid-cols-2 md:grid-cols-3 gap-3">
-<div class="help-card p-3 text-center flex flex-col items-center justify-center">
-<i class="fas fa-user-md text-primary text-xl mb-1.5"></i><span class="text-[11px] font-bold text-secondary">Doctor Appointments</span>
-</div>
-<div class="help-card p-3 text-center flex flex-col items-center justify-center">
-<i class="fas fa-bed text-primary text-xl mb-1.5"></i><span class="text-[11px] font-bold text-secondary">Admission Assistance</span>
-</div>
-<div class="help-card p-3 text-center flex flex-col items-center justify-center">
-<i class="fas fa-door-open text-primary text-xl mb-1.5"></i><span class="text-[11px] font-bold text-secondary">Room Allocation</span>
-</div>
-<div class="help-card p-3 text-center flex flex-col items-center justify-center">
-<i class="fas fa-procedures text-primary text-xl mb-1.5"></i><span class="text-[11px] font-bold text-secondary">Surgery Scheduling</span>
-</div>
-<div class="help-card p-3 text-center flex flex-col items-center justify-center">
-<i class="fas fa-vial text-primary text-xl mb-1.5"></i><span class="text-[11px] font-bold text-secondary">Laboratory Enquiries</span>
-</div>
-<div class="help-card p-3 text-center flex flex-col items-center justify-center">
-<i class="fas fa-file-invoice text-primary text-xl mb-1.5"></i><span class="text-[11px] font-bold text-secondary">Billing Assistance</span>
-</div>
+<div class="grid grid-cols-2 md:grid-cols-3 gap-4 flex-1">
+<a href="#opd-info" class="help-card p-5 text-center flex flex-col items-center justify-center"><i class="fas fa-user-md text-primary text-2xl mb-2"></i><span class="text-xs sm:text-sm font-bold text-secondary">Doctor Appointments</span></a>
+<a href="#opd-info" class="help-card p-5 text-center flex flex-col items-center justify-center"><i class="fas fa-bed text-primary text-2xl mb-2"></i><span class="text-xs sm:text-sm font-bold text-secondary">Admission Assistance</span></a>
+<a href="#opd-info" class="help-card p-5 text-center flex flex-col items-center justify-center"><i class="fas fa-door-open text-primary text-2xl mb-2"></i><span class="text-xs sm:text-sm font-bold text-secondary">Room Allocation</span></a>
+<a href="#opd-info" class="help-card p-5 text-center flex flex-col items-center justify-center"><i class="fas fa-procedures text-primary text-2xl mb-2"></i><span class="text-xs sm:text-sm font-bold text-secondary">Surgery Scheduling</span></a>
+<a href="#opd-info" class="help-card p-5 text-center flex flex-col items-center justify-center"><i class="fas fa-vial text-primary text-2xl mb-2"></i><span class="text-xs sm:text-sm font-bold text-secondary">Laboratory Enquiries</span></a>
+<a href="#opd-info" class="help-card p-5 text-center flex flex-col items-center justify-center"><i class="fas fa-file-invoice text-primary text-2xl mb-2"></i><span class="text-xs sm:text-sm font-bold text-secondary">Billing &amp; TPA Help</span></a>
 </div>
 </div>
 </div>
 </div>
 </section>
 
-<!-- CM022 - HTML Insurance TPA Logos Grid -->
-<section id="insurance" class="py-12 bg-white border-b border-gray-100">
-<div class="container mx-auto px-4 max-w-7xl text-center">
-<h2 class="text-2xl font-extrabold text-secondary mb-2">Insurance & TPA Partners</h2>
-<p class="text-gray-500 text-xs font-medium mb-8">We accept major insurance and TPA cards for cashless facilities.</p>
-<div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
-<div class="ins-card" style="background: linear-gradient(to right, #f8fafc, #f1f5f9);"><span class="text-[10px] font-extrabold text-slate-800 text-center uppercase tracking-wide">Medi Assist<br>TPA</span></div>
-<div class="ins-card" style="background: linear-gradient(to right, #f0f9ff, #e0f2fe);"><span class="text-[10px] font-extrabold text-sky-900 text-center uppercase tracking-wide">SBI General<br>Insurance</span></div>
-<div class="ins-card" style="background: linear-gradient(to right, #fdf4ff, #fae8ff);"><span class="text-[10px] font-extrabold text-purple-800 text-center uppercase tracking-wide">Acko<br>Insurance</span></div>
-<div class="ins-card" style="background: linear-gradient(to right, #eff6ff, #dbeafe);"><span class="text-[10px] font-extrabold text-blue-900 text-center uppercase tracking-wide">Family Health Plan<br>(FHPL)</span></div>
-<div class="ins-card" style="background: linear-gradient(to right, #f0fdf4, #dcfce7);"><span class="text-[10px] font-extrabold text-green-900 text-center uppercase tracking-wide">East West Assist<br>Insurance</span></div>
-<div class="ins-card" style="background: linear-gradient(to right, #fff7ed, #ffedd5);"><span class="text-[10px] font-extrabold text-orange-900 text-center uppercase tracking-wide">MD India<br>Insurance TPA</span></div>
-<div class="ins-card" style="background: linear-gradient(to right, #fef2f2, #fee2e2);"><span class="text-[10px] font-extrabold text-red-900 text-center uppercase tracking-wide">Navi General<br>Insurance</span></div>
-<div class="ins-card" style="background: linear-gradient(to right, #f5f3ff, #ede9fe);"><span class="text-[10px] font-extrabold text-violet-900 text-center uppercase tracking-wide">GHPL<br>Insurance</span></div>
-<div class="ins-card" style="background: linear-gradient(to right, #fffbeb, #fef3c7);"><span class="text-[10px] font-extrabold text-amber-900 text-center uppercase tracking-wide">Akna<br>Insurance</span></div>
-<div class="ins-card" style="background: linear-gradient(to right, #ecfdf5, #d1fae5);"><span class="text-[10px] font-extrabold text-emerald-900 text-center uppercase tracking-wide">Ericson<br>Insurance</span></div>
-<div class="ins-card" style="background: linear-gradient(to right, #faf5ff, #f3e8ff);"><span class="text-[10px] font-extrabold text-fuchsia-900 text-center uppercase tracking-wide">Future General<br>Insurance</span></div>
-<div class="ins-card" style="background: linear-gradient(to right, #fdf8f6, #fce7f3);"><span class="text-[10px] font-extrabold text-pink-900 text-center uppercase tracking-wide">Universal Sompo<br>Insurance</span></div>
+<!-- CM024 - HTML Insurance & TPA Partners Grid -->
+<section id="insurance" class="py-16 bg-white border-b border-slate-100">
+<div class="container mx-auto px-4 sm:px-6 max-w-7xl text-center">
+<div class="reveal mb-10">
+<span class="text-primary font-bold uppercase tracking-widest text-xs bg-rose-50 border border-rose-200 px-4 py-1 rounded-full">Cashless Treatment Facility</span>
+<h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-secondary mt-2.5 font-display">Insurance &amp; <span class="text-primary">TPA Partners</span></h2>
+<p class="text-slate-500 text-sm sm:text-base mt-1 font-body">We accept major health insurance and TPA cards for hassle-free cashless hospitalization.</p>
+</div>
+<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 reveal">
+<div class="ins-card" style="background:linear-gradient(135deg,#f8fafc,#f1f5f9);"><i class="fas fa-shield-heart text-slate-600 text-lg mb-1"></i><span class="text-xs font-extrabold text-slate-800 text-center uppercase leading-snug">Medi Assist<br>TPA</span></div>
+<div class="ins-card" style="background:linear-gradient(135deg,#f0f9ff,#e0f2fe);"><i class="fas fa-shield-heart text-sky-600 text-lg mb-1"></i><span class="text-xs font-extrabold text-sky-900 text-center uppercase leading-snug">SBI General<br>Insurance</span></div>
+<div class="ins-card" style="background:linear-gradient(135deg,#fdf4ff,#fae8ff);"><i class="fas fa-shield-heart text-purple-600 text-lg mb-1"></i><span class="text-xs font-extrabold text-purple-900 text-center uppercase leading-snug">Acko<br>Insurance</span></div>
+<div class="ins-card" style="background:linear-gradient(135deg,#eff6ff,#dbeafe);"><i class="fas fa-shield-heart text-blue-600 text-lg mb-1"></i><span class="text-xs font-extrabold text-blue-900 text-center uppercase leading-snug">Family Health Plan<br>(FHPL)</span></div>
+<div class="ins-card" style="background:linear-gradient(135deg,#f0fdf4,#dcfce7);"><i class="fas fa-shield-heart text-green-600 text-lg mb-1"></i><span class="text-xs font-extrabold text-green-900 text-center uppercase leading-snug">East West Assist<br>Insurance</span></div>
+<div class="ins-card" style="background:linear-gradient(135deg,#fff7ed,#ffedd5);"><i class="fas fa-shield-heart text-orange-600 text-lg mb-1"></i><span class="text-xs font-extrabold text-orange-900 text-center uppercase leading-snug">MD India<br>Insurance TPA</span></div>
+<div class="ins-card" style="background:linear-gradient(135deg,#fef2f2,#fee2e2);"><i class="fas fa-shield-heart text-red-600 text-lg mb-1"></i><span class="text-xs font-extrabold text-red-900 text-center uppercase leading-snug">Navi General<br>Insurance</span></div>
+<div class="ins-card" style="background:linear-gradient(135deg,#f5f3ff,#ede9fe);"><i class="fas fa-shield-heart text-violet-600 text-lg mb-1"></i><span class="text-xs font-extrabold text-violet-900 text-center uppercase leading-snug">GHPL<br>Insurance</span></div>
+<div class="ins-card" style="background:linear-gradient(135deg,#fffbeb,#fef3c7);"><i class="fas fa-shield-heart text-amber-600 text-lg mb-1"></i><span class="text-xs font-extrabold text-amber-900 text-center uppercase leading-snug">Akna<br>Insurance</span></div>
+<div class="ins-card" style="background:linear-gradient(135deg,#ecfdf5,#d1fae5);"><i class="fas fa-shield-heart text-emerald-600 text-lg mb-1"></i><span class="text-xs font-extrabold text-emerald-900 text-center uppercase leading-snug">Ericson<br>Insurance</span></div>
+<div class="ins-card" style="background:linear-gradient(135deg,#faf5ff,#f3e8ff);"><i class="fas fa-shield-heart text-fuchsia-600 text-lg mb-1"></i><span class="text-xs font-extrabold text-fuchsia-900 text-center uppercase leading-snug">Future General<br>Insurance</span></div>
+<div class="ins-card" style="background:linear-gradient(135deg,#fdf8f6,#fce7f3);"><i class="fas fa-shield-heart text-pink-600 text-lg mb-1"></i><span class="text-xs font-extrabold text-pink-900 text-center uppercase leading-snug">Universal Sompo<br>Insurance</span></div>
 </div>
 </div>
 </section>
 
-<!-- CM023 - HTML Gallery Slider -->
-<section class="py-10 bg-slate-50 border-b border-gray-200">
-<div class="container mx-auto px-4 text-center mb-4">
-<h2 class="text-xl font-extrabold text-secondary">Hospital Environment</h2>
+<!-- CM025 - HTML Hospital Environment Gallery Slider -->
+<section class="py-14 bg-slate-50 border-b border-slate-200">
+<div class="container mx-auto px-4 text-center mb-6 reveal">
+<span class="text-primary font-bold uppercase tracking-widest text-xs bg-rose-50 border border-rose-200 px-3.5 py-1 rounded-full">Visual Tour</span>
+<h2 class="text-2xl sm:text-3xl font-extrabold text-secondary mt-2 font-display">Hospital <span class="text-primary">Environment &amp; Facilities</span></h2>
 </div>
 <div class="slider-container">
 <div class="slider-track">
-<div class="slider-slide"><img class="dyn-img1" src="" alt="Gallery 1"></div>
-<div class="slider-slide"><img class="dyn-img2" src="" alt="Gallery 2"></div>
-<div class="slider-slide"><img class="dyn-img3" src="" alt="Gallery 3"></div>
-<div class="slider-slide"><img class="dyn-img4" src="" alt="Gallery 4"></div>
-<div class="slider-slide"><img class="dyn-img5" src="" alt="Gallery 5"></div>
-<div class="slider-slide"><img class="dyn-img6" src="" alt="Gallery 6"></div>
-<div class="slider-slide"><img class="dyn-img7" src="" alt="Gallery 7"></div>
-<div class="slider-slide"><img class="dyn-img1" src="" alt="Gallery 1"></div>
-<div class="slider-slide"><img class="dyn-img2" src="" alt="Gallery 2"></div>
-<div class="slider-slide"><img class="dyn-img3" src="" alt="Gallery 3"></div>
-<div class="slider-slide"><img class="dyn-img4" src="" alt="Gallery 4"></div>
-<div class="slider-slide"><img class="dyn-img5" src="" alt="Gallery 5"></div>
-<div class="slider-slide"><img class="dyn-img6" src="" alt="Gallery 6"></div>
-<div class="slider-slide"><img class="dyn-img7" src="" alt="Gallery 7"></div>
+<div class="slider-slide"><img class="dyn-img1" src="" alt="Gallery 1" onclick="openLightbox(this.src)"></div>
+<div class="slider-slide"><img class="dyn-img2" src="" alt="Gallery 2" onclick="openLightbox(this.src)"></div>
+<div class="slider-slide"><img class="dyn-img3" src="" alt="Gallery 3" onclick="openLightbox(this.src)"></div>
+<div class="slider-slide"><img class="dyn-img4" src="" alt="Gallery 4" onclick="openLightbox(this.src)"></div>
+<div class="slider-slide"><img class="dyn-img5" src="" alt="Gallery 5" onclick="openLightbox(this.src)"></div>
+<div class="slider-slide"><img class="dyn-img6" src="" alt="Gallery 6" onclick="openLightbox(this.src)"></div>
+<div class="slider-slide"><img class="dyn-img7" src="" alt="Gallery 7" onclick="openLightbox(this.src)"></div>
+<div class="slider-slide"><img class="dyn-img1" src="" alt="Gallery 1" onclick="openLightbox(this.src)"></div>
+<div class="slider-slide"><img class="dyn-img2" src="" alt="Gallery 2" onclick="openLightbox(this.src)"></div>
+<div class="slider-slide"><img class="dyn-img3" src="" alt="Gallery 3" onclick="openLightbox(this.src)"></div>
+<div class="slider-slide"><img class="dyn-img4" src="" alt="Gallery 4" onclick="openLightbox(this.src)"></div>
+<div class="slider-slide"><img class="dyn-img5" src="" alt="Gallery 5" onclick="openLightbox(this.src)"></div>
+<div class="slider-slide"><img class="dyn-img6" src="" alt="Gallery 6" onclick="openLightbox(this.src)"></div>
+<div class="slider-slide"><img class="dyn-img7" src="" alt="Gallery 7" onclick="openLightbox(this.src)"></div>
 </div>
 </div>
 </section>
 
-<!-- CM024 - HTML Footer & Compact 3-Column Layout -->
-<footer id="contact" class="footer-bg text-white pt-10 pb-20 md:pb-8 relative z-10">
-<div class="container mx-auto px-4 max-w-7xl">
-<div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
-<!-- Column 1: Map and Actions -->
+<!-- CM026 - HTML Interactive FAQ Section -->
+<section class="py-16 bg-white border-b border-slate-100">
+<div class="container mx-auto px-4 sm:px-6 max-w-4xl">
+<div class="text-center mb-10 reveal">
+<span class="text-primary font-bold uppercase tracking-widest text-xs bg-rose-50 px-4 py-1 rounded-full border border-rose-200">Patient Guide</span>
+<h2 class="text-2xl sm:text-3xl font-extrabold text-secondary mt-2.5 font-display">Frequently Asked <span class="text-primary">Questions</span></h2>
+</div>
+<div class="space-y-4 reveal">
+<div class="border border-slate-200 rounded-2xl overflow-hidden bg-slate-50/70 hover:border-rose-300 transition">
+<button onclick="toggleFaq(this)" class="w-full px-6 py-4 text-left font-bold text-secondary text-sm sm:text-base flex justify-between items-center hover:text-primary transition"><span>How can I book an OPD consultation at Maya's Hospital?</span><i class="fas fa-chevron-down text-xs text-primary transition-transform duration-300"></i></button>
+<div class="faq-answer hidden px-6 pb-5 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-200/70 pt-3 font-body">Call our reception desk directly at <strong>+91 9866237227</strong> or <strong>+91 8500850028</strong> (Landline: 08518-275507). OPD consultations operate Monday–Saturday (10:00 AM – 9:30 PM) and Sunday (10:00 AM – 3:00 PM).</div>
+</div>
+<div class="border border-slate-200 rounded-2xl overflow-hidden bg-slate-50/70 hover:border-rose-300 transition">
+<button onclick="toggleFaq(this)" class="w-full px-6 py-4 text-left font-bold text-secondary text-sm sm:text-base flex justify-between items-center hover:text-primary transition"><span>Do you provide cashless insurance and TPA facilities?</span><i class="fas fa-chevron-down text-xs text-primary transition-transform duration-300"></i></button>
+<div class="faq-answer hidden px-6 pb-5 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-200/70 pt-3 font-body">Yes, we accept Medi Assist, SBI General, Acko, FHPL, MD India, Navi General, East West Assist, Universal Sompo, and more for smooth cashless pre-authorization and claims.</div>
+</div>
+<div class="border border-slate-200 rounded-2xl overflow-hidden bg-slate-50/70 hover:border-rose-300 transition">
+<button onclick="toggleFaq(this)" class="w-full px-6 py-4 text-left font-bold text-secondary text-sm sm:text-base flex justify-between items-center hover:text-primary transition"><span>Are laser treatments and cosmetic surgeries performed by super-specialists?</span><i class="fas fa-chevron-down text-xs text-primary transition-transform duration-300"></i></button>
+<div class="faq-answer hidden px-6 pb-5 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-200/70 pt-3 font-body">Yes, all procedures are performed directly by qualified super-specialists (MD Dermatology &amp; MCh Plastic Surgery) using US-FDA approved lasers and zero-infection Laminar-Flow OTs.</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- CM027 - HTML Footer, Map & Favicon Studio Trigger -->
+<footer id="contact" class="footer-bg text-white pt-14 pb-24 md:pb-10 relative z-10">
+<div class="container mx-auto px-4 sm:px-6 max-w-7xl">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
 <div class="flex flex-col">
-<h4 class="text-sm font-bold text-slate-200 mb-3 uppercase tracking-wide flex items-center"><i class="fas fa-map-marker-alt text-primary mr-2"></i> Location</h4>
-<div class="bg-slate-800 p-1.5 rounded-xl border border-slate-700 shadow-lg mb-3">
-<div class="map-container">
-<iframe src="https://maps.google.com/maps?q=R26R%2B4X%20Kurnool,%20Andhra%20Pradesh%20Maya's%20Hospital%20%E0%B0%AE%E0%B0%BE%E0%B0%AF%E0%B0%BE%E0%B0%B8%E0%B1%8D%20%E0%B0%AE%E0%B1%86%E0%B0%9F%E0%B0%B0%E0%B1%8D%E0%B0%A8%E0%B0%BF%E0%B0%9F%E0%B1%80%20%26%20%E0%B0%87%E0%B0%A8%E0%B1%8F%E0%B0%AB%E0%B1%86%E0%B0%B0%E0%B1%8D%E0%B0%9F%E0%B0%BF%E0%B0%B2%E0%B0%BF%E0%B0%9F%E0%B1%80%20%E0%B0%B8%E0%B1%86%E0%B0%82%E0%B0%9F%E0%B0%B0%E0%B1%8D&t=&z=16&ie=UTF8&iwloc=&output=embed" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+<h4 class="text-sm font-extrabold text-white mb-3.5 uppercase tracking-wider flex items-center font-display"><i class="fas fa-map-marker-alt text-primary mr-2"></i>Hospital Location</h4>
+<div class="bg-slate-800/90 p-2 rounded-2xl border border-slate-700 mb-3">
+<div class="map-container"><iframe src="https://maps.google.com/maps?q=R26R%2B4X%20Kurnool,%20Andhra%20Pradesh%20Maya's%20Hospital%20%E0%B0%AE%E0%B0%BE%E0%B0%AF%E0%B0%BE%E0%B0%B8%E0%B1%8D%20%E0%B0%AE%E0%B1%86%E0%B0%9F%E0%B0%B0%E0%B1%8D%E0%B0%A8%E0%B0%BF%E0%B0%9F%E0%B1%80%20%26%20%E0%B0%87%E0%B0%A8%E0%B1%8F%E0%B0%AB%E0%B1%86%E0%B0%B0%E0%B1%8D%E0%B0%9F%E0%B0%BF%E0%B0%B2%E0%B0%BF%E0%B0%9F%E0%B1%80%20%E0%B0%B8%E0%B1%86%E0%B0%82%E0%B0%9F%E0%B0%B0%E0%B1%8D&t=&z=16&ie=UTF8&iwloc=&output=embed" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+</div>
+<div class="flex gap-3 w-full">
+<a href="https://maps.google.com/maps?q=R26R%2B4X%20Kurnool,%20Andhra%20Pradesh%20Maya's%20Hospital" target="_blank" rel="noopener noreferrer" class="bg-slate-800 hover:bg-primary border border-slate-700 transition flex-1 py-2.5 px-3 rounded-xl text-center font-bold text-xs flex items-center justify-center"><i class="fas fa-directions mr-1.5 text-rose-400"></i>Get Directions</a>
+<button onclick="copyMapLink()" class="bg-slate-800 hover:bg-primary border border-slate-700 transition flex-1 py-2.5 px-3 rounded-xl text-center font-bold text-xs flex items-center justify-center"><i class="fas fa-share-alt mr-1.5 text-sky-400"></i>Share Location</button>
 </div>
 </div>
-<div class="flex gap-2 w-full">
-<a href="https://maps.google.com/maps?q=R26R%2B4X%20Kurnool,%20Andhra%20Pradesh%20Maya's%20Hospital" target="_blank" class="action-btn flex-1 py-2 px-2 rounded-lg text-center font-bold text-[10px] shadow-sm flex items-center justify-center"><i class="fas fa-directions mr-1 text-rose-400"></i> Directions</a>
-<button onclick="navigator.clipboard.writeText('https://maps.google.com/maps?q=R26R%2B4X%20Kurnool,%20Andhra%20Pradesh%20Maya\'s%20Hospital'); alert('Map link copied to clipboard!');" class="action-btn flex-1 py-2 px-2 rounded-lg text-center font-bold text-[10px] shadow-sm flex items-center justify-center"><i class="fas fa-share-alt mr-1 text-blue-400"></i> Share</button>
+<div class="flex flex-col items-center md:items-start md:pl-6 border-t md:border-t-0 md:border-l border-slate-800 pt-6 md:pt-0">
+<div class="bg-white p-2.5 rounded-2xl shadow-md mb-3.5 flex items-center gap-2">
+<img src="" alt="Logo" class="dyn-logo h-14 object-contain">
 </div>
+<h4 class="text-xl font-extrabold text-white tracking-tight font-display">MAYA'S HOSPITAL</h4>
+<p class="text-xs text-rose-400 italic mb-3 font-semibold">The Healing Touch</p>
+<p class="text-xs sm:text-sm text-slate-300 leading-relaxed text-center md:text-left mb-4 font-body">Maddur Nagar, 3rd Lane, Behind Kakatiya Public School, Kurnool, Andhra Pradesh.</p>
+<button onclick="openFaviconModal()" class="bg-slate-800/90 hover:bg-rose-600 text-rose-300 hover:text-white border border-rose-500/40 px-4 py-2 rounded-xl text-xs font-bold transition flex items-center gap-2"><i class="fas fa-download"></i>Download Official Favicon Icon</button>
 </div>
-
-<!-- Column 2: Logo and Address -->
-<div class="flex flex-col items-center md:items-start md:pl-4 border-t md:border-t-0 md:border-l border-slate-700 pt-6 md:pt-0">
-<img src="" alt="Logo" class="dyn-logo h-16 mb-4 object-contain drop-shadow-md">
-<h4 class="text-xl font-extrabold text-white mb-1 tracking-tight text-center md:text-left">MAYA'S HOSPITAL</h4>
-<p class="text-[9px] text-primary font-bold italic mb-4 tracking-widest uppercase text-center md:text-left">The Healing Touch</p>
-<p class="text-[11px] text-slate-400 leading-relaxed font-medium text-center md:text-left">Maddur Nagar, 3rd Lane, Behind Kakatiya Public School, Kurnool, Andhra Pradesh.</p>
+<div class="flex flex-col md:pl-6 border-t md:border-t-0 md:border-l border-slate-800 pt-6 md:pt-0">
+<h4 class="text-sm font-extrabold text-white mb-3.5 uppercase tracking-wider flex items-center justify-center md:justify-start font-display"><i class="fas fa-headset text-primary mr-2"></i>Contact Us</h4>
+<div class="space-y-3 w-full max-w-sm mx-auto md:mx-0">
+<div class="flex items-center bg-slate-800/70 p-3.5 rounded-2xl border border-slate-700/70">
+<div class="bg-rose-500/20 text-rose-400 p-2.5 rounded-xl mr-3"><i class="fas fa-phone-alt text-sm"></i></div>
+<div><p class="text-[10px] font-bold text-slate-400 uppercase">Appointments</p><p class="text-xs sm:text-sm font-bold text-white">+91 <span class="dyn-phone1"></span>, +91 <span class="dyn-phone2"></span></p></div>
 </div>
-
-<!-- Column 3: Contact Details -->
-<div class="flex flex-col md:pl-4 border-t md:border-t-0 md:border-l border-slate-700 pt-6 md:pt-0">
-<h4 class="text-sm font-bold text-slate-200 mb-4 uppercase tracking-wide flex items-center justify-center md:justify-start"><i class="fas fa-headset text-primary mr-2"></i> Contact Us</h4>
-<div class="space-y-4 w-full max-w-xs mx-auto md:mx-0">
-<div class="flex items-center bg-slate-800/50 p-3 rounded-lg border border-slate-700/50">
-<div class="bg-slate-700 p-2 rounded mr-3 shadow-inner"><i class="fas fa-phone-alt text-primary text-sm"></i></div>
-<div><p class="text-[9px] font-bold text-slate-400 mb-0.5">Appointments</p><p class="text-xs font-bold text-white">+91 <span class="dyn-phone1"></span>, +91 <span class="dyn-phone2"></span></p></div>
+<div class="flex items-center bg-slate-800/70 p-3.5 rounded-2xl border border-slate-700/70">
+<div class="bg-rose-500/20 text-rose-400 p-2.5 rounded-xl mr-3"><i class="fas fa-tty text-sm"></i></div>
+<div><p class="text-[10px] font-bold text-slate-400 uppercase">Hospital Landline</p><p class="text-xs sm:text-sm font-bold text-white dyn-landline"></p></div>
 </div>
-<div class="flex items-center bg-slate-800/50 p-3 rounded-lg border border-slate-700/50">
-<div class="bg-slate-700 p-2 rounded mr-3 shadow-inner"><i class="fas fa-envelope text-primary text-sm"></i></div>
-<div><p class="text-[9px] font-bold text-slate-400 mb-0.5">Email Enquiry</p><p class="text-xs font-bold text-white dyn-email"></p></div>
+<div class="flex items-center bg-slate-800/70 p-3.5 rounded-2xl border border-slate-700/70">
+<div class="bg-rose-500/20 text-rose-400 p-2.5 rounded-xl mr-3"><i class="fas fa-envelope text-sm"></i></div>
+<div><p class="text-[10px] font-bold text-slate-400 uppercase">Email Enquiry</p><p class="text-xs sm:text-sm font-bold text-white dyn-email break-all"></p></div>
 </div>
 </div>
 </div>
 </div>
-
-<div class="mt-8 pt-4 border-t border-slate-800 text-center">
-<div class="text-[10px] text-slate-500 font-bold tracking-wide">
-&copy; 2026 Maya's Multispeciality Hospital, Kurnool. All Rights Reserved.
-</div>
-</div>
+<div class="mt-8 pt-5 border-t border-slate-800/80 text-center text-xs text-slate-400 font-semibold">&copy; 2026 Maya's Hospital, Kurnool. All Rights Reserved.</div>
 </div>
 </footer>
 
-<!-- CM025 - HTML Mobile Quick Actions -->
-<div class="mobile-nav fixed bottom-0 left-0 w-full md:hidden flex justify-around items-center p-1.5 z-50">
-<a href="#opd-info" class="flex flex-col items-center text-rose-600 p-1.5"><i class="fas fa-calendar-plus text-lg mb-0.5"></i><span class="text-[8px] font-extrabold uppercase">Appt.</span></a>
-<a href="#specialties" class="flex flex-col items-center text-slate-600 p-1.5"><i class="fas fa-stethoscope text-lg mb-0.5"></i><span class="text-[8px] font-extrabold uppercase">Specialty</span></a>
-<a href="#doctors" class="flex flex-col items-center text-slate-600 p-1.5"><i class="fas fa-user-md text-lg mb-0.5"></i><span class="text-[8px] font-extrabold uppercase">Doctors</span></a>
-<a href="https://maps.google.com/maps?q=R26R%2B4X%20Kurnool,%20Andhra%20Pradesh%20Maya's%20Hospital" target="_blank" class="flex flex-col items-center text-blue-600 p-1.5"><i class="fas fa-directions text-lg mb-0.5"></i><span class="text-[8px] font-extrabold uppercase">Location</span></a>
+<!-- CM028 - HTML Floating Widgets, Mobile Nav & Modals -->
+<div class="hidden md:flex fixed bottom-6 right-6 z-40 flex-col items-end gap-3">
+<button id="scrollTopBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})" class="opacity-0 pointer-events-none translate-y-4 transition-all duration-300 w-11 h-11 rounded-full bg-secondary text-white shadow-xl border border-slate-700 flex items-center justify-center hover:bg-primary"><i class="fas fa-arrow-up text-sm"></i></button>
+<a href="#opd-info" class="btn-modern pulse-glow-btn px-5 py-3 rounded-full shadow-glow flex items-center gap-2.5 text-xs sm:text-sm font-bold"><span class="w-2 h-2 rounded-full bg-white animate-ping"></span><i class="fas fa-phone-alt"></i><span>Book OP</span></a>
+</div>
+<div class="mobile-nav fixed bottom-0 left-0 w-full md:hidden flex justify-around items-center py-2 px-2 z-50">
+<a href="#opd-info" class="flex flex-col items-center text-primary p-1.5"><i class="fas fa-calendar-plus text-lg mb-0.5"></i><span class="text-[10px] font-bold uppercase">Appt.</span></a>
+<a href="#specialties" class="flex flex-col items-center text-slate-600 p-1.5"><i class="fas fa-stethoscope text-lg mb-0.5"></i><span class="text-[10px] font-bold uppercase">Specialty</span></a>
+<a href="#doctors" class="flex flex-col items-center text-slate-600 p-1.5"><i class="fas fa-user-md text-lg mb-0.5"></i><span class="text-[10px] font-bold uppercase">Doctors</span></a>
+<a href="https://maps.google.com/maps?q=R26R%2B4X%20Kurnool,%20Andhra%20Pradesh%20Maya's%20Hospital" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center text-sky-600 p-1.5"><i class="fas fa-directions text-lg mb-0.5"></i><span class="text-[10px] font-bold uppercase">Location</span></a>
+</div>
+<div id="lightbox-modal" class="fixed inset-0 bg-slate-950/90 backdrop-blur-md z-50 hidden items-center justify-center p-4" onclick="closeLightbox()">
+<button class="absolute top-5 right-5 w-11 h-11 rounded-full bg-white/10 text-white hover:bg-primary transition flex items-center justify-center text-lg" onclick="closeLightbox()"><i class="fas fa-times"></i></button>
+<img id="lightbox-img" src="" alt="Enlarged view" class="max-w-full max-h-[85vh] rounded-2xl shadow-2xl border-2 border-white/20 object-contain">
+</div>
+<div id="favicon-modal" class="fixed inset-0 bg-slate-950/85 backdrop-blur-md z-50 hidden items-center justify-center p-4" onclick="if(event.target===this)closeFaviconModal()">
+<div class="bg-white rounded-3xl max-w-sm w-full p-6 shadow-2xl border border-rose-100 text-center relative">
+<button onclick="closeFaviconModal()" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-slate-100 text-slate-600 hover:bg-rose-500 hover:text-white transition flex items-center justify-center text-xs"><i class="fas fa-times"></i></button>
+<span class="text-[10px] font-bold uppercase tracking-widest text-primary bg-rose-50 px-3 py-1 rounded-full">Brand Identity Asset</span>
+<h3 class="text-xl font-extrabold text-secondary mt-2 font-display">Maya's Hospital Favicon</h3>
+<p class="text-xs text-slate-500 mb-4">Browser tab preview &amp; high-resolution icon download</p>
+<div class="bg-slate-100 p-2.5 rounded-xl border border-slate-200 mb-4 flex items-center gap-2.5 max-w-[230px] mx-auto shadow-inner">
+<img src="" alt="Tab Icon" class="dyn-logo w-5 h-5 object-contain rounded-sm">
+<span class="text-xs font-bold text-slate-800 truncate">Maya's Hospital</span>
+<i class="fas fa-times text-[10px] text-slate-400 ml-auto"></i>
+</div>
+<div class="flex justify-center mb-5">
+<canvas id="favicon-canvas" width="256" height="256" class="w-28 h-28 rounded-2xl shadow-md border border-rose-200 bg-white"></canvas>
+</div>
+<div class="space-y-2.5">
+<button onclick="downloadGeneratedFavicon(512)" class="btn-modern w-full py-2.5 px-4 rounded-xl text-xs font-bold flex items-center justify-center gap-2"><i class="fas fa-download"></i>Download HD Favicon (PNG 512x512)</button>
+<button onclick="downloadGeneratedFavicon(64)" class="btn-outline-modern w-full py-2.5 px-4 rounded-xl text-xs font-bold flex items-center justify-center gap-2"><i class="fas fa-file-image text-primary"></i>Download Standard Favicon (64x64)</button>
+<a id="direct-logo-dl" href="https://pub-d1f3bed8e9594bb785e31511d12d7c00.r2.dev/Mayas-logo-fevicon.avif" target="_blank" download="Mayas-Hospital-Favicon.avif" class="block text-xs text-slate-500 hover:text-primary underline pt-1">Open Original Source File (.avif)</a>
+</div>
+</div>
+</div>
+<div id="custom-toast" class="fixed bottom-20 md:bottom-7 left-1/2 -translate-x-1/2 z-50 bg-secondary text-white px-5 py-2.5 rounded-full shadow-2xl border border-rose-500/40 flex items-center gap-2.5 text-xs font-bold opacity-0 pointer-events-none transition-all duration-300 translate-y-3">
+<i class="fas fa-check-circle text-emerald-400 text-sm"></i>
+<span id="custom-toast-msg">Map link copied to clipboard!</span>
 </div>
 
 <script>
-/* CM026 - JS Configuration Links & Data */
-const CONFIG = {
-doc1: "https://pub-d1f3bed8e9594bb785e31511d12d7c00.r2.dev/DR-SIDDHARTH-SIR.avif",
-doc2: "https://pub-d1f3bed8e9594bb785e31511d12d7c00.r2.dev/DR-ANNAPURNA-MEDAM.avif",
-doc3: "https://pub-d1f3bed8e9594bb785e31511d12d7c00.r2.dev/DR-MOUNIKA-MEDAM.avif",
-doc4: "https://pub-d1f3bed8e9594bb785e31511d12d7c00.r2.dev/DR-SWAMY-SIR.avif",
-img1: "https://pub-d1f3bed8e9594bb785e31511d12d7c00.r2.dev/MAYAS-IMG(1).jpeg",
-img2: "https://pub-d1f3bed8e9594bb785e31511d12d7c00.r2.dev/MAYAS-IMG(2).jpeg",
-img3: "https://pub-d1f3bed8e9594bb785e31511d12d7c00.r2.dev/MAYAS-IMG(3).jpeg",
-img4: "https://pub-d1f3bed8e9594bb785e31511d12d7c00.r2.dev/MAYAS-IMG(4).jpeg",
-img5: "https://pub-d1f3bed8e9594bb785e31511d12d7c00.r2.dev/MAYAS-IMG(5).jpeg",
-img6: "https://pub-d1f3bed8e9594bb785e31511d12d7c00.r2.dev/MAYAS-IMG(6).jpeg",
-img7: "https://pub-d1f3bed8e9594bb785e31511d12d7c00.r2.dev/MAYAS-IMG(7).jpeg",
-opRoom: "https://pub-d1f3bed8e9594bb785e31511d12d7c00.r2.dev/MAYAS-IMG(2).jpeg", /* Updated to OT Door pic as requested */
-wardRoom: "https://pub-d1f3bed8e9594bb785e31511d12d7c00.r2.dev/MAYAS-IMG(4).jpeg",
-corridor: "https://pub-d1f3bed8e9594bb785e31511d12d7c00.r2.dev/MAYAS-IMG(1).jpeg",
-logo: "https://pub-d1f3bed8e9594bb785e31511d12d7c00.r2.dev/Mayas-logo-fevicon.avif",
-phone1: "9866237227",
-phone2: "8500850028",
-landline: "08518-275507",
-email: "mayashospitals@gmail.com"
-};
+/* CM029 - JS Configuration Links & Data */
+const CONFIG={doc1:"https://pub-d1f3bed8e9594bb785e31511d12d7c00.r2.dev/DR-SIDDHARTH-SIR.avif",doc2:"https://pub-d1f3bed8e9594bb785e31511d12d7c00.r2.dev/DR-ANNAPURNA-MEDAM.avif",doc3:"https://pub-d1f3bed8e9594bb785e31511d12d7c00.r2.dev/DR-MOUNIKA-MEDAM.avif",doc4:"https://pub-d1f3bed8e9594bb785e31511d12d7c00.r2.dev/DR-SWAMY-SIR.avif",img1:"https://pub-d1f3bed8e9594bb785e31511d12d7c00.r2.dev/MAYAS-IMG(1).jpeg",img2:"https://pub-d1f3bed8e9594bb785e31511d12d7c00.r2.dev/MAYAS-IMG(2).jpeg",img3:"https://pub-d1f3bed8e9594bb785e31511d12d7c00.r2.dev/MAYAS-IMG(3).jpeg",img4:"https://pub-d1f3bed8e9594bb785e31511d12d7c00.r2.dev/MAYAS-IMG(4).jpeg",img5:"https://pub-d1f3bed8e9594bb785e31511d12d7c00.r2.dev/MAYAS-IMG(5).jpeg",img6:"https://pub-d1f3bed8e9594bb785e31511d12d7c00.r2.dev/MAYAS-IMG(6).jpeg",img7:"https://pub-d1f3bed8e9594bb785e31511d12d7c00.r2.dev/MAYAS-IMG(7).jpeg",opRoom:"https://pub-d1f3bed8e9594bb785e31511d12d7c00.r2.dev/MAYAS-IMG(2).jpeg",wardRoom:"https://pub-d1f3bed8e9594bb785e31511d12d7c00.r2.dev/MAYAS-IMG(4).jpeg",corridor:"https://pub-d1f3bed8e9594bb785e31511d12d7c00.r2.dev/MAYAS-IMG(1).jpeg",logo:"https://pub-d1f3bed8e9594bb785e31511d12d7c00.r2.dev/Mayas-logo-fevicon.avif",phone1:"9866237227",phone2:"8500850028",landline:"08518-275507",email:"mayashospitals@gmail.com"};
 
-/* CM027 - JS DOM Injection */
-window.onload=()=>{document.head.innerHTML+=`<link rel="icon" href="${CONFIG.logo}" type="image/avif">`;document.querySelectorAll(".dyn-logo").forEach(el=>el.src=CONFIG.logo);document.querySelectorAll(".dyn-img1").forEach(el=>el.src=CONFIG.img1);document.querySelectorAll(".dyn-img2").forEach(el=>el.src=CONFIG.img2);document.querySelectorAll(".dyn-img3").forEach(el=>el.src=CONFIG.img3);document.querySelectorAll(".dyn-img4").forEach(el=>el.src=CONFIG.img4);document.querySelectorAll(".dyn-img5").forEach(el=>el.src=CONFIG.img5);document.querySelectorAll(".dyn-img6").forEach(el=>el.src=CONFIG.img6);document.querySelectorAll(".dyn-img7").forEach(el=>el.src=CONFIG.img7);document.querySelector(".dyn-img-op").src=CONFIG.opRoom;document.querySelector(".dyn-img-ward").src=CONFIG.wardRoom;document.querySelector(".dyn-img-corridor").src=CONFIG.corridor;document.querySelector(".dyn-doc1").src=CONFIG.doc1;document.querySelector(".dyn-doc2").src=CONFIG.doc2;document.querySelector(".dyn-doc3").src=CONFIG.doc3;document.querySelector(".dyn-doc4").src=CONFIG.doc4;document.querySelectorAll(".dyn-phone1").forEach(el=>el.textContent=CONFIG.phone1);document.querySelectorAll(".dyn-phone2").forEach(el=>el.textContent=CONFIG.phone2);document.querySelectorAll(".dyn-landline").forEach(el=>el.textContent=CONFIG.landline);document.querySelectorAll(".dyn-email").forEach(el=>el.textContent=CONFIG.email);document.querySelectorAll(".call-action-btn").forEach(el=>el.href=`tel:${CONFIG.phone1}`);document.querySelectorAll(".call-action-btn2").forEach(el=>el.href=`tel:${CONFIG.phone2}`);};
+/* CM030 - JS DOM Injection & Initialization */
+window.onload=()=>{document.title="Maya's Hospital";const link=document.createElement('link');link.rel='icon';link.href=CONFIG.logo;link.type='image/avif';document.head.appendChild(link);const appleLink=document.createElement('link');appleLink.rel='apple-touch-icon';appleLink.href=CONFIG.logo;document.head.appendChild(appleLink);document.querySelectorAll(".dyn-logo").forEach(el=>el.src=CONFIG.logo);document.querySelectorAll(".dyn-img1").forEach(el=>el.src=CONFIG.img1);document.querySelectorAll(".dyn-img2").forEach(el=>el.src=CONFIG.img2);document.querySelectorAll(".dyn-img3").forEach(el=>el.src=CONFIG.img3);document.querySelectorAll(".dyn-img4").forEach(el=>el.src=CONFIG.img4);document.querySelectorAll(".dyn-img5").forEach(el=>el.src=CONFIG.img5);document.querySelectorAll(".dyn-img6").forEach(el=>el.src=CONFIG.img6);document.querySelectorAll(".dyn-img7").forEach(el=>el.src=CONFIG.img7);const opEl=document.querySelector(".dyn-img-op");if(opEl)opEl.src=CONFIG.opRoom;const wardEl=document.querySelector(".dyn-img-ward");if(wardEl)wardEl.src=CONFIG.wardRoom;const corridorEl=document.querySelector(".dyn-img-corridor");if(corridorEl)corridorEl.src=CONFIG.corridor;const doc1El=document.querySelector(".dyn-doc1");if(doc1El)doc1El.src=CONFIG.doc1;const doc2El=document.querySelector(".dyn-doc2");if(doc2El)doc2El.src=CONFIG.doc2;const doc3El=document.querySelector(".dyn-doc3");if(doc3El)doc3El.src=CONFIG.doc3;const doc4El=document.querySelector(".dyn-doc4");if(doc4El)doc4El.src=CONFIG.doc4;document.querySelectorAll(".dyn-phone1").forEach(el=>el.textContent=CONFIG.phone1);document.querySelectorAll(".dyn-phone2").forEach(el=>el.textContent=CONFIG.phone2);document.querySelectorAll(".dyn-landline").forEach(el=>el.textContent=CONFIG.landline);document.querySelectorAll(".dyn-email").forEach(el=>el.textContent=CONFIG.email);document.querySelectorAll(".call-action-btn").forEach(el=>el.href=`tel:${CONFIG.phone1}`);document.querySelectorAll(".call-action-btn2").forEach(el=>el.href=`tel:${CONFIG.phone2}`);initScrollAnimations();initCounters();renderFaviconCanvas();};
 
-/* CM028 - JS Mobile Menu Toggle */
-function toggleMobileMenu(){document.getElementById("mobile-menu").classList.toggle("hidden");}
+/* CM031 - JS Mobile Menu & Continuous Scroll Reveal Animations */
+function toggleMobileMenu(){const menu=document.getElementById("mobile-menu");const icon=document.getElementById("mobile-menu-icon");menu.classList.toggle("hidden");icon.classList.toggle("fa-bars");icon.classList.toggle("fa-times");}
+function initScrollAnimations(){const els=document.querySelectorAll('.reveal,.reveal-left,.reveal-right,.reveal-scale');const obs=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('active');}else if(e.boundingClientRect.top>0){e.target.classList.remove('active');}});},{threshold:0.1,rootMargin:'0px 0px -20px 0px'});els.forEach(el=>obs.observe(el));}
 
+/* CM032 - JS Animated Counters & Scroll Progress */
+function initCounters(){const counters=document.querySelectorAll('.counter');const obs=new IntersectionObserver((entries)=>{entries.forEach(e=>{const el=e.target;if(e.isIntersecting){const target=parseInt(el.getAttribute('data-target'),10);let cur=0;const inc=Math.max(1,Math.ceil(target/35));clearInterval(el._timer);el._timer=setInterval(()=>{cur+=inc;if(cur>=target){el.textContent=target;clearInterval(el._timer);}else{el.textContent=cur;}},30);}else{el.textContent='0';}});},{threshold:0.35});counters.forEach(c=>obs.observe(c));}
+window.addEventListener('scroll',()=>{const st=window.scrollY;const dh=document.documentElement.scrollHeight-window.innerHeight;const bar=document.getElementById('scroll-progress');if(bar)bar.style.width=`${dh>0?(st/dh)*100:0}%`;const btn=document.getElementById('scrollTopBtn');if(btn){if(st>350){btn.classList.remove('opacity-0','pointer-events-none','translate-y-4');}else{btn.classList.add('opacity-0','pointer-events-none','translate-y-4');}}});
+
+/* CM033 - JS Specialties Filter, FAQ & Lightbox */
+function filterSpecialties(cat,btn){document.querySelectorAll('.spec-filter-btn').forEach(b=>b.className='spec-filter-btn bg-slate-100 hover:bg-rose-50 text-slate-700 text-xs sm:text-sm font-bold px-4 py-2 rounded-full transition');btn.className='spec-filter-btn bg-primary text-white text-xs sm:text-sm font-bold px-4 py-2 rounded-full shadow-md transition';document.querySelectorAll('#specialties-grid .specialty-card').forEach(c=>{c.style.display=(cat==='all'||c.getAttribute('data-category')===cat)?'flex':'none';});}
+function toggleFaq(btn){btn.nextElementSibling.classList.toggle('hidden');btn.querySelector('i').classList.toggle('rotate-180');}
+function openLightbox(src){if(!src)return;const m=document.getElementById('lightbox-modal');document.getElementById('lightbox-img').src=src;m.classList.remove('hidden');m.classList.add('flex');}
+function closeLightbox(){const m=document.getElementById('lightbox-modal');m.classList.add('hidden');m.classList.remove('flex');}
+
+/* CM034 - JS Clipboard Share & High-Res Favicon Icon Downloader */
+function showToast(msg){const t=document.getElementById('custom-toast');document.getElementById('custom-toast-msg').textContent=msg;t.classList.remove('opacity-0','pointer-events-none','translate-y-3');setTimeout(()=>t.classList.add('opacity-0','pointer-events-none','translate-y-3'),2800);}
+function copyMapLink(){const url="https://maps.google.com/maps?q=R26R%2B4X%20Kurnool,%20Andhra%20Pradesh%20Maya's%20Hospital";const ta=document.createElement("textarea");ta.value=url;document.body.appendChild(ta);ta.select();try{document.execCommand("copy");}catch(e){}document.body.removeChild(ta);showToast("Map link copied to clipboard!");}
+function openFaviconModal(){const m=document.getElementById('favicon-modal');m.classList.remove('hidden');m.classList.add('flex');renderFaviconCanvas();}
+function closeFaviconModal(){const m=document.getElementById('favicon-modal');m.classList.add('hidden');m.classList.remove('flex');}
+function renderFaviconCanvas(){const c=document.getElementById('favicon-canvas');if(!c)return;const ctx=c.getContext('2d');ctx.clearRect(0,0,256,256);const grad=ctx.createLinearGradient(0,0,256,256);grad.addColorStop(0,'#fff1f2');grad.addColorStop(1,'#ffffff');ctx.fillStyle=grad;ctx.beginPath();ctx.roundRect(8,8,240,240,48);ctx.fill();ctx.lineWidth=6;ctx.strokeStyle='#f43f5e';ctx.stroke();const img=new Image();img.crossOrigin="anonymous";img.onload=()=>{ctx.drawImage(img,28,28,200,200);};img.onerror=()=>{ctx.fillStyle='#e11d48';ctx.font='bold 110px Montserrat, sans-serif';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText('M',128,122);ctx.font='bold 22px Poppins, sans-serif';ctx.fillText('MAYA HOSPITAL',128,205);};img.src=CONFIG.logo;}
+function downloadGeneratedFavicon(size){const out=document.createElement('canvas');out.width=size;out.height=size;const ctx=out.getContext('2d');const srcCanvas=document.getElementById('favicon-canvas');ctx.drawImage(srcCanvas,0,0,size,size);try{const dataUrl=out.toDataURL('image/png');const a=document.createElement('a');a.href=dataUrl;a.download=`Mayas-Hospital-Favicon-${size}x${size}.png`;document.body.appendChild(a);a.click();document.body.removeChild(a);showToast(`Favicon (${size}x${size} PNG) downloaded!`);}catch(e){window.open(CONFIG.logo,'_blank');showToast("Opened original Favicon image for download!");}}
 </script>
 </body>
 </html>
