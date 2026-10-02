@@ -129,11 +129,14 @@ body{font-family:'Poppins',sans-serif;color:#1e293b;background-color:#f8fafc;ove
 .footer-bg{background:linear-gradient(180deg,#0f172a 0%,#090d16 100%);border-top:4px solid #e11d48;}
 .map-container{height:200px;width:100%;border-radius:1rem;overflow:hidden;border:1px solid #334155;}
 .mobile-nav{box-shadow:0 -8px 28px rgba(15,23,42,0.12);background:rgba(255,255,255,0.96);backdrop-filter:blur(12px);border-top:1px solid #f1f5f9;}
+
+/* CM014 - CSS PWA Install Modal */
+.install-modal-overlay{background:rgba(15,23,42,0.85);backdrop-filter:blur(8px);}
 </style>
 </head>
 <body class="antialiased selection:bg-rose-100 selection:text-rose-700">
 
-<!-- CM014 - HTML Top Scroll Progress Bar & Top Bar -->
+<!-- CM015 - HTML Top Scroll Progress Bar & Top Bar -->
 <div id="scroll-progress"></div>
 <div class="bg-secondary text-slate-200 hidden md:block border-b border-slate-800 text-xs">
 <div class="container mx-auto max-w-7xl py-2.5 px-6 flex justify-between items-center">
@@ -150,13 +153,13 @@ body{font-family:'Poppins',sans-serif;color:#1e293b;background-color:#f8fafc;ove
 <span class="mx-1.5 text-slate-500">/</span>
 <a href="#" class="call-action-btn2 hover:text-rose-400 transition"><span class="dyn-phone2"></span></a>
 </div>
-<button onclick="openFaviconModal()" class="bg-slate-800 hover:bg-slate-700 text-rose-300 border border-rose-500/40 font-semibold px-3 py-1 rounded-full transition flex items-center text-xs" title="Preview & Download Favicon"><i class="fas fa-download mr-1.5"></i>Favicon</button>
+<button onclick="installPWAApp()" class="bg-slate-800 hover:bg-rose-600 text-rose-300 hover:text-white border border-rose-500/40 font-semibold px-3 py-1 rounded-full transition flex items-center text-xs" title="Install App to Home Screen"><i class="fas fa-download mr-1.5"></i>Install App</button>
 <a href="#opd-info" class="bg-gradient-to-r from-rose-500 to-rose-600 hover:from-rose-600 hover:to-rose-700 text-white font-bold px-4 py-1 rounded-full transition flex items-center text-xs shadow-sm"><i class="fas fa-headset mr-1.5"></i>Call Appointment</a>
 </div>
 </div>
 </div>
 
-<!-- CM015 - HTML Glass Header & Navigation -->
+<!-- CM016 - HTML Glass Header & Navigation -->
 <header id="main-header" class="w-full bg-white/95 backdrop-blur-md border-b border-slate-100 sticky top-0 z-40 transition-all duration-300 shadow-sm">
 <div class="container mx-auto max-w-7xl px-4 sm:px-6 py-3.5 flex justify-between items-center">
 <a href="#" class="flex items-center space-x-3.5 group">
@@ -190,12 +193,12 @@ body{font-family:'Poppins',sans-serif;color:#1e293b;background-color:#f8fafc;ove
 <a href="#doctors" class="p-3 rounded-xl text-sm font-bold text-secondary hover:bg-rose-50 flex items-center justify-between" onclick="toggleMobileMenu()"><span><i class="fas fa-user-md w-6 text-primary"></i>Consult Doctors</span><i class="fas fa-chevron-right text-xs text-slate-300"></i></a>
 <a href="#specialties" class="p-3 rounded-xl text-sm font-bold text-secondary hover:bg-rose-50 flex items-center justify-between" onclick="toggleMobileMenu()"><span><i class="fas fa-stethoscope w-6 text-primary"></i>Specialties</span><i class="fas fa-chevron-right text-xs text-slate-300"></i></a>
 <a href="#insurance" class="p-3 rounded-xl text-sm font-bold text-secondary hover:bg-rose-50 flex items-center justify-between" onclick="toggleMobileMenu()"><span><i class="fas fa-shield-alt w-6 text-primary"></i>Insurance &amp; TPA</span><i class="fas fa-chevron-right text-xs text-slate-300"></i></a>
-<button onclick="toggleMobileMenu();openFaviconModal();" class="p-3 rounded-xl text-sm font-bold text-rose-600 bg-rose-50/80 flex items-center justify-between"><span><i class="fas fa-download w-6 text-primary"></i>Download Favicon Icon</span><i class="fas fa-sparkles text-xs"></i></button>
+<button onclick="toggleMobileMenu();installPWAApp();" class="p-3 rounded-xl text-sm font-bold text-rose-600 bg-rose-50/80 flex items-center justify-between"><span><i class="fas fa-download w-6 text-primary"></i>Install Mobile App</span><i class="fas fa-sparkles text-xs"></i></button>
 <a href="#opd-info" class="btn-modern p-3.5 rounded-xl text-sm text-center font-bold text-white flex items-center justify-center" onclick="toggleMobileMenu()"><i class="fas fa-calendar-check mr-2"></i>Book Appointment</a>
 </div>
 </header>
 
-<!-- CM016 - HTML Hero Section -->
+<!-- CM017 - HTML Hero Section -->
 <section id="home" class="pt-8 pb-16 md:pt-14 md:pb-24 bg-gradient-to-br from-rose-50/80 via-white to-slate-50 relative overflow-hidden">
 <div class="ambient-blob absolute -top-20 -left-20 w-80 h-80 bg-rose-200/45 rounded-full blur-3xl pointer-events-none"></div>
 <div class="ambient-blob-delayed absolute top-1/4 -right-24 w-96 h-96 bg-pink-200/40 rounded-full blur-3xl pointer-events-none"></div>
@@ -211,9 +214,14 @@ body{font-family:'Poppins',sans-serif;color:#1e293b;background-color:#f8fafc;ove
 Advanced Medical Care,<br>
 <span class="animated-gradient-text">Exceptional Healing</span>
 </h2>
-<p class="text-slate-600 text-sm sm:text-base mb-8 max-w-xl mx-auto lg:mx-0 font-normal leading-relaxed font-body">
+<p class="text-slate-600 text-sm sm:text-base mb-6 max-w-xl mx-auto lg:mx-0 font-normal leading-relaxed font-body">
 Providing state-of-the-art technology, precision surgery, and compassionate patient care under one roof in Kurnool. Specialized excellence in <strong class="text-secondary font-semibold">Dermatology, Plastic &amp; Cosmetic Surgery, Obstetrics &amp; Gynecology, and Aesthetic Medicine</strong>.
 </p>
+<div class="flex flex-wrap gap-2.5 justify-center lg:justify-start mb-8">
+<span class="bg-rose-50 text-rose-700 border border-rose-200 px-3.5 py-1.5 rounded-full text-[11px] sm:text-xs font-bold shadow-sm flex items-center"><i class="fas fa-users mr-1.5 text-primary"></i>Treated 10,000+ Patients</span>
+<span class="bg-rose-50 text-rose-700 border border-rose-200 px-3.5 py-1.5 rounded-full text-[11px] sm:text-xs font-bold shadow-sm flex items-center"><i class="fas fa-user-md mr-1.5 text-primary"></i>1000+ Hair Transplants</span>
+<span class="bg-rose-50 text-rose-700 border border-rose-200 px-3.5 py-1.5 rounded-full text-[11px] sm:text-xs font-bold shadow-sm flex items-center"><i class="fas fa-baby mr-1.5 text-primary"></i>24/7 Maternity Services</span>
+</div>
 <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 mb-8">
 <a href="#opd-info" class="btn-modern pulse-glow-btn px-8 py-3.5 rounded-full font-bold text-sm flex items-center justify-center"><i class="fas fa-calendar-check mr-2.5 text-base"></i>Book Your Consultation</a>
 <a href="#specialties" class="btn-outline-modern px-8 py-3.5 rounded-full font-bold text-sm flex items-center justify-center"><i class="fas fa-stethoscope mr-2.5 text-primary text-base"></i>Explore Our Services</a>
@@ -236,7 +244,7 @@ Providing state-of-the-art technology, precision surgery, and compassionate pati
 <div class="lg:w-1/2 w-full relative reveal-right">
 <div class="float-badge hidden sm:flex absolute -top-5 -left-5 z-20 bg-white/95 backdrop-blur-md px-4 py-2.5 rounded-2xl shadow-xl border border-rose-100 items-center gap-3">
 <div class="w-10 h-10 rounded-xl bg-emerald-500 text-white flex items-center justify-center text-base shadow"><i class="fas fa-heartbeat"></i></div>
-<div><p class="text-xs font-extrabold text-secondary">24/7 ICU &amp; Emergency</p><p class="text-[11px] text-slate-500 font-medium">50 Beds Multispeciality</p></div>
+<div><p class="text-xs font-extrabold text-secondary">24/7 ICU &amp; Emergency</p><p class="text-[11px] text-primary font-bold">Maternity Services 24/7</p></div>
 </div>
 <div class="float-badge-delayed hidden sm:flex absolute -bottom-5 -right-4 z-20 bg-white/95 backdrop-blur-md px-4 py-2.5 rounded-2xl shadow-xl border border-rose-100 items-center gap-3">
 <div class="w-10 h-10 rounded-xl bg-primary text-white flex items-center justify-center text-base shadow"><i class="fas fa-award"></i></div>
@@ -265,7 +273,7 @@ Providing state-of-the-art technology, precision surgery, and compassionate pati
 </div>
 </section>
 
-<!-- CM017 - HTML Highlights Counter Section -->
+<!-- CM018 - HTML Highlights Counter Section -->
 <section class="container mx-auto max-w-6xl px-4 sm:px-6 relative z-20 -mt-10 mb-6 reveal-scale">
 <div class="highlight-box py-6 px-6 sm:px-10 border-4 border-white">
 <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center divide-y md:divide-y-0 md:divide-x divide-slate-700/80">
@@ -293,7 +301,7 @@ Providing state-of-the-art technology, precision surgery, and compassionate pati
 </div>
 </section>
 
-<!-- CM018 - HTML About History Section -->
+<!-- CM019 - HTML About History Section -->
 <section id="about" class="py-14 lg:py-20 bg-white border-b border-slate-100">
 <div class="container mx-auto px-4 sm:px-6 max-w-7xl">
 <div class="flex flex-col lg:flex-row gap-10 lg:gap-14 items-center">
@@ -337,7 +345,7 @@ Providing state-of-the-art technology, precision surgery, and compassionate pati
 </div>
 </section>
 
-<!-- CM019 - HTML Why Choose Us Strip -->
+<!-- CM020 - HTML Why Choose Us Strip -->
 <section class="py-14 bg-slate-900 text-white relative overflow-hidden">
 <div class="container mx-auto px-4 sm:px-6 max-w-7xl relative z-10">
 <div class="text-center max-w-2xl mx-auto mb-10 reveal">
@@ -370,7 +378,7 @@ Providing state-of-the-art technology, precision surgery, and compassionate pati
 </div>
 </section>
 
-<!-- CM020 - HTML Doctors Consult Section -->
+<!-- CM021 - HTML Doctors Consult Section -->
 <section id="doctors" class="py-16 lg:py-20 bg-slate-50 border-b border-slate-200/80">
 <div class="container mx-auto px-4 sm:px-6 max-w-7xl">
 <div class="mb-12 text-center reveal">
@@ -459,7 +467,7 @@ Providing state-of-the-art technology, precision surgery, and compassionate pati
 </div>
 </section>
 
-<!-- CM021 - HTML Comprehensive Specialties Grid -->
+<!-- CM022 - HTML Comprehensive Specialties Grid -->
 <section id="specialties" class="py-16 lg:py-20 bg-white border-b border-slate-100">
 <div class="container mx-auto px-4 sm:px-6 max-w-7xl">
 <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4 reveal">
@@ -542,7 +550,7 @@ Providing state-of-the-art technology, precision surgery, and compassionate pati
 </div>
 </section>
 
-<!-- CM022 - HTML How We Work / Patient Journey Section (Reference Hospital Feature) -->
+<!-- CM023 - HTML How We Work / Patient Journey Section (Reference Hospital Feature) -->
 <section id="workflow" class="py-16 bg-gradient-to-b from-rose-50/50 to-white border-b border-slate-100">
 <div class="container mx-auto px-4 sm:px-6 max-w-7xl">
 <div class="text-center max-w-2xl mx-auto mb-12 reveal">
@@ -575,7 +583,7 @@ Providing state-of-the-art technology, precision surgery, and compassionate pati
 </div>
 </section>
 
-<!-- CM023 - HTML OPD Help Desk & Timings Section -->
+<!-- CM024 - HTML OPD Help Desk & Timings Section -->
 <section id="opd-info" class="py-16 bg-slate-100 border-b border-slate-200">
 <div class="container mx-auto px-4 sm:px-6 max-w-7xl">
 <div class="grid grid-cols-1 lg:grid-cols-3 gap-7 items-stretch">
@@ -618,7 +626,7 @@ Providing state-of-the-art technology, precision surgery, and compassionate pati
 </div>
 </section>
 
-<!-- CM024 - HTML Insurance & TPA Partners Grid -->
+<!-- CM025 - HTML Insurance & TPA Partners Grid -->
 <section id="insurance" class="py-16 bg-white border-b border-slate-100">
 <div class="container mx-auto px-4 sm:px-6 max-w-7xl text-center">
 <div class="reveal mb-10">
@@ -643,7 +651,7 @@ Providing state-of-the-art technology, precision surgery, and compassionate pati
 </div>
 </section>
 
-<!-- CM025 - HTML Hospital Environment Gallery Slider -->
+<!-- CM026 - HTML Hospital Environment Gallery Slider -->
 <section class="py-14 bg-slate-50 border-b border-slate-200">
 <div class="container mx-auto px-4 text-center mb-6 reveal">
 <span class="text-primary font-bold uppercase tracking-widest text-xs bg-rose-50 border border-rose-200 px-3.5 py-1 rounded-full">Visual Tour</span>
@@ -669,7 +677,7 @@ Providing state-of-the-art technology, precision surgery, and compassionate pati
 </div>
 </section>
 
-<!-- CM026 - HTML Interactive FAQ Section -->
+<!-- CM027 - HTML Interactive FAQ Section -->
 <section class="py-16 bg-white border-b border-slate-100">
 <div class="container mx-auto px-4 sm:px-6 max-w-4xl">
 <div class="text-center mb-10 reveal">
@@ -693,18 +701,18 @@ Providing state-of-the-art technology, precision surgery, and compassionate pati
 </div>
 </section>
 
-<!-- CM027 - HTML Footer, Map & Favicon Studio Trigger -->
+<!-- CM028 - HTML Footer, Specialties, Map & Install Trigger -->
 <footer id="contact" class="footer-bg text-white pt-14 pb-24 md:pb-10 relative z-10">
 <div class="container mx-auto px-4 sm:px-6 max-w-7xl">
-<div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8 items-start">
 <div class="flex flex-col">
-<h4 class="text-sm font-extrabold text-white mb-3.5 uppercase tracking-wider flex items-center font-display"><i class="fas fa-map-marker-alt text-primary mr-2"></i>Hospital Location</h4>
+<h4 class="text-sm font-extrabold text-white mb-3.5 uppercase tracking-wider flex items-center font-display"><i class="fas fa-map-marker-alt text-primary mr-2"></i>Location</h4>
 <div class="bg-slate-800/90 p-2 rounded-2xl border border-slate-700 mb-3">
 <div class="map-container"><iframe src="https://maps.google.com/maps?q=R26R%2B4X%20Kurnool,%20Andhra%20Pradesh%20Maya's%20Hospital%20%E0%B0%AE%E0%B0%BE%E0%B0%AF%E0%B0%BE%E0%B0%B8%E0%B1%8D%20%E0%B0%AE%E0%B1%86%E0%B0%9F%E0%B0%B0%E0%B1%8D%E0%B0%A8%E0%B0%BF%E0%B0%9F%E0%B1%80%20%26%20%E0%B0%87%E0%B0%A8%E0%B1%8F%E0%B0%AB%E0%B1%86%E0%B0%B0%E0%B1%8D%E0%B0%9F%E0%B0%BF%E0%B0%B2%E0%B0%BF%E0%B0%9F%E0%B1%80%20%E0%B0%B8%E0%B1%86%E0%B0%82%E0%B0%9F%E0%B0%B0%E0%B1%8D&t=&z=16&ie=UTF8&iwloc=&output=embed" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
 </div>
-<div class="flex gap-3 w-full">
-<a href="https://maps.google.com/maps?q=R26R%2B4X%20Kurnool,%20Andhra%20Pradesh%20Maya's%20Hospital" target="_blank" rel="noopener noreferrer" class="bg-slate-800 hover:bg-primary border border-slate-700 transition flex-1 py-2.5 px-3 rounded-xl text-center font-bold text-xs flex items-center justify-center"><i class="fas fa-directions mr-1.5 text-rose-400"></i>Get Directions</a>
-<button onclick="copyMapLink()" class="bg-slate-800 hover:bg-primary border border-slate-700 transition flex-1 py-2.5 px-3 rounded-xl text-center font-bold text-xs flex items-center justify-center"><i class="fas fa-share-alt mr-1.5 text-sky-400"></i>Share Location</button>
+<div class="flex gap-2 w-full">
+<a href="https://maps.google.com/maps?q=R26R%2B4X%20Kurnool,%20Andhra%20Pradesh%20Maya's%20Hospital" target="_blank" rel="noopener noreferrer" class="bg-slate-800 hover:bg-primary border border-slate-700 transition flex-1 py-2.5 px-2 rounded-xl text-center font-bold text-[11px] flex items-center justify-center"><i class="fas fa-directions mr-1.5 text-rose-400"></i>Directions</a>
+<button onclick="copyMapLink()" class="bg-slate-800 hover:bg-primary border border-slate-700 transition flex-1 py-2.5 px-2 rounded-xl text-center font-bold text-[11px] flex items-center justify-center"><i class="fas fa-share-alt mr-1.5 text-sky-400"></i>Share</button>
 </div>
 </div>
 <div class="flex flex-col items-center md:items-start md:pl-6 border-t md:border-t-0 md:border-l border-slate-800 pt-6 md:pt-0">
@@ -714,7 +722,18 @@ Providing state-of-the-art technology, precision surgery, and compassionate pati
 <h4 class="text-xl font-extrabold text-white tracking-tight font-display">MAYA'S HOSPITAL</h4>
 <p class="text-xs text-rose-400 italic mb-3 font-semibold">The Healing Touch</p>
 <p class="text-xs sm:text-sm text-slate-300 leading-relaxed text-center md:text-left mb-4 font-body">Maddur Nagar, 3rd Lane, Behind Kakatiya Public School, Kurnool, Andhra Pradesh.</p>
-<button onclick="openFaviconModal()" class="bg-slate-800/90 hover:bg-rose-600 text-rose-300 hover:text-white border border-rose-500/40 px-4 py-2 rounded-xl text-xs font-bold transition flex items-center gap-2"><i class="fas fa-download"></i>Download Official Favicon Icon</button>
+<button onclick="installPWAApp()" class="bg-slate-800/90 hover:bg-rose-600 text-rose-300 hover:text-white border border-rose-500/40 px-4 py-2 rounded-xl text-xs font-bold transition flex items-center gap-2"><i class="fas fa-mobile-alt"></i>Install Mobile App</button>
+</div>
+<div class="flex flex-col md:pl-6 border-t md:border-t-0 md:border-l border-slate-800 pt-6 md:pt-0">
+<h4 class="text-sm font-extrabold text-white mb-3.5 uppercase tracking-wider flex items-center justify-center md:justify-start font-display"><i class="fas fa-stethoscope text-primary mr-2"></i>Our Specialties</h4>
+<ul class="text-slate-400 text-xs sm:text-sm space-y-2.5 font-medium text-center md:text-left">
+<li><a href="#specialties" class="hover:text-rose-400 transition">Dermatology &amp; Hair Transplant</a></li>
+<li><a href="#specialties" class="hover:text-rose-400 transition">Plastic &amp; Aesthetic Surgery</a></li>
+<li><a href="#specialties" class="hover:text-rose-400 transition">Obstetrics &amp; Gynecology</a></li>
+<li><a href="#specialties" class="hover:text-rose-400 transition">Reconstructive Surgery</a></li>
+<li><a href="#specialties" class="hover:text-rose-400 transition">Advanced Lab Diagnostics</a></li>
+<li><a href="#specialties" class="hover:text-rose-400 transition">24/7 Maternity Services</a></li>
+</ul>
 </div>
 <div class="flex flex-col md:pl-6 border-t md:border-t-0 md:border-l border-slate-800 pt-6 md:pt-0">
 <h4 class="text-sm font-extrabold text-white mb-3.5 uppercase tracking-wider flex items-center justify-center md:justify-start font-display"><i class="fas fa-headset text-primary mr-2"></i>Contact Us</h4>
@@ -738,7 +757,7 @@ Providing state-of-the-art technology, precision surgery, and compassionate pati
 </div>
 </footer>
 
-<!-- CM028 - HTML Floating Widgets, Mobile Nav & Modals -->
+<!-- CM029 - HTML Floating Widgets & Mobile Nav -->
 <div class="hidden md:flex fixed bottom-6 right-6 z-40 flex-col items-end gap-3">
 <button id="scrollTopBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})" class="opacity-0 pointer-events-none translate-y-4 transition-all duration-300 w-11 h-11 rounded-full bg-secondary text-white shadow-xl border border-slate-700 flex items-center justify-center hover:bg-primary"><i class="fas fa-arrow-up text-sm"></i></button>
 <a href="#opd-info" class="btn-modern pulse-glow-btn px-5 py-3 rounded-full shadow-glow flex items-center gap-2.5 text-xs sm:text-sm font-bold"><span class="w-2 h-2 rounded-full bg-white animate-ping"></span><i class="fas fa-phone-alt"></i><span>Book OP</span></a>
@@ -749,64 +768,68 @@ Providing state-of-the-art technology, precision surgery, and compassionate pati
 <a href="#doctors" class="flex flex-col items-center text-slate-600 p-1.5"><i class="fas fa-user-md text-lg mb-0.5"></i><span class="text-[10px] font-bold uppercase">Doctors</span></a>
 <a href="https://maps.google.com/maps?q=R26R%2B4X%20Kurnool,%20Andhra%20Pradesh%20Maya's%20Hospital" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center text-sky-600 p-1.5"><i class="fas fa-directions text-lg mb-0.5"></i><span class="text-[10px] font-bold uppercase">Location</span></a>
 </div>
+
+<!-- CM030 - HTML Lightbox Modal -->
 <div id="lightbox-modal" class="fixed inset-0 bg-slate-950/90 backdrop-blur-md z-50 hidden items-center justify-center p-4" onclick="closeLightbox()">
 <button class="absolute top-5 right-5 w-11 h-11 rounded-full bg-white/10 text-white hover:bg-primary transition flex items-center justify-center text-lg" onclick="closeLightbox()"><i class="fas fa-times"></i></button>
 <img id="lightbox-img" src="" alt="Enlarged view" class="max-w-full max-h-[85vh] rounded-2xl shadow-2xl border-2 border-white/20 object-contain">
 </div>
-<div id="favicon-modal" class="fixed inset-0 bg-slate-950/85 backdrop-blur-md z-50 hidden items-center justify-center p-4" onclick="if(event.target===this)closeFaviconModal()">
+
+<!-- CM031 - HTML PWA Install Modal -->
+<div id="install-modal" class="fixed inset-0 install-modal-overlay z-50 hidden items-center justify-center p-4" onclick="if(event.target===this)closeInstallModal()">
 <div class="bg-white rounded-3xl max-w-sm w-full p-6 shadow-2xl border border-rose-100 text-center relative">
-<button onclick="closeFaviconModal()" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-slate-100 text-slate-600 hover:bg-rose-500 hover:text-white transition flex items-center justify-center text-xs"><i class="fas fa-times"></i></button>
-<span class="text-[10px] font-bold uppercase tracking-widest text-primary bg-rose-50 px-3 py-1 rounded-full">Brand Identity Asset</span>
-<h3 class="text-xl font-extrabold text-secondary mt-2 font-display">Maya's Hospital Favicon</h3>
-<p class="text-xs text-slate-500 mb-4">Browser tab preview &amp; high-resolution icon download</p>
-<div class="bg-slate-100 p-2.5 rounded-xl border border-slate-200 mb-4 flex items-center gap-2.5 max-w-[230px] mx-auto shadow-inner">
-<img src="" alt="Tab Icon" class="dyn-logo w-5 h-5 object-contain rounded-sm">
-<span class="text-xs font-bold text-slate-800 truncate">Maya's Hospital</span>
-<i class="fas fa-times text-[10px] text-slate-400 ml-auto"></i>
+<button onclick="closeInstallModal()" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-slate-100 text-slate-600 hover:bg-rose-500 hover:text-white transition flex items-center justify-center text-xs"><i class="fas fa-times"></i></button>
+<div class="bg-rose-100 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 border border-rose-200"><img src="" alt="App Icon" class="dyn-logo w-10 h-10 object-contain"></div>
+<h3 class="text-xl font-extrabold text-secondary mt-2 font-display">Install Maya's Hospital App</h3>
+<p class="text-xs text-slate-500 mb-5 mt-2">Get quick access to appointments, specialties, and hospital location directly from your home screen.</p>
+<div class="bg-slate-50 p-4 rounded-xl border border-slate-200 text-left space-y-3 mb-5">
+<p class="text-sm font-bold text-slate-700 flex items-center"><i class="fab fa-apple text-xl mr-3 text-slate-400"></i>For iPhone (Safari):</p>
+<ul class="text-xs text-slate-600 space-y-1.5 pl-8 list-decimal"><li>Tap the <strong>Share</strong> icon at the bottom.</li><li>Scroll down and select <strong>"Add to Home Screen"</strong>.</li></ul>
+<div class="border-t border-slate-200 my-2"></div>
+<p class="text-sm font-bold text-slate-700 flex items-center"><i class="fab fa-android text-xl mr-3 text-emerald-500"></i>For Android (Chrome):</p>
+<ul class="text-xs text-slate-600 space-y-1.5 pl-8 list-decimal"><li>Tap the <strong>Menu (3 dots)</strong> at the top right.</li><li>Select <strong>"Install App"</strong> or <strong>"Add to Home Screen"</strong>.</li></ul>
 </div>
-<div class="flex justify-center mb-5">
-<canvas id="favicon-canvas" width="256" height="256" class="w-28 h-28 rounded-2xl shadow-md border border-rose-200 bg-white"></canvas>
-</div>
-<div class="space-y-2.5">
-<button onclick="downloadGeneratedFavicon(512)" class="btn-modern w-full py-2.5 px-4 rounded-xl text-xs font-bold flex items-center justify-center gap-2"><i class="fas fa-download"></i>Download HD Favicon (PNG 512x512)</button>
-<button onclick="downloadGeneratedFavicon(64)" class="btn-outline-modern w-full py-2.5 px-4 rounded-xl text-xs font-bold flex items-center justify-center gap-2"><i class="fas fa-file-image text-primary"></i>Download Standard Favicon (64x64)</button>
-<a id="direct-logo-dl" href="https://pub-d1f3bed8e9594bb785e31511d12d7c00.r2.dev/Mayas-logo-fevicon.avif" target="_blank" download="Mayas-Hospital-Favicon.avif" class="block text-xs text-slate-500 hover:text-primary underline pt-1">Open Original Source File (.avif)</a>
+<button onclick="closeInstallModal()" class="btn-modern w-full py-3 px-4 rounded-xl text-sm font-bold">Got it, Thanks!</button>
 </div>
 </div>
-</div>
+
+<!-- CM032 - HTML Toast Notification -->
 <div id="custom-toast" class="fixed bottom-20 md:bottom-7 left-1/2 -translate-x-1/2 z-50 bg-secondary text-white px-5 py-2.5 rounded-full shadow-2xl border border-rose-500/40 flex items-center gap-2.5 text-xs font-bold opacity-0 pointer-events-none transition-all duration-300 translate-y-3">
 <i class="fas fa-check-circle text-emerald-400 text-sm"></i>
 <span id="custom-toast-msg">Map link copied to clipboard!</span>
 </div>
 
 <script>
-/* CM029 - JS Configuration Links & Data */
+/* CM033 - JS Configuration Links & Data */
 const CONFIG={doc1:"https://pub-d1f3bed8e9594bb785e31511d12d7c00.r2.dev/DR-SIDDHARTH-SIR.avif",doc2:"https://pub-d1f3bed8e9594bb785e31511d12d7c00.r2.dev/DR-ANNAPURNA-MEDAM.avif",doc3:"https://pub-d1f3bed8e9594bb785e31511d12d7c00.r2.dev/DR-MOUNIKA-MEDAM.avif",doc4:"https://pub-d1f3bed8e9594bb785e31511d12d7c00.r2.dev/DR-SWAMY-SIR.avif",img1:"https://pub-d1f3bed8e9594bb785e31511d12d7c00.r2.dev/MAYAS-IMG(1).jpeg",img2:"https://pub-d1f3bed8e9594bb785e31511d12d7c00.r2.dev/MAYAS-IMG(2).jpeg",img3:"https://pub-d1f3bed8e9594bb785e31511d12d7c00.r2.dev/MAYAS-IMG(3).jpeg",img4:"https://pub-d1f3bed8e9594bb785e31511d12d7c00.r2.dev/MAYAS-IMG(4).jpeg",img5:"https://pub-d1f3bed8e9594bb785e31511d12d7c00.r2.dev/MAYAS-IMG(5).jpeg",img6:"https://pub-d1f3bed8e9594bb785e31511d12d7c00.r2.dev/MAYAS-IMG(6).jpeg",img7:"https://pub-d1f3bed8e9594bb785e31511d12d7c00.r2.dev/MAYAS-IMG(7).jpeg",opRoom:"https://pub-d1f3bed8e9594bb785e31511d12d7c00.r2.dev/MAYAS-IMG(2).jpeg",wardRoom:"https://pub-d1f3bed8e9594bb785e31511d12d7c00.r2.dev/MAYAS-IMG(4).jpeg",corridor:"https://pub-d1f3bed8e9594bb785e31511d12d7c00.r2.dev/MAYAS-IMG(1).jpeg",logo:"https://pub-d1f3bed8e9594bb785e31511d12d7c00.r2.dev/Mayas-logo-fevicon.avif",phone1:"9866237227",phone2:"8500850028",landline:"08518-275507",email:"mayashospitals@gmail.com"};
 
-/* CM030 - JS DOM Injection & Initialization */
-window.onload=()=>{document.title="Maya's Hospital";const link=document.createElement('link');link.rel='icon';link.href=CONFIG.logo;link.type='image/avif';document.head.appendChild(link);const appleLink=document.createElement('link');appleLink.rel='apple-touch-icon';appleLink.href=CONFIG.logo;document.head.appendChild(appleLink);document.querySelectorAll(".dyn-logo").forEach(el=>el.src=CONFIG.logo);document.querySelectorAll(".dyn-img1").forEach(el=>el.src=CONFIG.img1);document.querySelectorAll(".dyn-img2").forEach(el=>el.src=CONFIG.img2);document.querySelectorAll(".dyn-img3").forEach(el=>el.src=CONFIG.img3);document.querySelectorAll(".dyn-img4").forEach(el=>el.src=CONFIG.img4);document.querySelectorAll(".dyn-img5").forEach(el=>el.src=CONFIG.img5);document.querySelectorAll(".dyn-img6").forEach(el=>el.src=CONFIG.img6);document.querySelectorAll(".dyn-img7").forEach(el=>el.src=CONFIG.img7);const opEl=document.querySelector(".dyn-img-op");if(opEl)opEl.src=CONFIG.opRoom;const wardEl=document.querySelector(".dyn-img-ward");if(wardEl)wardEl.src=CONFIG.wardRoom;const corridorEl=document.querySelector(".dyn-img-corridor");if(corridorEl)corridorEl.src=CONFIG.corridor;const doc1El=document.querySelector(".dyn-doc1");if(doc1El)doc1El.src=CONFIG.doc1;const doc2El=document.querySelector(".dyn-doc2");if(doc2El)doc2El.src=CONFIG.doc2;const doc3El=document.querySelector(".dyn-doc3");if(doc3El)doc3El.src=CONFIG.doc3;const doc4El=document.querySelector(".dyn-doc4");if(doc4El)doc4El.src=CONFIG.doc4;document.querySelectorAll(".dyn-phone1").forEach(el=>el.textContent=CONFIG.phone1);document.querySelectorAll(".dyn-phone2").forEach(el=>el.textContent=CONFIG.phone2);document.querySelectorAll(".dyn-landline").forEach(el=>el.textContent=CONFIG.landline);document.querySelectorAll(".dyn-email").forEach(el=>el.textContent=CONFIG.email);document.querySelectorAll(".call-action-btn").forEach(el=>el.href=`tel:${CONFIG.phone1}`);document.querySelectorAll(".call-action-btn2").forEach(el=>el.href=`tel:${CONFIG.phone2}`);initScrollAnimations();initCounters();renderFaviconCanvas();};
+/* CM034 - JS DOM Injection & Initialization */
+window.onload=()=>{document.title="Maya's Hospital";injectManifest();const link=document.createElement('link');link.rel='icon';link.href=CONFIG.logo;link.type='image/avif';document.head.appendChild(link);const appleLink=document.createElement('link');appleLink.rel='apple-touch-icon';appleLink.href=CONFIG.logo;document.head.appendChild(appleLink);document.querySelectorAll(".dyn-logo").forEach(el=>el.src=CONFIG.logo);document.querySelectorAll(".dyn-img1").forEach(el=>el.src=CONFIG.img1);document.querySelectorAll(".dyn-img2").forEach(el=>el.src=CONFIG.img2);document.querySelectorAll(".dyn-img3").forEach(el=>el.src=CONFIG.img3);document.querySelectorAll(".dyn-img4").forEach(el=>el.src=CONFIG.img4);document.querySelectorAll(".dyn-img5").forEach(el=>el.src=CONFIG.img5);document.querySelectorAll(".dyn-img6").forEach(el=>el.src=CONFIG.img6);document.querySelectorAll(".dyn-img7").forEach(el=>el.src=CONFIG.img7);const opEl=document.querySelector(".dyn-img-op");if(opEl)opEl.src=CONFIG.opRoom;const wardEl=document.querySelector(".dyn-img-ward");if(wardEl)wardEl.src=CONFIG.wardRoom;const corridorEl=document.querySelector(".dyn-img-corridor");if(corridorEl)corridorEl.src=CONFIG.corridor;const doc1El=document.querySelector(".dyn-doc1");if(doc1El)doc1El.src=CONFIG.doc1;const doc2El=document.querySelector(".dyn-doc2");if(doc2El)doc2El.src=CONFIG.doc2;const doc3El=document.querySelector(".dyn-doc3");if(doc3El)doc3El.src=CONFIG.doc3;const doc4El=document.querySelector(".dyn-doc4");if(doc4El)doc4El.src=CONFIG.doc4;document.querySelectorAll(".dyn-phone1").forEach(el=>el.textContent=CONFIG.phone1);document.querySelectorAll(".dyn-phone2").forEach(el=>el.textContent=CONFIG.phone2);document.querySelectorAll(".dyn-landline").forEach(el=>el.textContent=CONFIG.landline);document.querySelectorAll(".dyn-email").forEach(el=>el.textContent=CONFIG.email);document.querySelectorAll(".call-action-btn").forEach(el=>el.href=`tel:${CONFIG.phone1}`);document.querySelectorAll(".call-action-btn2").forEach(el=>el.href=`tel:${CONFIG.phone2}`);initScrollAnimations();initCounters();};
 
-/* CM031 - JS Mobile Menu & Continuous Scroll Reveal Animations */
+/* CM035 - JS Mobile Menu & Continuous Scroll Reveal Animations */
 function toggleMobileMenu(){const menu=document.getElementById("mobile-menu");const icon=document.getElementById("mobile-menu-icon");menu.classList.toggle("hidden");icon.classList.toggle("fa-bars");icon.classList.toggle("fa-times");}
 function initScrollAnimations(){const els=document.querySelectorAll('.reveal,.reveal-left,.reveal-right,.reveal-scale');const obs=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('active');}else if(e.boundingClientRect.top>0){e.target.classList.remove('active');}});},{threshold:0.1,rootMargin:'0px 0px -20px 0px'});els.forEach(el=>obs.observe(el));}
 
-/* CM032 - JS Animated Counters & Scroll Progress */
+/* CM036 - JS Animated Counters & Scroll Progress */
 function initCounters(){const counters=document.querySelectorAll('.counter');const obs=new IntersectionObserver((entries)=>{entries.forEach(e=>{const el=e.target;if(e.isIntersecting){const target=parseInt(el.getAttribute('data-target'),10);let cur=0;const inc=Math.max(1,Math.ceil(target/35));clearInterval(el._timer);el._timer=setInterval(()=>{cur+=inc;if(cur>=target){el.textContent=target;clearInterval(el._timer);}else{el.textContent=cur;}},30);}else{el.textContent='0';}});},{threshold:0.35});counters.forEach(c=>obs.observe(c));}
 window.addEventListener('scroll',()=>{const st=window.scrollY;const dh=document.documentElement.scrollHeight-window.innerHeight;const bar=document.getElementById('scroll-progress');if(bar)bar.style.width=`${dh>0?(st/dh)*100:0}%`;const btn=document.getElementById('scrollTopBtn');if(btn){if(st>350){btn.classList.remove('opacity-0','pointer-events-none','translate-y-4');}else{btn.classList.add('opacity-0','pointer-events-none','translate-y-4');}}});
 
-/* CM033 - JS Specialties Filter, FAQ & Lightbox */
+/* CM037 - JS Specialties Filter, FAQ & Lightbox */
 function filterSpecialties(cat,btn){document.querySelectorAll('.spec-filter-btn').forEach(b=>b.className='spec-filter-btn bg-slate-100 hover:bg-rose-50 text-slate-700 text-xs sm:text-sm font-bold px-4 py-2 rounded-full transition');btn.className='spec-filter-btn bg-primary text-white text-xs sm:text-sm font-bold px-4 py-2 rounded-full shadow-md transition';document.querySelectorAll('#specialties-grid .specialty-card').forEach(c=>{c.style.display=(cat==='all'||c.getAttribute('data-category')===cat)?'flex':'none';});}
 function toggleFaq(btn){btn.nextElementSibling.classList.toggle('hidden');btn.querySelector('i').classList.toggle('rotate-180');}
 function openLightbox(src){if(!src)return;const m=document.getElementById('lightbox-modal');document.getElementById('lightbox-img').src=src;m.classList.remove('hidden');m.classList.add('flex');}
 function closeLightbox(){const m=document.getElementById('lightbox-modal');m.classList.add('hidden');m.classList.remove('flex');}
 
-/* CM034 - JS Clipboard Share & High-Res Favicon Icon Downloader */
+/* CM038 - JS Clipboard Share Toast */
 function showToast(msg){const t=document.getElementById('custom-toast');document.getElementById('custom-toast-msg').textContent=msg;t.classList.remove('opacity-0','pointer-events-none','translate-y-3');setTimeout(()=>t.classList.add('opacity-0','pointer-events-none','translate-y-3'),2800);}
 function copyMapLink(){const url="https://maps.google.com/maps?q=R26R%2B4X%20Kurnool,%20Andhra%20Pradesh%20Maya's%20Hospital";const ta=document.createElement("textarea");ta.value=url;document.body.appendChild(ta);ta.select();try{document.execCommand("copy");}catch(e){}document.body.removeChild(ta);showToast("Map link copied to clipboard!");}
-function openFaviconModal(){const m=document.getElementById('favicon-modal');m.classList.remove('hidden');m.classList.add('flex');renderFaviconCanvas();}
-function closeFaviconModal(){const m=document.getElementById('favicon-modal');m.classList.add('hidden');m.classList.remove('flex');}
-function renderFaviconCanvas(){const c=document.getElementById('favicon-canvas');if(!c)return;const ctx=c.getContext('2d');ctx.clearRect(0,0,256,256);const grad=ctx.createLinearGradient(0,0,256,256);grad.addColorStop(0,'#fff1f2');grad.addColorStop(1,'#ffffff');ctx.fillStyle=grad;ctx.beginPath();ctx.roundRect(8,8,240,240,48);ctx.fill();ctx.lineWidth=6;ctx.strokeStyle='#f43f5e';ctx.stroke();const img=new Image();img.crossOrigin="anonymous";img.onload=()=>{ctx.drawImage(img,28,28,200,200);};img.onerror=()=>{ctx.fillStyle='#e11d48';ctx.font='bold 110px Montserrat, sans-serif';ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillText('M',128,122);ctx.font='bold 22px Poppins, sans-serif';ctx.fillText('MAYA HOSPITAL',128,205);};img.src=CONFIG.logo;}
-function downloadGeneratedFavicon(size){const out=document.createElement('canvas');out.width=size;out.height=size;const ctx=out.getContext('2d');const srcCanvas=document.getElementById('favicon-canvas');ctx.drawImage(srcCanvas,0,0,size,size);try{const dataUrl=out.toDataURL('image/png');const a=document.createElement('a');a.href=dataUrl;a.download=`Mayas-Hospital-Favicon-${size}x${size}.png`;document.body.appendChild(a);a.click();document.body.removeChild(a);showToast(`Favicon (${size}x${size} PNG) downloaded!`);}catch(e){window.open(CONFIG.logo,'_blank');showToast("Opened original Favicon image for download!");}}
+
+/* CM039 - JS PWA App Install Logic & Dynamic Manifest */
+let deferredPrompt;
+window.addEventListener('beforeinstallprompt',(e)=>{e.preventDefault();deferredPrompt=e;});
+function injectManifest(){const m={name:"Maya's Hospital",short_name:"Maya's",start_url:".",display:"standalone",background_color:"#f8fafc",theme_color:"#e11d48",icons:[{src:CONFIG.logo,sizes:"192x192",type:"image/png"},{src:CONFIG.logo,sizes:"512x512",type:"image/png"}]};const b=new Blob([JSON.stringify(m)],{type:'application/json'});const url=URL.createObjectURL(b);const l=document.createElement('link');l.rel='manifest';l.href=url;document.head.appendChild(l);}
+function installPWAApp(){if(deferredPrompt){deferredPrompt.prompt();deferredPrompt.userChoice.then((choiceResult)=>{if(choiceResult.outcome==='accepted'){console.log('User accepted install');}deferredPrompt=null;});}else{const m=document.getElementById('install-modal');m.classList.remove('hidden');m.classList.add('flex');}}
+function closeInstallModal(){const m=document.getElementById('install-modal');m.classList.add('hidden');m.classList.remove('flex');}
 </script>
 </body>
 </html>
