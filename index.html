@@ -8,20 +8,22 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Maya's Hospital">
 <meta name="theme-color" content="#e11d48">
+<link rel="manifest" href="manifest.json">
 <script src="https://cdn.tailwindcss.com"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800;900&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
 <script>
-tailwind.config={theme:{extend:{colors:{primary:'#e11d48',primaryLight:'#f43f5e',primaryDark:'#9f1239',secondary:'#0f172a',lightbg:'#f8fafc',accent:'#fff1f2',cardbg:'#ffffff'},fontFamily:{sans:['"Poppins"','sans-serif'],display:['"Montserrat"','sans-serif'],body:['"Inter"','sans-serif']},boxShadow:{'glow':'0 14px 35px -5px rgba(225, 29, 72, 0.45)','soft':'0 12px 32px -8px rgba(15, 23, 42, 0.08)','card':'0 20px 40px -12px rgba(225, 29, 72, 0.18)'}}}};
+tailwind.config={theme:{extend:{colors:{primary:'#e11d48',primaryLight:'#f43f5e',primaryDark:'#9f1239',secondary:'#0f172a',lightbg:'#f8fafc',accent:'#fff1f2',cardbg:'#ffffff'},fontFamily:{sans:['"Inter"','sans-serif'],display:['"Montserrat"','sans-serif'],serif:['"Playfair Display"','serif'],body:['"Inter"','sans-serif']},boxShadow:{'glow':'0 14px 35px -5px rgba(225, 29, 72, 0.45)','soft':'0 12px 32px -8px rgba(15, 23, 42, 0.08)','card':'0 20px 40px -12px rgba(225, 29, 72, 0.18)'}}}};
 </script>
 <style>
 /* CM001 - CSS Base, Scrollbar & Clean Modern Typography */
 html{scroll-behavior:smooth;overflow-x:hidden;}
-body{font-family:'Poppins',sans-serif;color:#1e293b;background-color:#f8fafc;overflow-x:hidden;margin:0;padding:0;}
+body{font-family:'Inter',sans-serif;color:#1e293b;background-color:#f8fafc;overflow-x:hidden;margin:0;padding:0;}
 .font-display{font-family:'Montserrat',sans-serif;letter-spacing:-0.02em;}
-.font-body{font-family:'Inter',sans-serif;}
+.font-serif-headline{font-family:'Playfair Display',serif;letter-spacing:-0.01em;}
+.font-body{font-family:'Inter',sans-serif;font-weight:400;}
 ::-webkit-scrollbar{width:8px;}
 ::-webkit-scrollbar-track{background:#f1f5f9;}
 ::-webkit-scrollbar-thumb{background:linear-gradient(180deg,#f43f5e,#be123c);border-radius:9999px;}
@@ -60,7 +62,7 @@ body{font-family:'Poppins',sans-serif;color:#1e293b;background-color:#f8fafc;ove
 .btn-outline-modern:hover{border-color:#e11d48;color:#e11d48;background:#fff1f2;transform:translateY(-4px) scale(1.02);box-shadow:0 14px 26px -6px rgba(225,29,72,0.22);}
 
 /* CM005 - CSS Top Bar & Glass Header Navigation */
-.nav-link{position:relative;transition:all 0.3s ease;padding:0.5rem 0.95rem;border-radius:9999px;}
+.nav-link{position:relative;transition:all 0.3s ease;padding:0.5rem 0.95rem;border-radius:9999px;font-family:'Inter',sans-serif;}
 .nav-link::after{content:'';position:absolute;bottom:4px;left:50%;width:0;height:2.5px;background:#e11d48;border-radius:9999px;transition:all 0.3s ease;transform:translateX(-50%);}
 .nav-link:hover{color:#e11d48;background-color:#fff1f2;}
 .nav-link:hover::after{width:55%;}
@@ -138,15 +140,15 @@ body{font-family:'Poppins',sans-serif;color:#1e293b;background-color:#f8fafc;ove
 
 <!-- CM015 - HTML Top Scroll Progress Bar & Top Bar -->
 <div id="scroll-progress"></div>
-<div class="bg-secondary text-slate-200 hidden md:block border-b border-slate-800 text-xs">
+<div class="bg-secondary text-slate-200 hidden md:block border-b border-slate-800 text-xs font-body">
 <div class="container mx-auto max-w-7xl py-2.5 px-6 flex justify-between items-center">
 <div class="flex items-center space-x-6">
-<span class="flex items-center text-slate-300 font-medium"><i class="fas fa-map-marker-alt text-rose-400 mr-2"></i>Maddur Nagar, 3rd Lane, Kurnool</span>
+<span class="flex items-center text-slate-300 font-normal"><i class="fas fa-map-marker-alt text-rose-400 mr-2"></i>Maddur Nagar, 3rd Lane, Kurnool</span>
 <span class="h-3.5 w-[1px] bg-slate-700"></span>
-<a href="mailto:mayashospitals@gmail.com" class="flex items-center text-slate-300 hover:text-white transition font-medium"><i class="fas fa-envelope text-rose-400 mr-2"></i><span class="dyn-email"></span></a>
+<a href="mailto:mayashospitals@gmail.com" class="flex items-center text-slate-300 hover:text-white transition font-normal"><i class="fas fa-envelope text-rose-400 mr-2"></i><span class="dyn-email"></span></a>
 </div>
 <div class="flex items-center space-x-5">
-<div class="flex items-center text-white font-semibold">
+<div class="flex items-center text-white font-medium">
 <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping mr-2"></span>
 <i class="fas fa-phone-alt text-rose-400 mr-1.5"></i>
 <a href="#" class="call-action-btn hover:text-rose-400 transition"><span class="dyn-phone1"></span></a>
@@ -154,7 +156,7 @@ body{font-family:'Poppins',sans-serif;color:#1e293b;background-color:#f8fafc;ove
 <a href="#" class="call-action-btn2 hover:text-rose-400 transition"><span class="dyn-phone2"></span></a>
 </div>
 <button onclick="installPWAApp()" class="bg-slate-800 hover:bg-rose-600 text-rose-300 hover:text-white border border-rose-500/40 font-semibold px-3 py-1 rounded-full transition flex items-center text-xs" title="Install App to Home Screen"><i class="fas fa-download mr-1.5"></i>Install App</button>
-<a href="#opd-info" class="bg-gradient-to-r from-rose-500 to-rose-600 hover:from-rose-600 hover:to-rose-700 text-white font-bold px-4 py-1 rounded-full transition flex items-center text-xs shadow-sm"><i class="fas fa-headset mr-1.5"></i>Call Appointment</a>
+<a href="#opd-info" class="bg-gradient-to-r from-rose-500 to-rose-600 hover:from-rose-600 hover:to-rose-700 text-white font-semibold px-4 py-1 rounded-full transition flex items-center text-xs shadow-sm"><i class="fas fa-headset mr-1.5"></i>Call Appointment</a>
 </div>
 </div>
 </div>
@@ -168,11 +170,11 @@ body{font-family:'Poppins',sans-serif;color:#1e293b;background-color:#f8fafc;ove
 </div>
 <div class="leading-tight">
 <h1 class="text-xl md:text-2xl font-extrabold text-secondary m-0 font-display tracking-tight">MAYA'S HOSPITAL</h1>
-<p class="text-[10px] md:text-xs text-primary font-bold uppercase tracking-widest m-0">Multispeciality Healthcare</p>
-<p class="text-[11px] text-slate-500 italic m-0 font-medium">The Healing Touch</p>
+<p class="text-[10px] md:text-xs text-primary font-semibold uppercase tracking-widest m-0 font-body">Multispeciality Healthcare</p>
+<p class="text-[11px] text-slate-500 italic m-0 font-serif-headline">The Healing Touch</p>
 </div>
 </a>
-<nav class="hidden lg:flex items-center space-x-1 text-sm font-semibold text-slate-700">
+<nav class="hidden lg:flex items-center space-x-1 text-sm font-medium text-slate-700">
 <a href="#home" class="nav-link">Home</a>
 <a href="#about" class="nav-link">About Us</a>
 <a href="#doctors" class="nav-link">Doctors</a>
@@ -183,18 +185,18 @@ body{font-family:'Poppins',sans-serif;color:#1e293b;background-color:#f8fafc;ove
 <a href="#contact" class="nav-link">Contact</a>
 </nav>
 <div class="hidden md:flex items-center space-x-3">
-<a href="#opd-info" class="btn-modern pulse-glow-btn px-6 py-2.5 rounded-full text-xs sm:text-sm font-bold tracking-wide flex items-center"><i class="fas fa-phone-volume mr-2"></i>Book Consultation</a>
+<a href="#opd-info" class="btn-modern pulse-glow-btn px-6 py-2.5 rounded-full text-xs sm:text-sm font-semibold tracking-wide flex items-center"><i class="fas fa-phone-volume mr-2"></i>Book Consultation</a>
 </div>
 <button aria-label="Toggle Menu" class="lg:hidden w-11 h-11 rounded-xl bg-rose-50 text-primary flex items-center justify-center focus:outline-none text-lg border border-rose-100" onclick="toggleMobileMenu()"><i id="mobile-menu-icon" class="fas fa-bars"></i></button>
 </div>
 <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-slate-200 flex flex-col shadow-xl absolute w-full left-0 z-50 px-4 py-3 space-y-1 rounded-b-2xl">
-<a href="#home" class="p-3 rounded-xl text-sm font-bold text-secondary hover:bg-rose-50 flex items-center justify-between" onclick="toggleMobileMenu()"><span><i class="fas fa-home w-6 text-primary"></i>Home</span><i class="fas fa-chevron-right text-xs text-slate-300"></i></a>
-<a href="#about" class="p-3 rounded-xl text-sm font-bold text-secondary hover:bg-rose-50 flex items-center justify-between" onclick="toggleMobileMenu()"><span><i class="fas fa-hospital w-6 text-primary"></i>About Us</span><i class="fas fa-chevron-right text-xs text-slate-300"></i></a>
-<a href="#doctors" class="p-3 rounded-xl text-sm font-bold text-secondary hover:bg-rose-50 flex items-center justify-between" onclick="toggleMobileMenu()"><span><i class="fas fa-user-md w-6 text-primary"></i>Consult Doctors</span><i class="fas fa-chevron-right text-xs text-slate-300"></i></a>
-<a href="#specialties" class="p-3 rounded-xl text-sm font-bold text-secondary hover:bg-rose-50 flex items-center justify-between" onclick="toggleMobileMenu()"><span><i class="fas fa-stethoscope w-6 text-primary"></i>Specialties</span><i class="fas fa-chevron-right text-xs text-slate-300"></i></a>
-<a href="#insurance" class="p-3 rounded-xl text-sm font-bold text-secondary hover:bg-rose-50 flex items-center justify-between" onclick="toggleMobileMenu()"><span><i class="fas fa-shield-alt w-6 text-primary"></i>Insurance &amp; TPA</span><i class="fas fa-chevron-right text-xs text-slate-300"></i></a>
-<button onclick="toggleMobileMenu();installPWAApp();" class="p-3 rounded-xl text-sm font-bold text-rose-600 bg-rose-50/80 flex items-center justify-between"><span><i class="fas fa-download w-6 text-primary"></i>Install Mobile App</span><i class="fas fa-sparkles text-xs"></i></button>
-<a href="#opd-info" class="btn-modern p-3.5 rounded-xl text-sm text-center font-bold text-white flex items-center justify-center" onclick="toggleMobileMenu()"><i class="fas fa-calendar-check mr-2"></i>Book Appointment</a>
+<a href="#home" class="p-3 rounded-xl text-sm font-semibold text-secondary hover:bg-rose-50 flex items-center justify-between" onclick="toggleMobileMenu()"><span><i class="fas fa-home w-6 text-primary"></i>Home</span><i class="fas fa-chevron-right text-xs text-slate-300"></i></a>
+<a href="#about" class="p-3 rounded-xl text-sm font-semibold text-secondary hover:bg-rose-50 flex items-center justify-between" onclick="toggleMobileMenu()"><span><i class="fas fa-hospital w-6 text-primary"></i>About Us</span><i class="fas fa-chevron-right text-xs text-slate-300"></i></a>
+<a href="#doctors" class="p-3 rounded-xl text-sm font-semibold text-secondary hover:bg-rose-50 flex items-center justify-between" onclick="toggleMobileMenu()"><span><i class="fas fa-user-md w-6 text-primary"></i>Consult Doctors</span><i class="fas fa-chevron-right text-xs text-slate-300"></i></a>
+<a href="#specialties" class="p-3 rounded-xl text-sm font-semibold text-secondary hover:bg-rose-50 flex items-center justify-between" onclick="toggleMobileMenu()"><span><i class="fas fa-stethoscope w-6 text-primary"></i>Specialties</span><i class="fas fa-chevron-right text-xs text-slate-300"></i></a>
+<a href="#insurance" class="p-3 rounded-xl text-sm font-semibold text-secondary hover:bg-rose-50 flex items-center justify-between" onclick="toggleMobileMenu()"><span><i class="fas fa-shield-alt w-6 text-primary"></i>Insurance &amp; TPA</span><i class="fas fa-chevron-right text-xs text-slate-300"></i></a>
+<button onclick="toggleMobileMenu();installPWAApp();" class="p-3 rounded-xl text-sm font-semibold text-rose-600 bg-rose-50/80 flex items-center justify-between"><span><i class="fas fa-download w-6 text-primary"></i>Install Mobile App</span><i class="fas fa-sparkles text-xs"></i></button>
+<a href="#opd-info" class="btn-modern p-3.5 rounded-xl text-sm text-center font-semibold text-white flex items-center justify-center" onclick="toggleMobileMenu()"><i class="fas fa-calendar-check mr-2"></i>Book Appointment</a>
 </div>
 </header>
 
@@ -205,67 +207,62 @@ body{font-family:'Poppins',sans-serif;color:#1e293b;background-color:#f8fafc;ove
 <div class="container mx-auto max-w-7xl px-4 sm:px-6 relative z-10">
 <div class="flex flex-col lg:flex-row items-center gap-10 lg:gap-12">
 <div class="lg:w-1/2 text-center lg:text-left reveal-left">
-<div class="inline-flex items-center gap-2 bg-white text-primary font-bold px-4 py-1.5 rounded-full text-xs mb-5 shadow-md border border-rose-100">
+<div class="inline-flex items-center gap-2 bg-white text-primary font-semibold px-4 py-1.5 rounded-full text-xs mb-5 shadow-md border border-rose-100 font-body">
 <span class="w-2.5 h-2.5 rounded-full bg-primary animate-ping"></span>
 <i class="fas fa-hospital-symbol"></i>
 <span>WELCOME TO MAYA'S MULTISPECIALITY HOSPITAL &bull; ESTD 2021</span>
 </div>
 <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-secondary leading-tight mb-5 font-display">
 Advanced Medical Care,<br>
-<span class="animated-gradient-text">Exceptional Healing</span>
+<span class="animated-gradient-text font-serif-headline italic font-bold">Exceptional Healing</span>
 </h2>
-<p class="text-slate-600 text-sm sm:text-base mb-6 max-w-xl mx-auto lg:mx-0 font-normal leading-relaxed font-body">
+<p class="text-slate-600 text-sm sm:text-base mb-8 max-w-xl mx-auto lg:mx-0 font-normal leading-relaxed font-body">
 Providing state-of-the-art technology, precision surgery, and compassionate patient care under one roof in Kurnool. Specialized excellence in <strong class="text-secondary font-semibold">Dermatology, Plastic &amp; Cosmetic Surgery, Obstetrics &amp; Gynecology, and Aesthetic Medicine</strong>.
 </p>
-<div class="flex flex-wrap gap-2.5 justify-center lg:justify-start mb-8">
-<span class="bg-rose-50 text-rose-700 border border-rose-200 px-3.5 py-1.5 rounded-full text-[11px] sm:text-xs font-bold shadow-sm flex items-center"><i class="fas fa-users mr-1.5 text-primary"></i>Treated 10,000+ Patients</span>
-<span class="bg-rose-50 text-rose-700 border border-rose-200 px-3.5 py-1.5 rounded-full text-[11px] sm:text-xs font-bold shadow-sm flex items-center"><i class="fas fa-user-md mr-1.5 text-primary"></i>1000+ Hair Transplants</span>
-<span class="bg-rose-50 text-rose-700 border border-rose-200 px-3.5 py-1.5 rounded-full text-[11px] sm:text-xs font-bold shadow-sm flex items-center"><i class="fas fa-baby mr-1.5 text-primary"></i>24/7 Maternity Services</span>
-</div>
 <div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 mb-8">
-<a href="#opd-info" class="btn-modern pulse-glow-btn px-8 py-3.5 rounded-full font-bold text-sm flex items-center justify-center"><i class="fas fa-calendar-check mr-2.5 text-base"></i>Book Your Consultation</a>
-<a href="#specialties" class="btn-outline-modern px-8 py-3.5 rounded-full font-bold text-sm flex items-center justify-center"><i class="fas fa-stethoscope mr-2.5 text-primary text-base"></i>Explore Our Services</a>
+<a href="#opd-info" class="btn-modern pulse-glow-btn px-8 py-3.5 rounded-full font-semibold text-sm flex items-center justify-center"><i class="fas fa-calendar-check mr-2.5 text-base"></i>Book Your Consultation</a>
+<a href="#specialties" class="btn-outline-modern px-8 py-3.5 rounded-full font-semibold text-sm flex items-center justify-center"><i class="fas fa-stethoscope mr-2.5 text-primary text-base"></i>Explore Our Services</a>
 </div>
 <div class="grid grid-cols-3 gap-4 max-w-lg mx-auto lg:mx-0 pt-5 border-t border-slate-200">
 <div class="flex items-center gap-3 justify-center lg:justify-start">
 <div class="w-10 h-10 rounded-xl bg-rose-100 text-primary flex items-center justify-center shrink-0 shadow-sm"><i class="fas fa-user-md text-base"></i></div>
-<div class="text-left"><p class="text-sm font-extrabold text-secondary leading-tight">4+ Doctors</p><p class="text-xs text-slate-500 font-medium">Super-Specialists</p></div>
+<div class="text-left"><p class="text-sm font-bold text-secondary leading-tight font-display">4+ Doctors</p><p class="text-xs text-slate-500 font-normal font-body">Super-Specialists</p></div>
 </div>
 <div class="flex items-center gap-3 justify-center lg:justify-start">
 <div class="w-10 h-10 rounded-xl bg-rose-100 text-primary flex items-center justify-center shrink-0 shadow-sm"><i class="fas fa-shield-alt text-base"></i></div>
-<div class="text-left"><p class="text-sm font-extrabold text-secondary leading-tight">Cashless TPA</p><p class="text-xs text-slate-500 font-medium">12+ Insurances</p></div>
+<div class="text-left"><p class="text-sm font-bold text-secondary leading-tight font-display">Cashless TPA</p><p class="text-xs text-slate-500 font-normal font-body">12+ Insurances</p></div>
 </div>
 <div class="flex items-center gap-3 justify-center lg:justify-start">
 <div class="w-10 h-10 rounded-xl bg-rose-100 text-primary flex items-center justify-center shrink-0 shadow-sm"><i class="fas fa-magic text-base"></i></div>
-<div class="text-left"><p class="text-sm font-extrabold text-secondary leading-tight">US-FDA Tech</p><p class="text-xs text-slate-500 font-medium">Lasers &amp; 3 OTs</p></div>
+<div class="text-left"><p class="text-sm font-bold text-secondary leading-tight font-display">US-FDA Tech</p><p class="text-xs text-slate-500 font-normal font-body">Lasers &amp; 3 OTs</p></div>
 </div>
 </div>
 </div>
 <div class="lg:w-1/2 w-full relative reveal-right">
 <div class="float-badge hidden sm:flex absolute -top-5 -left-5 z-20 bg-white/95 backdrop-blur-md px-4 py-2.5 rounded-2xl shadow-xl border border-rose-100 items-center gap-3">
 <div class="w-10 h-10 rounded-xl bg-emerald-500 text-white flex items-center justify-center text-base shadow"><i class="fas fa-heartbeat"></i></div>
-<div><p class="text-xs font-extrabold text-secondary">24/7 ICU &amp; Emergency</p><p class="text-[11px] text-primary font-bold">Maternity Services 24/7</p></div>
+<div><p class="text-xs font-bold text-secondary font-display">24/7 ICU &amp; Emergency</p><p class="text-[11px] text-primary font-medium font-body">Maternity Services 24/7</p></div>
 </div>
 <div class="float-badge-delayed hidden sm:flex absolute -bottom-5 -right-4 z-20 bg-white/95 backdrop-blur-md px-4 py-2.5 rounded-2xl shadow-xl border border-rose-100 items-center gap-3">
 <div class="w-10 h-10 rounded-xl bg-primary text-white flex items-center justify-center text-base shadow"><i class="fas fa-award"></i></div>
-<div><p class="text-xs font-extrabold text-secondary">Zero-Infection OTs</p><p class="text-[11px] text-slate-500 font-medium">3 Laminar-Flow Theatres</p></div>
+<div><p class="text-xs font-bold text-secondary font-display">Zero-Infection OTs</p><p class="text-[11px] text-slate-500 font-normal font-body">3 Laminar-Flow Theatres</p></div>
 </div>
 <div class="grid grid-cols-2 gap-4">
 <div class="hero-img-wrapper cursor-pointer" onclick="openLightbox(this.querySelector('img').src)">
 <img src="" alt="Hospital View 1" class="dyn-img6 hero-img">
-<div class="hero-img-overlay"><span class="text-white text-xs font-bold"><i class="fas fa-search-plus mr-1.5"></i>Hospital Exterior</span></div>
+<div class="hero-img-overlay"><span class="text-white text-xs font-medium"><i class="fas fa-search-plus mr-1.5"></i>Hospital Exterior</span></div>
 </div>
 <div class="hero-img-wrapper cursor-pointer mt-4" onclick="openLightbox(this.querySelector('img').src)">
 <img src="" alt="Hospital View 2" class="dyn-img2 hero-img">
-<div class="hero-img-overlay"><span class="text-white text-xs font-bold"><i class="fas fa-search-plus mr-1.5"></i>Modular OT Complex</span></div>
+<div class="hero-img-overlay"><span class="text-white text-xs font-medium"><i class="fas fa-search-plus mr-1.5"></i>Modular OT Complex</span></div>
 </div>
 <div class="hero-img-wrapper cursor-pointer -mt-4" onclick="openLightbox(this.querySelector('img').src)">
 <img src="" alt="Hospital View 3" class="dyn-img3 hero-img">
-<div class="hero-img-overlay"><span class="text-white text-xs font-bold"><i class="fas fa-search-plus mr-1.5"></i>Patient Care Area</span></div>
+<div class="hero-img-overlay"><span class="text-white text-xs font-medium"><i class="fas fa-search-plus mr-1.5"></i>Patient Care Area</span></div>
 </div>
 <div class="hero-img-wrapper cursor-pointer" onclick="openLightbox(this.querySelector('img').src)">
 <img src="" alt="Hospital View 4" class="dyn-img7 hero-img">
-<div class="hero-img-overlay"><span class="text-white text-xs font-bold"><i class="fas fa-search-plus mr-1.5"></i>Reception Lobby</span></div>
+<div class="hero-img-overlay"><span class="text-white text-xs font-medium"><i class="fas fa-search-plus mr-1.5"></i>Reception Lobby</span></div>
 </div>
 </div>
 </div>
@@ -273,29 +270,47 @@ Providing state-of-the-art technology, precision surgery, and compassionate pati
 </div>
 </section>
 
-<!-- CM018 - HTML Highlights Counter Section -->
+<!-- CM018 - HTML Highlights Counter Section (With All 7 Key Highlights Together) -->
 <section class="container mx-auto max-w-6xl px-4 sm:px-6 relative z-20 -mt-10 mb-6 reveal-scale">
-<div class="highlight-box py-6 px-6 sm:px-10 border-4 border-white">
+<div class="highlight-box py-7 px-6 sm:px-10 border-4 border-white">
 <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center divide-y md:divide-y-0 md:divide-x divide-slate-700/80">
 <div class="stat-card flex flex-col items-center">
 <div class="w-12 h-12 rounded-2xl bg-rose-500/20 border border-rose-400/30 flex items-center justify-center mb-2.5"><i class="fas fa-procedures text-rose-400 text-2xl"></i></div>
 <h4 class="font-extrabold text-white text-2xl sm:text-3xl font-display"><span class="counter" data-target="50">0</span>+ Beds</h4>
-<p class="text-xs text-rose-200 uppercase font-semibold tracking-wider mt-1">Inpatient Capacity</p>
+<p class="text-xs text-rose-200 uppercase font-normal tracking-wider mt-1 font-body">Inpatient Capacity</p>
 </div>
 <div class="stat-card flex flex-col items-center">
 <div class="w-12 h-12 rounded-2xl bg-rose-500/20 border border-rose-400/30 flex items-center justify-center mb-2.5"><i class="fas fa-microscope text-rose-400 text-2xl"></i></div>
 <h4 class="font-extrabold text-white text-2xl sm:text-3xl font-display"><span class="counter" data-target="3">0</span> Modular OTs</h4>
-<p class="text-xs text-rose-200 uppercase font-semibold tracking-wider mt-1">Laminar-Flow</p>
+<p class="text-xs text-rose-200 uppercase font-normal tracking-wider mt-1 font-body">Laminar-Flow</p>
 </div>
 <div class="stat-card flex flex-col items-center">
 <div class="w-12 h-12 rounded-2xl bg-rose-500/20 border border-rose-400/30 flex items-center justify-center mb-2.5"><i class="fas fa-heartbeat text-rose-400 text-2xl"></i></div>
 <h4 class="font-extrabold text-white text-2xl sm:text-3xl font-display"><span class="counter" data-target="24">0</span>/7 ICU</h4>
-<p class="text-xs text-rose-200 uppercase font-semibold tracking-wider mt-1">Critical Care Support</p>
+<p class="text-xs text-rose-200 uppercase font-normal tracking-wider mt-1 font-body">Critical Care Support</p>
 </div>
 <div class="stat-card flex flex-col items-center">
 <div class="w-12 h-12 rounded-2xl bg-rose-500/20 border border-rose-400/30 flex items-center justify-center mb-2.5"><i class="fas fa-snowflake text-rose-400 text-2xl"></i></div>
 <h4 class="font-extrabold text-white text-2xl sm:text-3xl font-display"><span class="counter" data-target="100">0</span>% Central AC</h4>
-<p class="text-xs text-rose-200 uppercase font-semibold tracking-wider mt-1">Sterile Environment</p>
+<p class="text-xs text-rose-200 uppercase font-normal tracking-wider mt-1 font-body">Sterile Environment</p>
+</div>
+</div>
+<!-- Added 3 Highlights Below Inside the Same Highlight Box -->
+<div class="mt-6 pt-6 border-t border-slate-700/80 grid grid-cols-1 sm:grid-cols-3 gap-6 text-center divide-y sm:divide-y-0 sm:divide-x divide-slate-700/80">
+<div class="stat-card flex flex-col items-center">
+<div class="w-12 h-12 rounded-2xl bg-rose-500/20 border border-rose-400/30 flex items-center justify-center mb-2.5"><i class="fas fa-users text-rose-400 text-2xl"></i></div>
+<h4 class="font-extrabold text-white text-xl sm:text-2xl font-display">Treated <span class="counter" data-target="10000">0</span>+ Patients</h4>
+<p class="text-xs text-rose-200 uppercase font-normal tracking-wider mt-1 font-body">Trusted Patient Care</p>
+</div>
+<div class="stat-card flex flex-col items-center">
+<div class="w-12 h-12 rounded-2xl bg-rose-500/20 border border-rose-400/30 flex items-center justify-center mb-2.5"><i class="fas fa-user-md text-rose-400 text-2xl"></i></div>
+<h4 class="font-extrabold text-white text-xl sm:text-2xl font-display"><span class="counter" data-target="1000">0</span>+ Hair Transplants</h4>
+<p class="text-xs text-rose-200 uppercase font-normal tracking-wider mt-1 font-body">Successful Restorations</p>
+</div>
+<div class="stat-card flex flex-col items-center">
+<div class="w-12 h-12 rounded-2xl bg-rose-500/20 border border-rose-400/30 flex items-center justify-center mb-2.5"><i class="fas fa-baby text-rose-400 text-2xl"></i></div>
+<h4 class="font-extrabold text-white text-xl sm:text-2xl font-display"><span class="counter" data-target="24">0</span>/7 Maternity Services</h4>
+<p class="text-xs text-rose-200 uppercase font-normal tracking-wider mt-1 font-body">Safe Mother &amp; Child Care</p>
 </div>
 </div>
 </div>
@@ -309,16 +324,16 @@ Providing state-of-the-art technology, precision surgery, and compassionate pati
 <div class="grid grid-cols-12 gap-4 items-stretch">
 <div class="col-span-7 about-card-wrap border border-slate-100 cursor-pointer" onclick="openLightbox(this.querySelector('img').src)">
 <img src="" alt="OP Room" class="dyn-img-op about-card-img w-full h-full min-h-[280px] object-cover">
-<div class="absolute bottom-3 left-3 bg-secondary/85 backdrop-blur-md text-white text-xs font-bold px-3.5 py-1.5 rounded-full"><i class="fas fa-shield-virus text-rose-400 mr-1.5"></i>Modular OT Complex</div>
+<div class="absolute bottom-3 left-3 bg-secondary/85 backdrop-blur-md text-white text-xs font-medium px-3.5 py-1.5 rounded-full font-body"><i class="fas fa-shield-virus text-rose-400 mr-1.5"></i>Modular OT Complex</div>
 </div>
 <div class="col-span-5 flex flex-col gap-4">
 <div class="about-card-wrap border border-slate-100 h-36 flex-1 cursor-pointer" onclick="openLightbox(this.querySelector('img').src)">
 <img src="" alt="Ward Room" class="dyn-img-ward about-card-img w-full h-full object-cover">
-<div class="absolute bottom-2.5 left-2.5 bg-secondary/85 text-white text-[11px] font-bold px-3 py-1 rounded-full">Suite &amp; AC Wards</div>
+<div class="absolute bottom-2.5 left-2.5 bg-secondary/85 text-white text-[11px] font-medium px-3 py-1 rounded-full font-body">Suite &amp; AC Wards</div>
 </div>
 <div class="about-card-wrap border border-slate-100 h-36 flex-1 cursor-pointer" onclick="openLightbox(this.querySelector('img').src)">
 <img src="" alt="Corridor" class="dyn-img-corridor about-card-img w-full h-full object-cover">
-<div class="absolute bottom-2.5 left-2.5 bg-secondary/85 text-white text-[11px] font-bold px-3 py-1 rounded-full">Reception &amp; Lobby</div>
+<div class="absolute bottom-2.5 left-2.5 bg-secondary/85 text-white text-[11px] font-medium px-3 py-1 rounded-full font-body">Reception &amp; Lobby</div>
 </div>
 </div>
 </div>
@@ -326,14 +341,14 @@ Providing state-of-the-art technology, precision surgery, and compassionate pati
 <div class="lg:w-1/2 w-full reveal-right">
 <div class="inline-flex items-center space-x-2 bg-rose-50 border border-rose-200 px-3.5 py-1 rounded-full mb-3">
 <span class="w-2 h-2 bg-primary rounded-full"></span>
-<p class="text-primary font-bold uppercase tracking-widest text-xs">About Our Hospital</p>
+<p class="text-primary font-semibold uppercase tracking-widest text-xs font-body">About Our Hospital</p>
 </div>
-<h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-secondary mb-4 leading-tight font-display">Dedicated to <span class="text-primary">Excellence, Trust &amp; Compassionate Care</span></h2>
-<p class="text-slate-600 mb-4 text-sm sm:text-base leading-relaxed font-body">Established in 2021 in Kurnool, Andhra Pradesh, <strong>Maya's Multispeciality Hospital</strong> was built with the vision of delivering comprehensive, super-specialty healthcare services under one roof.</p>
-<p class="text-slate-600 mb-6 text-sm sm:text-base leading-relaxed font-body">We combine experienced specialist consultations, advanced diagnostic facilities, 24/7 inpatient care, zero-infection modular surgical theatres, and US-FDA approved aesthetic technology for safe, natural, and lasting outcomes.</p>
+<h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-secondary mb-4 leading-tight font-display">Dedicated to <span class="text-primary font-serif-headline italic font-bold">Excellence, Trust &amp; Compassionate Care</span></h2>
+<p class="text-slate-600 mb-4 text-sm sm:text-base leading-relaxed font-normal font-body">Established in 2021 in Kurnool, Andhra Pradesh, <strong class="font-semibold text-secondary">Maya's Multispeciality Hospital</strong> was built with the vision of delivering comprehensive, super-specialty healthcare services under one roof.</p>
+<p class="text-slate-600 mb-6 text-sm sm:text-base leading-relaxed font-normal font-body">We combine experienced specialist consultations, advanced diagnostic facilities, 24/7 inpatient care, zero-infection modular surgical theatres, and US-FDA approved aesthetic technology for safe, natural, and lasting outcomes.</p>
 <div class="bg-slate-50 p-5 rounded-2xl border border-slate-200/90 shadow-sm">
-<h4 class="font-extrabold text-secondary text-base mb-3.5 flex items-center font-display"><i class="fas fa-building text-primary mr-2.5 text-lg"></i>World-Class Infrastructure Overview</h4>
-<div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs sm:text-sm text-slate-700 font-semibold">
+<h4 class="font-bold text-secondary text-base mb-3.5 flex items-center font-display"><i class="fas fa-building text-primary mr-2.5 text-lg"></i>World-Class Infrastructure Overview</h4>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs sm:text-sm text-slate-700 font-normal font-body">
 <div class="flex items-center bg-white p-3 rounded-xl border border-slate-100 shadow-sm"><i class="fas fa-check-circle text-emerald-500 mr-2.5 text-base"></i>Male &amp; Female General Wards</div>
 <div class="flex items-center bg-white p-3 rounded-xl border border-slate-100 shadow-sm"><i class="fas fa-check-circle text-emerald-500 mr-2.5 text-base"></i>Sharing, AC &amp; Luxury Suite Rooms</div>
 <div class="flex items-center bg-white p-3 rounded-xl border border-slate-100 shadow-sm"><i class="fas fa-check-circle text-emerald-500 mr-2.5 text-base"></i>3 Laminar-Flow Modular OTs</div>
@@ -349,30 +364,30 @@ Providing state-of-the-art technology, precision surgery, and compassionate pati
 <section class="py-14 bg-slate-900 text-white relative overflow-hidden">
 <div class="container mx-auto px-4 sm:px-6 max-w-7xl relative z-10">
 <div class="text-center max-w-2xl mx-auto mb-10 reveal">
-<span class="text-rose-400 text-xs font-bold uppercase tracking-widest bg-rose-500/15 border border-rose-500/30 px-4 py-1 rounded-full">Why Choose Maya's Hospital</span>
-<h3 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold mt-3 font-display">Trusted Care, <span class="text-rose-400">Proven Clinical Results</span></h3>
-<p class="text-slate-300 text-sm mt-2 font-body">Combining super-specialist surgical expertise, modern technology, and personalized care.</p>
+<span class="text-rose-400 text-xs font-semibold uppercase tracking-widest bg-rose-500/15 border border-rose-500/30 px-4 py-1 rounded-full font-body">Why Choose Maya's Hospital</span>
+<h3 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold mt-3 font-display">Trusted Care, <span class="text-rose-400 font-serif-headline italic font-bold">Proven Clinical Results</span></h3>
+<p class="text-slate-300 text-sm mt-2 font-normal font-body">Combining super-specialist surgical expertise, modern technology, and personalized care.</p>
 </div>
 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
 <div class="why-card p-6 reveal delay-100">
 <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-rose-500 to-pink-600 text-white flex items-center justify-center text-xl mb-4 shadow-lg"><i class="fas fa-user-md"></i></div>
-<h4 class="font-extrabold text-lg mb-2 font-display">Experienced Specialists</h4>
-<p class="text-xs sm:text-sm text-slate-300 leading-relaxed font-body">Highly qualified MD, MS &amp; MCh super-specialists across Plastic Surgery, Dermatology &amp; OBG.</p>
+<h4 class="font-bold text-lg mb-2 font-display">Experienced Specialists</h4>
+<p class="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal font-body">Highly qualified MD, MS &amp; MCh super-specialists across Plastic Surgery, Dermatology &amp; OBG.</p>
 </div>
 <div class="why-card p-6 reveal delay-200">
 <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-rose-500 to-pink-600 text-white flex items-center justify-center text-xl mb-4 shadow-lg"><i class="fas fa-shield-virus"></i></div>
-<h4 class="font-extrabold text-lg mb-2 font-display">3 Laminar-Flow OTs</h4>
-<p class="text-xs sm:text-sm text-slate-300 leading-relaxed font-body">Zero-infection modular operation theatres equipped with operating microscopes &amp; anesthesia workstations.</p>
+<h4 class="font-bold text-lg mb-2 font-display">3 Laminar-Flow OTs</h4>
+<p class="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal font-body">Zero-infection modular operation theatres equipped with operating microscopes &amp; anesthesia workstations.</p>
 </div>
 <div class="why-card p-6 reveal delay-300">
 <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-rose-500 to-pink-600 text-white flex items-center justify-center text-xl mb-4 shadow-lg"><i class="fas fa-magic"></i></div>
-<h4 class="font-extrabold text-lg mb-2 font-display">Advanced US-FDA Tech</h4>
-<p class="text-xs sm:text-sm text-slate-300 leading-relaxed font-body">Equipped with CO₂, Diode &amp; Triple-Wave Lasers, MNRF, HIFU, VASER &amp; MicroAire Liposuction.</p>
+<h4 class="font-bold text-lg mb-2 font-display">Advanced US-FDA Tech</h4>
+<p class="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal font-body">Equipped with CO₂, Diode &amp; Triple-Wave Lasers, MNRF, HIFU, VASER &amp; MicroAire Liposuction.</p>
 </div>
 <div class="why-card p-6 reveal delay-400">
 <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-rose-500 to-pink-600 text-white flex items-center justify-center text-xl mb-4 shadow-lg"><i class="fas fa-hand-holding-heart"></i></div>
-<h4 class="font-extrabold text-lg mb-2 font-display">Cashless TPA Support</h4>
-<p class="text-xs sm:text-sm text-slate-300 leading-relaxed font-body">Seamless pre-authorization and cashless treatment across 12+ major health insurance &amp; TPA networks.</p>
+<h4 class="font-bold text-lg mb-2 font-display">Cashless TPA Support</h4>
+<p class="text-xs sm:text-sm text-slate-300 leading-relaxed font-normal font-body">Seamless pre-authorization and cashless treatment across 12+ major health insurance &amp; TPA networks.</p>
 </div>
 </div>
 </div>
@@ -382,85 +397,85 @@ Providing state-of-the-art technology, precision surgery, and compassionate pati
 <section id="doctors" class="py-16 lg:py-20 bg-slate-50 border-b border-slate-200/80">
 <div class="container mx-auto px-4 sm:px-6 max-w-7xl">
 <div class="mb-12 text-center reveal">
-<span class="text-primary font-bold uppercase tracking-widest text-xs bg-rose-50 border border-rose-200 px-4 py-1 rounded-full">Meet Your Specialists</span>
-<h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-secondary mt-3 font-display">Consult Our <span class="text-primary">Medical Experts</span></h2>
-<p class="text-slate-500 text-sm sm:text-base mt-1.5 font-body">Dedicated super-specialists providing precision medical, surgical, and aesthetic care.</p>
+<span class="text-primary font-semibold uppercase tracking-widest text-xs bg-rose-50 border border-rose-200 px-4 py-1 rounded-full font-body">Meet Your Specialists</span>
+<h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-secondary mt-3 font-display">Consult Our <span class="text-primary font-serif-headline italic font-bold">Medical Experts</span></h2>
+<p class="text-slate-500 text-sm sm:text-base mt-1.5 font-normal font-body">Dedicated super-specialists providing precision medical, surgical, and aesthetic care.</p>
 </div>
 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
 <div class="hover-card flex flex-col sm:flex-row reveal delay-100">
 <div class="sm:w-2/5 doc-photo-wrap">
 <img class="dyn-doc4 doc-photo" src="" alt="Dr. M. Subramanya Swamy">
-<span class="absolute top-3 left-3 bg-secondary/90 backdrop-blur-sm text-white text-xs font-bold px-3 py-1 rounded-full shadow">Dermatology</span>
+<span class="absolute top-3 left-3 bg-secondary/90 backdrop-blur-sm text-white text-xs font-medium px-3 py-1 rounded-full shadow font-body">Dermatology</span>
 </div>
 <div class="sm:w-3/5 p-6 flex flex-col justify-between bg-white">
 <div>
-<h3 class="text-xl sm:text-2xl font-extrabold text-secondary leading-snug font-display">Dr. M. Subramanya Swamy</h3>
-<p class="text-xs font-extrabold text-primary mb-3 uppercase tracking-wider mt-1">MBBS, MD (Dermatology)</p>
-<p class="text-xs sm:text-sm text-slate-800 font-bold mb-1.5"><i class="fas fa-user-check text-primary mr-2"></i>Senior Consultant Dermatologist</p>
-<p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4 font-body">Specializing in Clinical Dermatology &amp; Hair Restoration, Aesthetic Medicine, and Advanced US-FDA Laser Treatments.</p>
+<h3 class="text-xl sm:text-2xl font-bold text-secondary leading-snug font-display">Dr. M. Subramanya Swamy</h3>
+<p class="text-xs font-semibold text-primary mb-3 uppercase tracking-wider mt-1 font-body">MBBS, MD (Dermatology)</p>
+<p class="text-xs sm:text-sm text-slate-800 font-semibold mb-1.5 font-body"><i class="fas fa-user-check text-primary mr-2"></i>Senior Consultant Dermatologist</p>
+<p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4 font-normal font-body">Specializing in Clinical Dermatology &amp; Hair Restoration, Aesthetic Medicine, and Advanced US-FDA Laser Treatments.</p>
 <div class="mb-4 bg-rose-50/70 p-3 rounded-xl border border-rose-100 flex items-center">
 <div class="w-9 h-9 rounded-lg bg-white text-primary flex items-center justify-center mr-3 shadow-sm"><i class="far fa-clock text-base"></i></div>
-<div><p class="text-[10px] text-slate-500 uppercase font-bold">Consultation Timings</p><p class="text-xs sm:text-sm font-extrabold text-secondary">Mon - Sat: 10:00 AM – 9:30 PM</p></div>
+<div><p class="text-[10px] text-slate-500 uppercase font-medium font-body">Consultation Timings</p><p class="text-xs sm:text-sm font-semibold text-secondary font-body">Mon - Sat: 10:00 AM – 9:30 PM</p></div>
 </div>
 </div>
-<a href="#opd-info" class="btn-modern text-xs sm:text-sm font-bold py-3 px-5 rounded-xl w-full text-center flex items-center justify-center"><i class="fas fa-calendar-check mr-2"></i>Book Appointment</a>
+<a href="#opd-info" class="btn-modern text-xs sm:text-sm font-semibold py-3 px-5 rounded-xl w-full text-center flex items-center justify-center"><i class="fas fa-calendar-check mr-2"></i>Book Appointment</a>
 </div>
 </div>
 <div class="hover-card flex flex-col sm:flex-row reveal delay-200">
 <div class="sm:w-2/5 doc-photo-wrap">
 <img class="dyn-doc1 doc-photo" src="" alt="Dr. M. Siddharth Mayakuntla">
-<span class="absolute top-3 left-3 bg-secondary/90 backdrop-blur-sm text-white text-xs font-bold px-3 py-1 rounded-full shadow">Plastic Surgery</span>
+<span class="absolute top-3 left-3 bg-secondary/90 backdrop-blur-sm text-white text-xs font-medium px-3 py-1 rounded-full shadow font-body">Plastic Surgery</span>
 </div>
 <div class="sm:w-3/5 p-6 flex flex-col justify-between bg-white">
 <div>
-<h3 class="text-xl sm:text-2xl font-extrabold text-secondary leading-snug font-display">Dr. M. Siddharth Mayakuntla</h3>
-<p class="text-xs font-extrabold text-primary mb-3 uppercase tracking-wider mt-1">MBBS, MS, MCh (Plastic Surgery)</p>
-<p class="text-xs sm:text-sm text-slate-800 font-bold mb-1.5"><i class="fas fa-user-check text-primary mr-2"></i>Plastic, Cosmetic &amp; Reconstructive Surgeon</p>
-<p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4 font-body">Specializing in VASER Liposuction, Body Contouring, Rhinoplasty, Gynecomastia, Burns &amp; Microvascular Reconstruction.</p>
+<h3 class="text-xl sm:text-2xl font-bold text-secondary leading-snug font-display">Dr. M. Siddharth Mayakuntla</h3>
+<p class="text-xs font-semibold text-primary mb-3 uppercase tracking-wider mt-1 font-body">MBBS, MS, MCh (Plastic Surgery)</p>
+<p class="text-xs sm:text-sm text-slate-800 font-semibold mb-1.5 font-body"><i class="fas fa-user-check text-primary mr-2"></i>Plastic, Cosmetic &amp; Reconstructive Surgeon</p>
+<p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4 font-normal font-body">Specializing in VASER Liposuction, Body Contouring, Rhinoplasty, Gynecomastia, Burns &amp; Microvascular Reconstruction.</p>
 <div class="mb-4 bg-rose-50/70 p-3 rounded-xl border border-rose-100 flex items-center">
 <div class="w-9 h-9 rounded-lg bg-white text-primary flex items-center justify-center mr-3 shadow-sm"><i class="far fa-clock text-base"></i></div>
-<div><p class="text-[10px] text-slate-500 uppercase font-bold">Consultation Timings</p><p class="text-xs sm:text-sm font-extrabold text-secondary">Mon - Sat: 10:00 AM – 9:30 PM</p></div>
+<div><p class="text-[10px] text-slate-500 uppercase font-medium font-body">Consultation Timings</p><p class="text-xs sm:text-sm font-semibold text-secondary font-body">Mon - Sat: 10:00 AM – 9:30 PM</p></div>
 </div>
 </div>
-<a href="#opd-info" class="btn-modern text-xs sm:text-sm font-bold py-3 px-5 rounded-xl w-full text-center flex items-center justify-center"><i class="fas fa-calendar-check mr-2"></i>Book Appointment</a>
+<a href="#opd-info" class="btn-modern text-xs sm:text-sm font-semibold py-3 px-5 rounded-xl w-full text-center flex items-center justify-center"><i class="fas fa-calendar-check mr-2"></i>Book Appointment</a>
 </div>
 </div>
 <div class="hover-card flex flex-col sm:flex-row reveal delay-100">
 <div class="sm:w-2/5 doc-photo-wrap">
 <img class="dyn-doc2 doc-photo" src="" alt="Dr. K. Annapurna">
-<span class="absolute top-3 left-3 bg-secondary/90 backdrop-blur-sm text-white text-xs font-bold px-3 py-1 rounded-full shadow">OBG &amp; Fertility</span>
+<span class="absolute top-3 left-3 bg-secondary/90 backdrop-blur-sm text-white text-xs font-medium px-3 py-1 rounded-full shadow font-body">OBG &amp; Fertility</span>
 </div>
 <div class="sm:w-3/5 p-6 flex flex-col justify-between bg-white">
 <div>
-<h3 class="text-xl sm:text-2xl font-extrabold text-secondary leading-snug font-display">Dr. K. Annapurna</h3>
-<p class="text-xs font-extrabold text-primary mb-3 uppercase tracking-wider mt-1">MBBS, MD (OBG)</p>
-<p class="text-xs sm:text-sm text-slate-800 font-bold mb-1.5"><i class="fas fa-user-check text-primary mr-2"></i>Senior Obstetrician &amp; Gynecologist</p>
-<p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4 font-body">Specializing in Comprehensive Obstetrics &amp; Gynecology, High-Risk Pregnancy Care, and Advanced Fertility Services.</p>
+<h3 class="text-xl sm:text-2xl font-bold text-secondary leading-snug font-display">Dr. K. Annapurna</h3>
+<p class="text-xs font-semibold text-primary mb-3 uppercase tracking-wider mt-1 font-body">MBBS, MD (OBG)</p>
+<p class="text-xs sm:text-sm text-slate-800 font-semibold mb-1.5 font-body"><i class="fas fa-user-check text-primary mr-2"></i>Senior Obstetrician &amp; Gynecologist</p>
+<p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4 font-normal font-body">Specializing in Comprehensive Obstetrics &amp; Gynecology, High-Risk Pregnancy Care, and Advanced Fertility Services.</p>
 <div class="mb-4 bg-rose-50/70 p-3 rounded-xl border border-rose-100 flex items-center">
 <div class="w-9 h-9 rounded-lg bg-white text-primary flex items-center justify-center mr-3 shadow-sm"><i class="far fa-clock text-base"></i></div>
-<div><p class="text-[10px] text-slate-500 uppercase font-bold">Consultation Timings</p><p class="text-xs sm:text-sm font-extrabold text-secondary">Mon - Sat: 10:00 AM – 9:30 PM</p></div>
+<div><p class="text-[10px] text-slate-500 uppercase font-medium font-body">Consultation Timings</p><p class="text-xs sm:text-sm font-semibold text-secondary font-body">Mon - Sat: 10:00 AM – 9:30 PM</p></div>
 </div>
 </div>
-<a href="#opd-info" class="btn-modern text-xs sm:text-sm font-bold py-3 px-5 rounded-xl w-full text-center flex items-center justify-center"><i class="fas fa-calendar-check mr-2"></i>Book Appointment</a>
+<a href="#opd-info" class="btn-modern text-xs sm:text-sm font-semibold py-3 px-5 rounded-xl w-full text-center flex items-center justify-center"><i class="fas fa-calendar-check mr-2"></i>Book Appointment</a>
 </div>
 </div>
 <div class="hover-card flex flex-col sm:flex-row reveal delay-200">
 <div class="sm:w-2/5 doc-photo-wrap">
 <img class="dyn-doc3 doc-photo" src="" alt="Dr. S. Sai Mounika">
-<span class="absolute top-3 left-3 bg-secondary/90 backdrop-blur-sm text-white text-xs font-bold px-3 py-1 rounded-full shadow">OBG &amp; Laparoscopy</span>
+<span class="absolute top-3 left-3 bg-secondary/90 backdrop-blur-sm text-white text-xs font-medium px-3 py-1 rounded-full shadow font-body">OBG &amp; Laparoscopy</span>
 </div>
 <div class="sm:w-3/5 p-6 flex flex-col justify-between bg-white">
 <div>
-<h3 class="text-xl sm:text-2xl font-extrabold text-secondary leading-snug font-display">Dr. S. Sai Mounika</h3>
-<p class="text-xs font-extrabold text-primary mb-3 uppercase tracking-wider mt-1">MBBS, MS (OBG)</p>
-<p class="text-xs sm:text-sm text-slate-800 font-bold mb-1.5"><i class="fas fa-user-check text-primary mr-2"></i>Consultant Obstetrician &amp; Gynecologist</p>
-<p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4 font-body">Specializing in Obstetrics &amp; Gynecology, Cosmetic Gynecology, and Minimally Invasive Laparoscopic Procedures.</p>
+<h3 class="text-xl sm:text-2xl font-bold text-secondary leading-snug font-display">Dr. S. Sai Mounika</h3>
+<p class="text-xs font-semibold text-primary mb-3 uppercase tracking-wider mt-1 font-body">MBBS, MS (OBG)</p>
+<p class="text-xs sm:text-sm text-slate-800 font-semibold mb-1.5 font-body"><i class="fas fa-user-check text-primary mr-2"></i>Consultant Obstetrician &amp; Gynecologist</p>
+<p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4 font-normal font-body">Specializing in Obstetrics &amp; Gynecology, Cosmetic Gynecology, and Minimally Invasive Laparoscopic Procedures.</p>
 <div class="mb-4 bg-rose-50/70 p-3 rounded-xl border border-rose-100 flex items-center">
 <div class="w-9 h-9 rounded-lg bg-white text-primary flex items-center justify-center mr-3 shadow-sm"><i class="far fa-clock text-base"></i></div>
-<div><p class="text-[10px] text-slate-500 uppercase font-bold">Consultation Timings</p><p class="text-xs sm:text-sm font-extrabold text-secondary">Mon - Sat: 10:00 AM – 9:30 PM</p></div>
+<div><p class="text-[10px] text-slate-500 uppercase font-medium font-body">Consultation Timings</p><p class="text-xs sm:text-sm font-semibold text-secondary font-body">Mon - Sat: 10:00 AM – 9:30 PM</p></div>
 </div>
 </div>
-<a href="#opd-info" class="btn-modern text-xs sm:text-sm font-bold py-3 px-5 rounded-xl w-full text-center flex items-center justify-center"><i class="fas fa-calendar-check mr-2"></i>Book Appointment</a>
+<a href="#opd-info" class="btn-modern text-xs sm:text-sm font-semibold py-3 px-5 rounded-xl w-full text-center flex items-center justify-center"><i class="fas fa-calendar-check mr-2"></i>Book Appointment</a>
 </div>
 </div>
 </div>
@@ -472,112 +487,112 @@ Providing state-of-the-art technology, precision surgery, and compassionate pati
 <div class="container mx-auto px-4 sm:px-6 max-w-7xl">
 <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4 reveal">
 <div>
-<span class="text-primary font-bold uppercase tracking-widest text-xs bg-rose-50 border border-rose-200 px-3.5 py-1 rounded-full">Our Services &amp; Departments</span>
-<h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-secondary mt-2.5 font-display">Advanced Surgical &amp; <span class="text-primary">Medical Specialties</span></h2>
-<p class="text-slate-500 text-sm sm:text-base mt-1 font-body">Comprehensive treatments, modern surgical procedures, and US-FDA approved equipment.</p>
+<span class="text-primary font-semibold uppercase tracking-widest text-xs bg-rose-50 border border-rose-200 px-3.5 py-1 rounded-full font-body">Our Services &amp; Departments</span>
+<h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-secondary mt-2.5 font-display">Advanced Surgical &amp; <span class="text-primary font-serif-headline italic font-bold">Medical Specialties</span></h2>
+<p class="text-slate-500 text-sm sm:text-base mt-1 font-normal font-body">Comprehensive treatments, modern surgical procedures, and US-FDA approved equipment.</p>
 </div>
 <div class="flex flex-wrap gap-2" id="specialty-filters">
-<button onclick="filterSpecialties('all',this)" class="spec-filter-btn bg-primary text-white text-xs sm:text-sm font-bold px-4 py-2 rounded-full shadow-md transition">All Specialties (6)</button>
-<button onclick="filterSpecialties('skin',this)" class="spec-filter-btn bg-slate-100 hover:bg-rose-50 text-slate-700 text-xs sm:text-sm font-bold px-4 py-2 rounded-full transition">Dermatology &amp; Aesthetic</button>
-<button onclick="filterSpecialties('plastic',this)" class="spec-filter-btn bg-slate-100 hover:bg-rose-50 text-slate-700 text-xs sm:text-sm font-bold px-4 py-2 rounded-full transition">Plastic Surgery</button>
-<button onclick="filterSpecialties('obg',this)" class="spec-filter-btn bg-slate-100 hover:bg-rose-50 text-slate-700 text-xs sm:text-sm font-bold px-4 py-2 rounded-full transition">OBG &amp; Diagnostics</button>
+<button onclick="filterSpecialties('all',this)" class="spec-filter-btn bg-primary text-white text-xs sm:text-sm font-semibold px-4 py-2 rounded-full shadow-md transition font-body">All Specialties (6)</button>
+<button onclick="filterSpecialties('skin',this)" class="spec-filter-btn bg-slate-100 hover:bg-rose-50 text-slate-700 text-xs sm:text-sm font-medium px-4 py-2 rounded-full transition font-body">Dermatology &amp; Aesthetic</button>
+<button onclick="filterSpecialties('plastic',this)" class="spec-filter-btn bg-slate-100 hover:bg-rose-50 text-slate-700 text-xs sm:text-sm font-medium px-4 py-2 rounded-full transition font-body">Plastic Surgery</button>
+<button onclick="filterSpecialties('obg',this)" class="spec-filter-btn bg-slate-100 hover:bg-rose-50 text-slate-700 text-xs sm:text-sm font-medium px-4 py-2 rounded-full transition font-body">OBG &amp; Diagnostics</button>
 </div>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7" id="specialties-grid">
 <div class="specialty-card p-6 flex flex-col reveal delay-100" data-category="skin">
 <div class="flex items-center mb-5 border-b border-slate-100 pb-4">
 <div class="spec-icon-box w-12 h-12 rounded-2xl bg-gradient-to-br from-rose-500 to-pink-600 text-white flex items-center justify-center text-xl mr-3.5 shrink-0 shadow-md"><i class="fas fa-hand-sparkles"></i></div>
-<div><span class="text-[11px] font-bold uppercase tracking-widest text-primary">Department 01</span><h3 class="font-extrabold text-secondary text-lg leading-snug font-display">Dermatology &amp; Hair</h3></div>
+<div><span class="text-[11px] font-semibold uppercase tracking-widest text-primary font-body">Department 01</span><h3 class="font-bold text-secondary text-lg leading-snug font-display">Dermatology &amp; Hair</h3></div>
 </div>
 <div class="space-y-4 flex-1">
-<div><h4 class="font-bold text-primary mb-2 text-xs uppercase tracking-wider bg-rose-50 inline-block px-3 py-1 rounded-lg">Treatments</h4><ul class="text-xs sm:text-sm text-slate-600 space-y-1.5 list-disc pl-5 marker:text-rose-500 font-body"><li>Acne, Scars &amp; Pigmentation</li><li>Skin Brightening &amp; Anti-Ageing</li><li>Laser Hair Reduction</li><li>Hair Fall (PRP, GFC, Exosome)</li><li>Eczema, Psoriasis &amp; Dermatitis</li><li>Tattoo, Mole &amp; Wart Removal</li></ul></div>
-<div><h4 class="font-bold text-secondary mb-2 text-xs uppercase tracking-wider bg-slate-100 inline-block px-3 py-1 rounded-lg">Procedures &amp; Equipment</h4><ul class="text-xs sm:text-sm text-slate-600 space-y-1.5 list-disc pl-5 marker:text-rose-500 font-body"><li>CO₂, Fractional, Diode &amp; Triple-Wave Lasers</li><li>MNRF &amp; HIFU Systems</li><li>Cryolipolysis &amp; Carbon Laser</li><li>Hair Transplantation (FUE/FUT/DHI)</li></ul></div>
+<div><h4 class="font-semibold text-primary mb-2 text-xs uppercase tracking-wider bg-rose-50 inline-block px-3 py-1 rounded-lg font-body">Treatments</h4><ul class="text-xs sm:text-sm text-slate-600 space-y-1.5 list-disc pl-5 marker:text-rose-500 font-normal font-body"><li>Acne, Scars &amp; Pigmentation</li><li>Skin Brightening &amp; Anti-Ageing</li><li>Laser Hair Reduction</li><li>Hair Fall (PRP, GFC, Exosome)</li><li>Eczema, Psoriasis &amp; Dermatitis</li><li>Tattoo, Mole &amp; Wart Removal</li></ul></div>
+<div><h4 class="font-semibold text-secondary mb-2 text-xs uppercase tracking-wider bg-slate-100 inline-block px-3 py-1 rounded-lg font-body">Procedures &amp; Equipment</h4><ul class="text-xs sm:text-sm text-slate-600 space-y-1.5 list-disc pl-5 marker:text-rose-500 font-normal font-body"><li>CO₂, Fractional, Diode &amp; Triple-Wave Lasers</li><li>MNRF &amp; HIFU Systems</li><li>Cryolipolysis &amp; Carbon Laser</li><li>Hair Transplantation (FUE/FUT/DHI)</li></ul></div>
 </div>
 </div>
 <div class="specialty-card p-6 flex flex-col reveal delay-200" data-category="skin">
 <div class="flex items-center mb-5 border-b border-slate-100 pb-4">
 <div class="spec-icon-box w-12 h-12 rounded-2xl bg-gradient-to-br from-rose-500 to-pink-600 text-white flex items-center justify-center text-xl mr-3.5 shrink-0 shadow-md"><i class="fas fa-magic"></i></div>
-<div><span class="text-[11px] font-bold uppercase tracking-widest text-primary">Department 02</span><h3 class="font-extrabold text-secondary text-lg leading-snug font-display">Aesthetic Medicine</h3></div>
+<div><span class="text-[11px] font-semibold uppercase tracking-widest text-primary font-body">Department 02</span><h3 class="font-bold text-secondary text-lg leading-snug font-display">Aesthetic Medicine</h3></div>
 </div>
 <div class="space-y-4 flex-1">
-<div><h4 class="font-bold text-primary mb-2 text-xs uppercase tracking-wider bg-rose-50 inline-block px-3 py-1 rounded-lg">Treatments</h4><ul class="text-xs sm:text-sm text-slate-600 space-y-1.5 list-disc pl-5 marker:text-rose-500 font-body"><li>Advanced Skin Rejuvenation</li><li>Skin Tightening &amp; Contouring</li><li>Non-Surgical Facial Rejuvenation</li><li>Localized Fat Reduction</li><li>Acne Scar Correction</li></ul></div>
-<div><h4 class="font-bold text-secondary mb-2 text-xs uppercase tracking-wider bg-slate-100 inline-block px-3 py-1 rounded-lg">Procedures</h4><ul class="text-xs sm:text-sm text-slate-600 space-y-1.5 list-disc pl-5 marker:text-rose-500 font-body"><li>Botox &amp; Dermal Fillers</li><li>Carbon / Hollywood Peel</li><li>Cryolipolysis / Fat Freezing</li><li>Chemical &amp; Pumpkin Peels</li></ul></div>
+<div><h4 class="font-semibold text-primary mb-2 text-xs uppercase tracking-wider bg-rose-50 inline-block px-3 py-1 rounded-lg font-body">Treatments</h4><ul class="text-xs sm:text-sm text-slate-600 space-y-1.5 list-disc pl-5 marker:text-rose-500 font-normal font-body"><li>Advanced Skin Rejuvenation</li><li>Skin Tightening &amp; Contouring</li><li>Non-Surgical Facial Rejuvenation</li><li>Localized Fat Reduction</li><li>Acne Scar Correction</li></ul></div>
+<div><h4 class="font-semibold text-secondary mb-2 text-xs uppercase tracking-wider bg-slate-100 inline-block px-3 py-1 rounded-lg font-body">Procedures</h4><ul class="text-xs sm:text-sm text-slate-600 space-y-1.5 list-disc pl-5 marker:text-rose-500 font-normal font-body"><li>Botox &amp; Dermal Fillers</li><li>Carbon / Hollywood Peel</li><li>Cryolipolysis / Fat Freezing</li><li>Chemical &amp; Pumpkin Peels</li></ul></div>
 </div>
 </div>
 <div class="specialty-card p-6 flex flex-col reveal delay-300" data-category="plastic">
 <div class="flex items-center mb-5 border-b border-slate-100 pb-4">
 <div class="spec-icon-box w-12 h-12 rounded-2xl bg-gradient-to-br from-rose-500 to-pink-600 text-white flex items-center justify-center text-xl mr-3.5 shrink-0 shadow-md"><i class="fas fa-user-md"></i></div>
-<div><span class="text-[11px] font-bold uppercase tracking-widest text-primary">Department 03</span><h3 class="font-extrabold text-secondary text-lg leading-snug font-display">Plastic &amp; Aesthetic Surgery</h3></div>
+<div><span class="text-[11px] font-semibold uppercase tracking-widest text-primary font-body">Department 03</span><h3 class="font-bold text-secondary text-lg leading-snug font-display">Plastic &amp; Aesthetic Surgery</h3></div>
 </div>
 <div class="space-y-4 flex-1">
-<div><h4 class="font-bold text-primary mb-2 text-xs uppercase tracking-wider bg-rose-50 inline-block px-3 py-1 rounded-lg">Aesthetic Surgeries</h4><ul class="text-xs sm:text-sm text-slate-600 space-y-1.5 list-disc pl-5 marker:text-rose-500 font-body"><li>VASER &amp; MicroAire Liposuction</li><li>360° Body Contouring &amp; 6-Pack</li><li>Tummy Tuck / Mommy Makeover</li><li>Breast Augmentation, Lift &amp; Reduction</li><li>Gynecomastia &amp; Rhinoplasty</li><li>Facelift, Neck Lift &amp; Blepharoplasty</li></ul></div>
-<div><h4 class="font-bold text-secondary mb-2 text-xs uppercase tracking-wider bg-slate-100 inline-block px-3 py-1 rounded-lg">Equipment</h4><ul class="text-xs sm:text-sm text-slate-600 space-y-1.5 list-disc pl-5 marker:text-rose-500 font-body"><li>FLIR Infrared Thermography</li><li>Advanced Anesthesia Workstation</li></ul></div>
+<div><h4 class="font-semibold text-primary mb-2 text-xs uppercase tracking-wider bg-rose-50 inline-block px-3 py-1 rounded-lg font-body">Aesthetic Surgeries</h4><ul class="text-xs sm:text-sm text-slate-600 space-y-1.5 list-disc pl-5 marker:text-rose-500 font-normal font-body"><li>VASER &amp; MicroAire Liposuction</li><li>360° Body Contouring &amp; 6-Pack</li><li>Tummy Tuck / Mommy Makeover</li><li>Breast Augmentation, Lift &amp; Reduction</li><li>Gynecomastia &amp; Rhinoplasty</li><li>Facelift, Neck Lift &amp; Blepharoplasty</li></ul></div>
+<div><h4 class="font-semibold text-secondary mb-2 text-xs uppercase tracking-wider bg-slate-100 inline-block px-3 py-1 rounded-lg font-body">Equipment</h4><ul class="text-xs sm:text-sm text-slate-600 space-y-1.5 list-disc pl-5 marker:text-rose-500 font-normal font-body"><li>FLIR Infrared Thermography</li><li>Advanced Anesthesia Workstation</li></ul></div>
 </div>
 </div>
 <div class="specialty-card p-6 flex flex-col reveal delay-100" data-category="plastic">
 <div class="flex items-center mb-5 border-b border-slate-100 pb-4">
 <div class="spec-icon-box w-12 h-12 rounded-2xl bg-gradient-to-br from-rose-500 to-pink-600 text-white flex items-center justify-center text-xl mr-3.5 shrink-0 shadow-md"><i class="fas fa-band-aid"></i></div>
-<div><span class="text-[11px] font-bold uppercase tracking-widest text-primary">Department 04</span><h3 class="font-extrabold text-secondary text-lg leading-snug font-display">Reconstructive Surgery</h3></div>
+<div><span class="text-[11px] font-semibold uppercase tracking-widest text-primary font-body">Department 04</span><h3 class="font-bold text-secondary text-lg leading-snug font-display">Reconstructive Surgery</h3></div>
 </div>
 <div class="space-y-4 flex-1">
-<div><h4 class="font-bold text-primary mb-2 text-xs uppercase tracking-wider bg-rose-50 inline-block px-3 py-1 rounded-lg">Treatments &amp; Surgeries</h4><ul class="text-xs sm:text-sm text-slate-600 space-y-1.5 list-disc pl-5 marker:text-rose-500 font-body"><li>Complex Burn &amp; Wound Care</li><li>Diabetic &amp; Pressure Sores</li><li>Skin Grafting &amp; Flap Surgery</li><li>Microvascular Free-Flap</li><li>Hand &amp; Facial Trauma Reconstruction</li><li>Congenital Deformity Correction</li></ul></div>
-<div><h4 class="font-bold text-secondary mb-2 text-xs uppercase tracking-wider bg-slate-100 inline-block px-3 py-1 rounded-lg">Equipment</h4><ul class="text-xs sm:text-sm text-slate-600 space-y-1.5 list-disc pl-5 marker:text-rose-500 font-body"><li>Operating Microscope &amp; Loupes</li><li>Microvascular Instruments</li><li>Negative-Pressure Wound Therapy</li></ul></div>
+<div><h4 class="font-semibold text-primary mb-2 text-xs uppercase tracking-wider bg-rose-50 inline-block px-3 py-1 rounded-lg font-body">Treatments &amp; Surgeries</h4><ul class="text-xs sm:text-sm text-slate-600 space-y-1.5 list-disc pl-5 marker:text-rose-500 font-normal font-body"><li>Complex Burn &amp; Wound Care</li><li>Diabetic &amp; Pressure Sores</li><li>Skin Grafting &amp; Flap Surgery</li><li>Microvascular Free-Flap</li><li>Hand &amp; Facial Trauma Reconstruction</li><li>Congenital Deformity Correction</li></ul></div>
+<div><h4 class="font-semibold text-secondary mb-2 text-xs uppercase tracking-wider bg-slate-100 inline-block px-3 py-1 rounded-lg font-body">Equipment</h4><ul class="text-xs sm:text-sm text-slate-600 space-y-1.5 list-disc pl-5 marker:text-rose-500 font-normal font-body"><li>Operating Microscope &amp; Loupes</li><li>Microvascular Instruments</li><li>Negative-Pressure Wound Therapy</li></ul></div>
 </div>
 </div>
 <div class="specialty-card p-6 flex flex-col reveal delay-200" data-category="obg">
 <div class="flex items-center mb-5 border-b border-slate-100 pb-4">
 <div class="spec-icon-box w-12 h-12 rounded-2xl bg-gradient-to-br from-rose-500 to-pink-600 text-white flex items-center justify-center text-xl mr-3.5 shrink-0 shadow-md"><i class="fas fa-female"></i></div>
-<div><span class="text-[11px] font-bold uppercase tracking-widest text-primary">Department 05</span><h3 class="font-extrabold text-secondary text-lg leading-snug font-display">Obstetrics &amp; Gynecology</h3></div>
+<div><span class="text-[11px] font-semibold uppercase tracking-widest text-primary font-body">Department 05</span><h3 class="font-bold text-secondary text-lg leading-snug font-display">Obstetrics &amp; Gynecology</h3></div>
 </div>
 <div class="space-y-4 flex-1">
-<div><h4 class="font-bold text-primary mb-2 text-xs uppercase tracking-wider bg-rose-50 inline-block px-3 py-1 rounded-lg">Care &amp; Treatments</h4><ul class="text-xs sm:text-sm text-slate-600 space-y-1.5 list-disc pl-5 marker:text-rose-500 font-body"><li>Antenatal &amp; High-Risk Pregnancy</li><li>PCOS, Fibroids &amp; Endometriosis</li><li>Fertility Services &amp; Evaluation</li><li>Cosmetic Gynecology</li><li>Menopause Management</li></ul></div>
-<div><h4 class="font-bold text-secondary mb-2 text-xs uppercase tracking-wider bg-slate-100 inline-block px-3 py-1 rounded-lg">Procedures &amp; Equipment</h4><ul class="text-xs sm:text-sm text-slate-600 space-y-1.5 list-disc pl-5 marker:text-rose-500 font-body"><li>Cesarean Section &amp; D&amp;C</li><li>Laparoscopic &amp; Hysteroscopy</li><li>Obstetric Ultrasound &amp; Fetal Doppler</li><li>Neonatal Resuscitation Equipment</li></ul></div>
+<div><h4 class="font-semibold text-primary mb-2 text-xs uppercase tracking-wider bg-rose-50 inline-block px-3 py-1 rounded-lg font-body">Care &amp; Treatments</h4><ul class="text-xs sm:text-sm text-slate-600 space-y-1.5 list-disc pl-5 marker:text-rose-500 font-normal font-body"><li>Antenatal &amp; High-Risk Pregnancy</li><li>PCOS, Fibroids &amp; Endometriosis</li><li>Fertility Services &amp; Evaluation</li><li>Cosmetic Gynecology</li><li>Menopause Management</li></ul></div>
+<div><h4 class="font-semibold text-secondary mb-2 text-xs uppercase tracking-wider bg-slate-100 inline-block px-3 py-1 rounded-lg font-body">Procedures &amp; Equipment</h4><ul class="text-xs sm:text-sm text-slate-600 space-y-1.5 list-disc pl-5 marker:text-rose-500 font-normal font-body"><li>Cesarean Section &amp; D&amp;C</li><li>Laparoscopic &amp; Hysteroscopy</li><li>Obstetric Ultrasound &amp; Fetal Doppler</li><li>Neonatal Resuscitation Equipment</li></ul></div>
 </div>
 </div>
 <div class="specialty-card p-6 flex flex-col reveal delay-300" data-category="obg">
 <div class="flex items-center mb-5 border-b border-slate-100 pb-4">
 <div class="spec-icon-box w-12 h-12 rounded-2xl bg-gradient-to-br from-rose-500 to-pink-600 text-white flex items-center justify-center text-xl mr-3.5 shrink-0 shadow-md"><i class="fas fa-vial"></i></div>
-<div><span class="text-[11px] font-bold uppercase tracking-widest text-primary">Department 06</span><h3 class="font-extrabold text-secondary text-lg leading-snug font-display">Lab &amp; Diagnostics</h3></div>
+<div><span class="text-[11px] font-semibold uppercase tracking-widest text-primary font-body">Department 06</span><h3 class="font-bold text-secondary text-lg leading-snug font-display">Lab &amp; Diagnostics</h3></div>
 </div>
 <div class="grid grid-cols-2 gap-3.5 flex-1">
-<div class="bg-slate-50 p-3.5 rounded-xl border border-slate-100"><h4 class="font-extrabold text-primary mb-1 text-xs uppercase">Hematology</h4><p class="text-xs text-slate-600 leading-relaxed font-body">CBC, Hb, Platelet, ESR, Blood Grouping.</p></div>
-<div class="bg-slate-50 p-3.5 rounded-xl border border-slate-100"><h4 class="font-extrabold text-primary mb-1 text-xs uppercase">Biochemistry</h4><p class="text-xs text-slate-600 leading-relaxed font-body">Blood Sugar, HbA1c, LFT, RFT, Lipid Profile.</p></div>
-<div class="bg-slate-50 p-3.5 rounded-xl border border-slate-100"><h4 class="font-extrabold text-primary mb-1 text-xs uppercase">Hormonal</h4><p class="text-xs text-slate-600 leading-relaxed font-body">Thyroid, FSH, LH, AMH, Prolactin, β-hCG.</p></div>
-<div class="bg-slate-50 p-3.5 rounded-xl border border-slate-100"><h4 class="font-extrabold text-primary mb-1 text-xs uppercase">Pathology</h4><p class="text-xs text-slate-600 leading-relaxed font-body">Skin Biopsy, Cultures, Viral Screen, ECG.</p></div>
+<div class="bg-slate-50 p-3.5 rounded-xl border border-slate-100"><h4 class="font-bold text-primary mb-1 text-xs uppercase font-display">Hematology</h4><p class="text-xs text-slate-600 leading-relaxed font-normal font-body">CBC, Hb, Platelet, ESR, Blood Grouping.</p></div>
+<div class="bg-slate-50 p-3.5 rounded-xl border border-slate-100"><h4 class="font-bold text-primary mb-1 text-xs uppercase font-display">Biochemistry</h4><p class="text-xs text-slate-600 leading-relaxed font-normal font-body">Blood Sugar, HbA1c, LFT, RFT, Lipid Profile.</p></div>
+<div class="bg-slate-50 p-3.5 rounded-xl border border-slate-100"><h4 class="font-bold text-primary mb-1 text-xs uppercase font-display">Hormonal</h4><p class="text-xs text-slate-600 leading-relaxed font-normal font-body">Thyroid, FSH, LH, AMH, Prolactin, β-hCG.</p></div>
+<div class="bg-slate-50 p-3.5 rounded-xl border border-slate-100"><h4 class="font-bold text-primary mb-1 text-xs uppercase font-display">Pathology</h4><p class="text-xs text-slate-600 leading-relaxed font-normal font-body">Skin Biopsy, Cultures, Viral Screen, ECG.</p></div>
 </div>
 </div>
 </div>
 </div>
 </section>
 
-<!-- CM023 - HTML How We Work / Patient Journey Section (Reference Hospital Feature) -->
+<!-- CM023 - HTML How We Work / Patient Journey Section -->
 <section id="workflow" class="py-16 bg-gradient-to-b from-rose-50/50 to-white border-b border-slate-100">
 <div class="container mx-auto px-4 sm:px-6 max-w-7xl">
 <div class="text-center max-w-2xl mx-auto mb-12 reveal">
-<span class="text-primary font-bold uppercase tracking-widest text-xs bg-white border border-rose-200 px-4 py-1 rounded-full shadow-sm">How We Work</span>
-<h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-secondary mt-3 font-display">Simple Process, <span class="text-primary">Exceptional Results</span></h2>
-<p class="text-slate-500 text-sm sm:text-base mt-1.5 font-body">A streamlined patient journey ensuring personalized care, safe procedures, and smooth recovery.</p>
+<span class="text-primary font-semibold uppercase tracking-widest text-xs bg-white border border-rose-200 px-4 py-1 rounded-full shadow-sm font-body">How We Work</span>
+<h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-secondary mt-3 font-display">Simple Process, <span class="text-primary font-serif-headline italic font-bold">Exceptional Results</span></h2>
+<p class="text-slate-500 text-sm sm:text-base mt-1.5 font-normal font-body">A streamlined patient journey ensuring personalized care, safe procedures, and smooth recovery.</p>
 </div>
 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
 <div class="hover-card p-6 text-center reveal delay-100">
 <div class="w-14 h-14 rounded-2xl bg-rose-50 text-primary font-extrabold text-xl flex items-center justify-center mx-auto mb-4 border border-rose-200 shadow-sm font-display">01</div>
-<h4 class="font-extrabold text-secondary text-base sm:text-lg mb-2 font-display">Initial Consultation</h4>
-<p class="text-xs sm:text-sm text-slate-600 leading-relaxed font-body">Detailed evaluation with our super-specialists to understand your symptoms, medical history, and goals.</p>
+<h4 class="font-bold text-secondary text-base sm:text-lg mb-2 font-display">Initial Consultation</h4>
+<p class="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal font-body">Detailed evaluation with our super-specialists to understand your symptoms, medical history, and goals.</p>
 </div>
 <div class="hover-card p-6 text-center reveal delay-200">
 <div class="w-14 h-14 rounded-2xl bg-rose-50 text-primary font-extrabold text-xl flex items-center justify-center mx-auto mb-4 border border-rose-200 shadow-sm font-display">02</div>
-<h4 class="font-extrabold text-secondary text-base sm:text-lg mb-2 font-display">Accurate Diagnosis</h4>
-<p class="text-xs sm:text-sm text-slate-600 leading-relaxed font-body">In-house laboratory, ultrasound, and clinical imaging to identify the exact root cause with precision.</p>
+<h4 class="font-bold text-secondary text-base sm:text-lg mb-2 font-display">Accurate Diagnosis</h4>
+<p class="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal font-body">In-house laboratory, ultrasound, and clinical imaging to identify the exact root cause with precision.</p>
 </div>
 <div class="hover-card p-6 text-center reveal delay-300">
 <div class="w-14 h-14 rounded-2xl bg-rose-50 text-primary font-extrabold text-xl flex items-center justify-center mx-auto mb-4 border border-rose-200 shadow-sm font-display">03</div>
-<h4 class="font-extrabold text-secondary text-base sm:text-lg mb-2 font-display">Advanced Treatment</h4>
-<p class="text-xs sm:text-sm text-slate-600 leading-relaxed font-body">Personalized medical, laser, or surgical treatment in our zero-infection Laminar-Flow OTs.</p>
+<h4 class="font-bold text-secondary text-base sm:text-lg mb-2 font-display">Advanced Treatment</h4>
+<p class="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal font-body">Personalized medical, laser, or surgical treatment in our zero-infection Laminar-Flow OTs.</p>
 </div>
 <div class="hover-card p-6 text-center reveal delay-400">
 <div class="w-14 h-14 rounded-2xl bg-rose-50 text-primary font-extrabold text-xl flex items-center justify-center mx-auto mb-4 border border-rose-200 shadow-sm font-display">04</div>
-<h4 class="font-extrabold text-secondary text-base sm:text-lg mb-2 font-display">Recovery &amp; Follow-Up</h4>
-<p class="text-xs sm:text-sm text-slate-600 leading-relaxed font-body">Dedicated post-operative monitoring, cashless discharge support, and continuous follow-up care.</p>
+<h4 class="font-bold text-secondary text-base sm:text-lg mb-2 font-display">Recovery &amp; Follow-Up</h4>
+<p class="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal font-body">Dedicated post-operative monitoring, cashless discharge support, and continuous follow-up care.</p>
 </div>
 </div>
 </div>
@@ -591,35 +606,35 @@ Providing state-of-the-art technology, precision surgery, and compassionate pati
 <div>
 <div class="bg-white/20 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 border border-white/30 shadow-inner"><i class="fas fa-calendar-check text-3xl text-white"></i></div>
 <h3 class="text-2xl font-extrabold mb-2 font-display">Book Appointment</h3>
-<p class="text-rose-100 text-xs sm:text-sm mb-6 font-body">Call our hospital reception desk directly to book your consultation slot instantly.</p>
+<p class="text-rose-100 text-xs sm:text-sm mb-6 font-normal font-body">Call our hospital reception desk directly to book your consultation slot instantly.</p>
 </div>
 <div class="space-y-3.5">
-<a href="#" class="call-action-btn bg-white text-rose-700 py-3.5 px-6 rounded-2xl font-extrabold text-sm sm:text-base hover:bg-rose-50 transition shadow-lg flex items-center justify-center w-full"><i class="fas fa-phone-alt mr-2.5"></i>+91 <span class="dyn-phone1 ml-1"></span></a>
-<a href="#" class="call-action-btn2 bg-rose-900/80 border border-rose-300/40 text-white py-3.5 px-6 rounded-2xl font-extrabold text-sm sm:text-base hover:bg-rose-950 transition flex items-center justify-center w-full"><i class="fas fa-phone-alt mr-2.5"></i>+91 <span class="dyn-phone2 ml-1"></span></a>
+<a href="#" class="call-action-btn bg-white text-rose-700 py-3.5 px-6 rounded-2xl font-bold text-sm sm:text-base hover:bg-rose-50 transition shadow-lg flex items-center justify-center w-full font-body"><i class="fas fa-phone-alt mr-2.5"></i>+91 <span class="dyn-phone1 ml-1"></span></a>
+<a href="#" class="call-action-btn2 bg-rose-900/80 border border-rose-300/40 text-white py-3.5 px-6 rounded-2xl font-bold text-sm sm:text-base hover:bg-rose-950 transition flex items-center justify-center w-full font-body"><i class="fas fa-phone-alt mr-2.5"></i>+91 <span class="dyn-phone2 ml-1"></span></a>
 </div>
-<div class="mt-6 pt-4 border-t border-rose-400/40 flex items-center justify-center gap-2 text-sm">
-<span class="text-rose-200 uppercase text-xs font-bold">Landline:</span>
-<span class="font-extrabold text-white dyn-landline"></span>
+<div class="mt-6 pt-4 border-t border-rose-400/40 flex items-center justify-center gap-2 text-sm font-body">
+<span class="text-rose-200 uppercase text-xs font-semibold">Landline:</span>
+<span class="font-bold text-white dyn-landline"></span>
 </div>
 </div>
 <div class="lg:col-span-2 flex flex-col justify-between space-y-6 reveal-right">
 <div class="bg-white p-6 rounded-3xl shadow-soft border border-slate-200/90 flex flex-col sm:flex-row justify-between items-center gap-5">
 <div class="flex items-center w-full sm:w-auto">
 <div class="bg-rose-50 text-primary p-4 rounded-2xl mr-4 shadow-sm"><i class="far fa-clock text-2xl"></i></div>
-<div><h4 class="font-extrabold text-secondary text-lg sm:text-xl font-display">OPD Consultation Timings</h4><p class="text-xs sm:text-sm text-slate-500 font-body">Prior phone appointment is recommended for faster service.</p></div>
+<div><h4 class="font-bold text-secondary text-lg sm:text-xl font-display">OPD Consultation Timings</h4><p class="text-xs sm:text-sm text-slate-500 font-normal font-body">Prior phone appointment is recommended for faster service.</p></div>
 </div>
-<div class="flex flex-row gap-3.5 w-full sm:w-auto">
-<div class="bg-rose-50/80 border border-rose-200 p-3.5 rounded-2xl text-center flex-1 sm:min-w-[160px]"><p class="text-xs text-slate-500 font-bold uppercase mb-1">Mon – Sat</p><p class="text-sm font-extrabold text-primary">10:00 AM - 9:30 PM</p></div>
-<div class="bg-rose-50/80 border border-rose-200 p-3.5 rounded-2xl text-center flex-1 sm:min-w-[145px]"><p class="text-xs text-slate-500 font-bold uppercase mb-1">Sunday</p><p class="text-sm font-extrabold text-primary">10:00 AM - 3:00 PM</p></div>
+<div class="flex flex-row gap-3.5 w-full sm:w-auto font-body">
+<div class="bg-rose-50/80 border border-rose-200 p-3.5 rounded-2xl text-center flex-1 sm:min-w-[160px]"><p class="text-xs text-slate-500 font-semibold uppercase mb-1">Mon – Sat</p><p class="text-sm font-bold text-primary">10:00 AM - 9:30 PM</p></div>
+<div class="bg-rose-50/80 border border-rose-200 p-3.5 rounded-2xl text-center flex-1 sm:min-w-[145px]"><p class="text-xs text-slate-500 font-semibold uppercase mb-1">Sunday</p><p class="text-sm font-bold text-primary">10:00 AM - 3:00 PM</p></div>
 </div>
 </div>
-<div class="grid grid-cols-2 md:grid-cols-3 gap-4 flex-1">
-<a href="#opd-info" class="help-card p-5 text-center flex flex-col items-center justify-center"><i class="fas fa-user-md text-primary text-2xl mb-2"></i><span class="text-xs sm:text-sm font-bold text-secondary">Doctor Appointments</span></a>
-<a href="#opd-info" class="help-card p-5 text-center flex flex-col items-center justify-center"><i class="fas fa-bed text-primary text-2xl mb-2"></i><span class="text-xs sm:text-sm font-bold text-secondary">Admission Assistance</span></a>
-<a href="#opd-info" class="help-card p-5 text-center flex flex-col items-center justify-center"><i class="fas fa-door-open text-primary text-2xl mb-2"></i><span class="text-xs sm:text-sm font-bold text-secondary">Room Allocation</span></a>
-<a href="#opd-info" class="help-card p-5 text-center flex flex-col items-center justify-center"><i class="fas fa-procedures text-primary text-2xl mb-2"></i><span class="text-xs sm:text-sm font-bold text-secondary">Surgery Scheduling</span></a>
-<a href="#opd-info" class="help-card p-5 text-center flex flex-col items-center justify-center"><i class="fas fa-vial text-primary text-2xl mb-2"></i><span class="text-xs sm:text-sm font-bold text-secondary">Laboratory Enquiries</span></a>
-<a href="#opd-info" class="help-card p-5 text-center flex flex-col items-center justify-center"><i class="fas fa-file-invoice text-primary text-2xl mb-2"></i><span class="text-xs sm:text-sm font-bold text-secondary">Billing &amp; TPA Help</span></a>
+<div class="grid grid-cols-2 md:grid-cols-3 gap-4 flex-1 font-body">
+<a href="#opd-info" class="help-card p-5 text-center flex flex-col items-center justify-center"><i class="fas fa-user-md text-primary text-2xl mb-2"></i><span class="text-xs sm:text-sm font-semibold text-secondary">Doctor Appointments</span></a>
+<a href="#opd-info" class="help-card p-5 text-center flex flex-col items-center justify-center"><i class="fas fa-bed text-primary text-2xl mb-2"></i><span class="text-xs sm:text-sm font-semibold text-secondary">Admission Assistance</span></a>
+<a href="#opd-info" class="help-card p-5 text-center flex flex-col items-center justify-center"><i class="fas fa-door-open text-primary text-2xl mb-2"></i><span class="text-xs sm:text-sm font-semibold text-secondary">Room Allocation</span></a>
+<a href="#opd-info" class="help-card p-5 text-center flex flex-col items-center justify-center"><i class="fas fa-procedures text-primary text-2xl mb-2"></i><span class="text-xs sm:text-sm font-semibold text-secondary">Surgery Scheduling</span></a>
+<a href="#opd-info" class="help-card p-5 text-center flex flex-col items-center justify-center"><i class="fas fa-vial text-primary text-2xl mb-2"></i><span class="text-xs sm:text-sm font-semibold text-secondary">Laboratory Enquiries</span></a>
+<a href="#opd-info" class="help-card p-5 text-center flex flex-col items-center justify-center"><i class="fas fa-file-invoice text-primary text-2xl mb-2"></i><span class="text-xs sm:text-sm font-semibold text-secondary">Billing &amp; TPA Help</span></a>
 </div>
 </div>
 </div>
@@ -630,23 +645,23 @@ Providing state-of-the-art technology, precision surgery, and compassionate pati
 <section id="insurance" class="py-16 bg-white border-b border-slate-100">
 <div class="container mx-auto px-4 sm:px-6 max-w-7xl text-center">
 <div class="reveal mb-10">
-<span class="text-primary font-bold uppercase tracking-widest text-xs bg-rose-50 border border-rose-200 px-4 py-1 rounded-full">Cashless Treatment Facility</span>
-<h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-secondary mt-2.5 font-display">Insurance &amp; <span class="text-primary">TPA Partners</span></h2>
-<p class="text-slate-500 text-sm sm:text-base mt-1 font-body">We accept major health insurance and TPA cards for hassle-free cashless hospitalization.</p>
+<span class="text-primary font-semibold uppercase tracking-widest text-xs bg-rose-50 border border-rose-200 px-4 py-1 rounded-full font-body">Cashless Treatment Facility</span>
+<h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-secondary mt-2.5 font-display">Insurance &amp; <span class="text-primary font-serif-headline italic font-bold">TPA Partners</span></h2>
+<p class="text-slate-500 text-sm sm:text-base mt-1 font-normal font-body">We accept major health insurance and TPA cards for hassle-free cashless hospitalization.</p>
 </div>
-<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 reveal">
-<div class="ins-card" style="background:linear-gradient(135deg,#f8fafc,#f1f5f9);"><i class="fas fa-shield-heart text-slate-600 text-lg mb-1"></i><span class="text-xs font-extrabold text-slate-800 text-center uppercase leading-snug">Medi Assist<br>TPA</span></div>
-<div class="ins-card" style="background:linear-gradient(135deg,#f0f9ff,#e0f2fe);"><i class="fas fa-shield-heart text-sky-600 text-lg mb-1"></i><span class="text-xs font-extrabold text-sky-900 text-center uppercase leading-snug">SBI General<br>Insurance</span></div>
-<div class="ins-card" style="background:linear-gradient(135deg,#fdf4ff,#fae8ff);"><i class="fas fa-shield-heart text-purple-600 text-lg mb-1"></i><span class="text-xs font-extrabold text-purple-900 text-center uppercase leading-snug">Acko<br>Insurance</span></div>
-<div class="ins-card" style="background:linear-gradient(135deg,#eff6ff,#dbeafe);"><i class="fas fa-shield-heart text-blue-600 text-lg mb-1"></i><span class="text-xs font-extrabold text-blue-900 text-center uppercase leading-snug">Family Health Plan<br>(FHPL)</span></div>
-<div class="ins-card" style="background:linear-gradient(135deg,#f0fdf4,#dcfce7);"><i class="fas fa-shield-heart text-green-600 text-lg mb-1"></i><span class="text-xs font-extrabold text-green-900 text-center uppercase leading-snug">East West Assist<br>Insurance</span></div>
-<div class="ins-card" style="background:linear-gradient(135deg,#fff7ed,#ffedd5);"><i class="fas fa-shield-heart text-orange-600 text-lg mb-1"></i><span class="text-xs font-extrabold text-orange-900 text-center uppercase leading-snug">MD India<br>Insurance TPA</span></div>
-<div class="ins-card" style="background:linear-gradient(135deg,#fef2f2,#fee2e2);"><i class="fas fa-shield-heart text-red-600 text-lg mb-1"></i><span class="text-xs font-extrabold text-red-900 text-center uppercase leading-snug">Navi General<br>Insurance</span></div>
-<div class="ins-card" style="background:linear-gradient(135deg,#f5f3ff,#ede9fe);"><i class="fas fa-shield-heart text-violet-600 text-lg mb-1"></i><span class="text-xs font-extrabold text-violet-900 text-center uppercase leading-snug">GHPL<br>Insurance</span></div>
-<div class="ins-card" style="background:linear-gradient(135deg,#fffbeb,#fef3c7);"><i class="fas fa-shield-heart text-amber-600 text-lg mb-1"></i><span class="text-xs font-extrabold text-amber-900 text-center uppercase leading-snug">Akna<br>Insurance</span></div>
-<div class="ins-card" style="background:linear-gradient(135deg,#ecfdf5,#d1fae5);"><i class="fas fa-shield-heart text-emerald-600 text-lg mb-1"></i><span class="text-xs font-extrabold text-emerald-900 text-center uppercase leading-snug">Ericson<br>Insurance</span></div>
-<div class="ins-card" style="background:linear-gradient(135deg,#faf5ff,#f3e8ff);"><i class="fas fa-shield-heart text-fuchsia-600 text-lg mb-1"></i><span class="text-xs font-extrabold text-fuchsia-900 text-center uppercase leading-snug">Future General<br>Insurance</span></div>
-<div class="ins-card" style="background:linear-gradient(135deg,#fdf8f6,#fce7f3);"><i class="fas fa-shield-heart text-pink-600 text-lg mb-1"></i><span class="text-xs font-extrabold text-pink-900 text-center uppercase leading-snug">Universal Sompo<br>Insurance</span></div>
+<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 reveal font-body">
+<div class="ins-card" style="background:linear-gradient(135deg,#f8fafc,#f1f5f9);"><i class="fas fa-shield-heart text-slate-600 text-lg mb-1"></i><span class="text-xs font-bold text-slate-800 text-center uppercase leading-snug">Medi Assist<br>TPA</span></div>
+<div class="ins-card" style="background:linear-gradient(135deg,#f0f9ff,#e0f2fe);"><i class="fas fa-shield-heart text-sky-600 text-lg mb-1"></i><span class="text-xs font-bold text-sky-900 text-center uppercase leading-snug">SBI General<br>Insurance</span></div>
+<div class="ins-card" style="background:linear-gradient(135deg,#fdf4ff,#fae8ff);"><i class="fas fa-shield-heart text-purple-600 text-lg mb-1"></i><span class="text-xs font-bold text-purple-900 text-center uppercase leading-snug">Acko<br>Insurance</span></div>
+<div class="ins-card" style="background:linear-gradient(135deg,#eff6ff,#dbeafe);"><i class="fas fa-shield-heart text-blue-600 text-lg mb-1"></i><span class="text-xs font-bold text-blue-900 text-center uppercase leading-snug">Family Health Plan<br>(FHPL)</span></div>
+<div class="ins-card" style="background:linear-gradient(135deg,#f0fdf4,#dcfce7);"><i class="fas fa-shield-heart text-green-600 text-lg mb-1"></i><span class="text-xs font-bold text-green-900 text-center uppercase leading-snug">East West Assist<br>Insurance</span></div>
+<div class="ins-card" style="background:linear-gradient(135deg,#fff7ed,#ffedd5);"><i class="fas fa-shield-heart text-orange-600 text-lg mb-1"></i><span class="text-xs font-bold text-orange-900 text-center uppercase leading-snug">MD India<br>Insurance TPA</span></div>
+<div class="ins-card" style="background:linear-gradient(135deg,#fef2f2,#fee2e2);"><i class="fas fa-shield-heart text-red-600 text-lg mb-1"></i><span class="text-xs font-bold text-red-900 text-center uppercase leading-snug">Navi General<br>Insurance</span></div>
+<div class="ins-card" style="background:linear-gradient(135deg,#f5f3ff,#ede9fe);"><i class="fas fa-shield-heart text-violet-600 text-lg mb-1"></i><span class="text-xs font-bold text-violet-900 text-center uppercase leading-snug">GHPL<br>Insurance</span></div>
+<div class="ins-card" style="background:linear-gradient(135deg,#fffbeb,#fef3c7);"><i class="fas fa-shield-heart text-amber-600 text-lg mb-1"></i><span class="text-xs font-bold text-amber-900 text-center uppercase leading-snug">Akna<br>Insurance</span></div>
+<div class="ins-card" style="background:linear-gradient(135deg,#ecfdf5,#d1fae5);"><i class="fas fa-shield-heart text-emerald-600 text-lg mb-1"></i><span class="text-xs font-bold text-emerald-900 text-center uppercase leading-snug">Ericson<br>Insurance</span></div>
+<div class="ins-card" style="background:linear-gradient(135deg,#faf5ff,#f3e8ff);"><i class="fas fa-shield-heart text-fuchsia-600 text-lg mb-1"></i><span class="text-xs font-bold text-fuchsia-900 text-center uppercase leading-snug">Future General<br>Insurance</span></div>
+<div class="ins-card" style="background:linear-gradient(135deg,#fdf8f6,#fce7f3);"><i class="fas fa-shield-heart text-pink-600 text-lg mb-1"></i><span class="text-xs font-bold text-pink-900 text-center uppercase leading-snug">Universal Sompo<br>Insurance</span></div>
 </div>
 </div>
 </section>
@@ -654,8 +669,8 @@ Providing state-of-the-art technology, precision surgery, and compassionate pati
 <!-- CM026 - HTML Hospital Environment Gallery Slider -->
 <section class="py-14 bg-slate-50 border-b border-slate-200">
 <div class="container mx-auto px-4 text-center mb-6 reveal">
-<span class="text-primary font-bold uppercase tracking-widest text-xs bg-rose-50 border border-rose-200 px-3.5 py-1 rounded-full">Visual Tour</span>
-<h2 class="text-2xl sm:text-3xl font-extrabold text-secondary mt-2 font-display">Hospital <span class="text-primary">Environment &amp; Facilities</span></h2>
+<span class="text-primary font-semibold uppercase tracking-widest text-xs bg-rose-50 border border-rose-200 px-3.5 py-1 rounded-full font-body">Visual Tour</span>
+<h2 class="text-2xl sm:text-3xl font-extrabold text-secondary mt-2 font-display">Hospital <span class="text-primary font-serif-headline italic font-bold">Environment &amp; Facilities</span></h2>
 </div>
 <div class="slider-container">
 <div class="slider-track">
@@ -681,21 +696,21 @@ Providing state-of-the-art technology, precision surgery, and compassionate pati
 <section class="py-16 bg-white border-b border-slate-100">
 <div class="container mx-auto px-4 sm:px-6 max-w-4xl">
 <div class="text-center mb-10 reveal">
-<span class="text-primary font-bold uppercase tracking-widest text-xs bg-rose-50 px-4 py-1 rounded-full border border-rose-200">Patient Guide</span>
-<h2 class="text-2xl sm:text-3xl font-extrabold text-secondary mt-2.5 font-display">Frequently Asked <span class="text-primary">Questions</span></h2>
+<span class="text-primary font-semibold uppercase tracking-widest text-xs bg-rose-50 px-4 py-1 rounded-full border border-rose-200 font-body">Patient Guide</span>
+<h2 class="text-2xl sm:text-3xl font-extrabold text-secondary mt-2.5 font-display">Frequently Asked <span class="text-primary font-serif-headline italic font-bold">Questions</span></h2>
 </div>
 <div class="space-y-4 reveal">
 <div class="border border-slate-200 rounded-2xl overflow-hidden bg-slate-50/70 hover:border-rose-300 transition">
-<button onclick="toggleFaq(this)" class="w-full px-6 py-4 text-left font-bold text-secondary text-sm sm:text-base flex justify-between items-center hover:text-primary transition"><span>How can I book an OPD consultation at Maya's Hospital?</span><i class="fas fa-chevron-down text-xs text-primary transition-transform duration-300"></i></button>
-<div class="faq-answer hidden px-6 pb-5 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-200/70 pt-3 font-body">Call our reception desk directly at <strong>+91 9866237227</strong> or <strong>+91 8500850028</strong> (Landline: 08518-275507). OPD consultations operate Monday–Saturday (10:00 AM – 9:30 PM) and Sunday (10:00 AM – 3:00 PM).</div>
+<button onclick="toggleFaq(this)" class="w-full px-6 py-4 text-left font-semibold text-secondary text-sm sm:text-base flex justify-between items-center hover:text-primary transition font-body"><span>How can I book an OPD consultation at Maya's Hospital?</span><i class="fas fa-chevron-down text-xs text-primary transition-transform duration-300"></i></button>
+<div class="faq-answer hidden px-6 pb-5 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-200/70 pt-3 font-normal font-body">Call our reception desk directly at <strong class="font-semibold text-secondary">+91 9866237227</strong> or <strong class="font-semibold text-secondary">+91 8500850028</strong> (Landline: 08518-275507). OPD consultations operate Monday–Saturday (10:00 AM – 9:30 PM) and Sunday (10:00 AM – 3:00 PM).</div>
 </div>
 <div class="border border-slate-200 rounded-2xl overflow-hidden bg-slate-50/70 hover:border-rose-300 transition">
-<button onclick="toggleFaq(this)" class="w-full px-6 py-4 text-left font-bold text-secondary text-sm sm:text-base flex justify-between items-center hover:text-primary transition"><span>Do you provide cashless insurance and TPA facilities?</span><i class="fas fa-chevron-down text-xs text-primary transition-transform duration-300"></i></button>
-<div class="faq-answer hidden px-6 pb-5 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-200/70 pt-3 font-body">Yes, we accept Medi Assist, SBI General, Acko, FHPL, MD India, Navi General, East West Assist, Universal Sompo, and more for smooth cashless pre-authorization and claims.</div>
+<button onclick="toggleFaq(this)" class="w-full px-6 py-4 text-left font-semibold text-secondary text-sm sm:text-base flex justify-between items-center hover:text-primary transition font-body"><span>Do you provide cashless insurance and TPA facilities?</span><i class="fas fa-chevron-down text-xs text-primary transition-transform duration-300"></i></button>
+<div class="faq-answer hidden px-6 pb-5 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-200/70 pt-3 font-normal font-body">Yes, we accept Medi Assist, SBI General, Acko, FHPL, MD India, Navi General, East West Assist, Universal Sompo, and more for smooth cashless pre-authorization and claims.</div>
 </div>
 <div class="border border-slate-200 rounded-2xl overflow-hidden bg-slate-50/70 hover:border-rose-300 transition">
-<button onclick="toggleFaq(this)" class="w-full px-6 py-4 text-left font-bold text-secondary text-sm sm:text-base flex justify-between items-center hover:text-primary transition"><span>Are laser treatments and cosmetic surgeries performed by super-specialists?</span><i class="fas fa-chevron-down text-xs text-primary transition-transform duration-300"></i></button>
-<div class="faq-answer hidden px-6 pb-5 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-200/70 pt-3 font-body">Yes, all procedures are performed directly by qualified super-specialists (MD Dermatology &amp; MCh Plastic Surgery) using US-FDA approved lasers and zero-infection Laminar-Flow OTs.</div>
+<button onclick="toggleFaq(this)" class="w-full px-6 py-4 text-left font-semibold text-secondary text-sm sm:text-base flex justify-between items-center hover:text-primary transition font-body"><span>Are laser treatments and cosmetic surgeries performed by super-specialists?</span><i class="fas fa-chevron-down text-xs text-primary transition-transform duration-300"></i></button>
+<div class="faq-answer hidden px-6 pb-5 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-200/70 pt-3 font-normal font-body">Yes, all procedures are performed directly by qualified super-specialists (MD Dermatology &amp; MCh Plastic Surgery) using US-FDA approved lasers and zero-infection Laminar-Flow OTs.</div>
 </div>
 </div>
 </div>
@@ -706,13 +721,13 @@ Providing state-of-the-art technology, precision surgery, and compassionate pati
 <div class="container mx-auto px-4 sm:px-6 max-w-7xl">
 <div class="grid grid-cols-1 md:grid-cols-4 gap-8 items-start">
 <div class="flex flex-col">
-<h4 class="text-sm font-extrabold text-white mb-3.5 uppercase tracking-wider flex items-center font-display"><i class="fas fa-map-marker-alt text-primary mr-2"></i>Location</h4>
+<h4 class="text-sm font-bold text-white mb-3.5 uppercase tracking-wider flex items-center font-display"><i class="fas fa-map-marker-alt text-primary mr-2"></i>Location</h4>
 <div class="bg-slate-800/90 p-2 rounded-2xl border border-slate-700 mb-3">
 <div class="map-container"><iframe src="https://maps.google.com/maps?q=R26R%2B4X%20Kurnool,%20Andhra%20Pradesh%20Maya's%20Hospital%20%E0%B0%AE%E0%B0%BE%E0%B0%AF%E0%B0%BE%E0%B0%B8%E0%B1%8D%20%E0%B0%AE%E0%B1%86%E0%B0%9F%E0%B0%B0%E0%B1%8D%E0%B0%A8%E0%B0%BF%E0%B0%9F%E0%B1%80%20%26%20%E0%B0%87%E0%B0%A8%E0%B1%8F%E0%B0%AB%E0%B1%86%E0%B0%B0%E0%B1%8D%E0%B0%9F%E0%B0%BF%E0%B0%B2%E0%B0%BF%E0%B0%9F%E0%B1%80%20%E0%B0%B8%E0%B1%86%E0%B0%82%E0%B0%9F%E0%B0%B0%E0%B1%8D&t=&z=16&ie=UTF8&iwloc=&output=embed" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
 </div>
-<div class="flex gap-2 w-full">
-<a href="https://maps.google.com/maps?q=R26R%2B4X%20Kurnool,%20Andhra%20Pradesh%20Maya's%20Hospital" target="_blank" rel="noopener noreferrer" class="bg-slate-800 hover:bg-primary border border-slate-700 transition flex-1 py-2.5 px-2 rounded-xl text-center font-bold text-[11px] flex items-center justify-center"><i class="fas fa-directions mr-1.5 text-rose-400"></i>Directions</a>
-<button onclick="copyMapLink()" class="bg-slate-800 hover:bg-primary border border-slate-700 transition flex-1 py-2.5 px-2 rounded-xl text-center font-bold text-[11px] flex items-center justify-center"><i class="fas fa-share-alt mr-1.5 text-sky-400"></i>Share</button>
+<div class="flex gap-2 w-full font-body">
+<a href="https://maps.google.com/maps?q=R26R%2B4X%20Kurnool,%20Andhra%20Pradesh%20Maya's%20Hospital" target="_blank" rel="noopener noreferrer" class="bg-slate-800 hover:bg-primary border border-slate-700 transition flex-1 py-2.5 px-2 rounded-xl text-center font-semibold text-[11px] flex items-center justify-center"><i class="fas fa-directions mr-1.5 text-rose-400"></i>Directions</a>
+<button onclick="copyMapLink()" class="bg-slate-800 hover:bg-primary border border-slate-700 transition flex-1 py-2.5 px-2 rounded-xl text-center font-semibold text-[11px] flex items-center justify-center"><i class="fas fa-share-alt mr-1.5 text-sky-400"></i>Share</button>
 </div>
 </div>
 <div class="flex flex-col items-center md:items-start md:pl-6 border-t md:border-t-0 md:border-l border-slate-800 pt-6 md:pt-0">
@@ -720,13 +735,13 @@ Providing state-of-the-art technology, precision surgery, and compassionate pati
 <img src="" alt="Logo" class="dyn-logo h-14 object-contain">
 </div>
 <h4 class="text-xl font-extrabold text-white tracking-tight font-display">MAYA'S HOSPITAL</h4>
-<p class="text-xs text-rose-400 italic mb-3 font-semibold">The Healing Touch</p>
-<p class="text-xs sm:text-sm text-slate-300 leading-relaxed text-center md:text-left mb-4 font-body">Maddur Nagar, 3rd Lane, Behind Kakatiya Public School, Kurnool, Andhra Pradesh.</p>
-<button onclick="installPWAApp()" class="bg-slate-800/90 hover:bg-rose-600 text-rose-300 hover:text-white border border-rose-500/40 px-4 py-2 rounded-xl text-xs font-bold transition flex items-center gap-2"><i class="fas fa-mobile-alt"></i>Install Mobile App</button>
+<p class="text-xs text-rose-400 italic mb-3 font-serif-headline">The Healing Touch</p>
+<p class="text-xs sm:text-sm text-slate-300 leading-relaxed text-center md:text-left mb-4 font-normal font-body">Maddur Nagar, 3rd Lane, Behind Kakatiya Public School, Kurnool, Andhra Pradesh.</p>
+<button onclick="installPWAApp()" class="bg-slate-800/90 hover:bg-rose-600 text-rose-300 hover:text-white border border-rose-500/40 px-4 py-2 rounded-xl text-xs font-semibold transition flex items-center gap-2 font-body"><i class="fas fa-mobile-alt"></i>Install Mobile App</button>
 </div>
 <div class="flex flex-col md:pl-6 border-t md:border-t-0 md:border-l border-slate-800 pt-6 md:pt-0">
-<h4 class="text-sm font-extrabold text-white mb-3.5 uppercase tracking-wider flex items-center justify-center md:justify-start font-display"><i class="fas fa-stethoscope text-primary mr-2"></i>Our Specialties</h4>
-<ul class="text-slate-400 text-xs sm:text-sm space-y-2.5 font-medium text-center md:text-left">
+<h4 class="text-sm font-bold text-white mb-3.5 uppercase tracking-wider flex items-center justify-center md:justify-start font-display"><i class="fas fa-stethoscope text-primary mr-2"></i>Our Specialties</h4>
+<ul class="text-slate-400 text-xs sm:text-sm space-y-2.5 font-normal text-center md:text-left font-body">
 <li><a href="#specialties" class="hover:text-rose-400 transition">Dermatology &amp; Hair Transplant</a></li>
 <li><a href="#specialties" class="hover:text-rose-400 transition">Plastic &amp; Aesthetic Surgery</a></li>
 <li><a href="#specialties" class="hover:text-rose-400 transition">Obstetrics &amp; Gynecology</a></li>
@@ -736,37 +751,37 @@ Providing state-of-the-art technology, precision surgery, and compassionate pati
 </ul>
 </div>
 <div class="flex flex-col md:pl-6 border-t md:border-t-0 md:border-l border-slate-800 pt-6 md:pt-0">
-<h4 class="text-sm font-extrabold text-white mb-3.5 uppercase tracking-wider flex items-center justify-center md:justify-start font-display"><i class="fas fa-headset text-primary mr-2"></i>Contact Us</h4>
-<div class="space-y-3 w-full max-w-sm mx-auto md:mx-0">
+<h4 class="text-sm font-bold text-white mb-3.5 uppercase tracking-wider flex items-center justify-center md:justify-start font-display"><i class="fas fa-headset text-primary mr-2"></i>Contact Us</h4>
+<div class="space-y-3 w-full max-w-sm mx-auto md:mx-0 font-body">
 <div class="flex items-center bg-slate-800/70 p-3.5 rounded-2xl border border-slate-700/70">
 <div class="bg-rose-500/20 text-rose-400 p-2.5 rounded-xl mr-3"><i class="fas fa-phone-alt text-sm"></i></div>
-<div><p class="text-[10px] font-bold text-slate-400 uppercase">Appointments</p><p class="text-xs sm:text-sm font-bold text-white">+91 <span class="dyn-phone1"></span>, +91 <span class="dyn-phone2"></span></p></div>
+<div><p class="text-[10px] font-medium text-slate-400 uppercase">Appointments</p><p class="text-xs sm:text-sm font-semibold text-white">+91 <span class="dyn-phone1"></span>, +91 <span class="dyn-phone2"></span></p></div>
 </div>
 <div class="flex items-center bg-slate-800/70 p-3.5 rounded-2xl border border-slate-700/70">
 <div class="bg-rose-500/20 text-rose-400 p-2.5 rounded-xl mr-3"><i class="fas fa-tty text-sm"></i></div>
-<div><p class="text-[10px] font-bold text-slate-400 uppercase">Hospital Landline</p><p class="text-xs sm:text-sm font-bold text-white dyn-landline"></p></div>
+<div><p class="text-[10px] font-medium text-slate-400 uppercase">Hospital Landline</p><p class="text-xs sm:text-sm font-semibold text-white dyn-landline"></p></div>
 </div>
 <div class="flex items-center bg-slate-800/70 p-3.5 rounded-2xl border border-slate-700/70">
 <div class="bg-rose-500/20 text-rose-400 p-2.5 rounded-xl mr-3"><i class="fas fa-envelope text-sm"></i></div>
-<div><p class="text-[10px] font-bold text-slate-400 uppercase">Email Enquiry</p><p class="text-xs sm:text-sm font-bold text-white dyn-email break-all"></p></div>
+<div><p class="text-[10px] font-medium text-slate-400 uppercase">Email Enquiry</p><p class="text-xs sm:text-sm font-semibold text-white dyn-email break-all"></p></div>
 </div>
 </div>
 </div>
 </div>
-<div class="mt-8 pt-5 border-t border-slate-800/80 text-center text-xs text-slate-400 font-semibold">&copy; 2026 Maya's Hospital, Kurnool. All Rights Reserved.</div>
+<div class="mt-8 pt-5 border-t border-slate-800/80 text-center text-xs text-slate-400 font-normal font-body">&copy; 2026 Maya's Hospital, Kurnool. All Rights Reserved.</div>
 </div>
 </footer>
 
 <!-- CM029 - HTML Floating Widgets & Mobile Nav -->
 <div class="hidden md:flex fixed bottom-6 right-6 z-40 flex-col items-end gap-3">
 <button id="scrollTopBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})" class="opacity-0 pointer-events-none translate-y-4 transition-all duration-300 w-11 h-11 rounded-full bg-secondary text-white shadow-xl border border-slate-700 flex items-center justify-center hover:bg-primary"><i class="fas fa-arrow-up text-sm"></i></button>
-<a href="#opd-info" class="btn-modern pulse-glow-btn px-5 py-3 rounded-full shadow-glow flex items-center gap-2.5 text-xs sm:text-sm font-bold"><span class="w-2 h-2 rounded-full bg-white animate-ping"></span><i class="fas fa-phone-alt"></i><span>Book OP</span></a>
+<a href="#opd-info" class="btn-modern pulse-glow-btn px-5 py-3 rounded-full shadow-glow flex items-center gap-2.5 text-xs sm:text-sm font-semibold"><span class="w-2 h-2 rounded-full bg-white animate-ping"></span><i class="fas fa-phone-alt"></i><span>Book OP</span></a>
 </div>
-<div class="mobile-nav fixed bottom-0 left-0 w-full md:hidden flex justify-around items-center py-2 px-2 z-50">
-<a href="#opd-info" class="flex flex-col items-center text-primary p-1.5"><i class="fas fa-calendar-plus text-lg mb-0.5"></i><span class="text-[10px] font-bold uppercase">Appt.</span></a>
-<a href="#specialties" class="flex flex-col items-center text-slate-600 p-1.5"><i class="fas fa-stethoscope text-lg mb-0.5"></i><span class="text-[10px] font-bold uppercase">Specialty</span></a>
-<a href="#doctors" class="flex flex-col items-center text-slate-600 p-1.5"><i class="fas fa-user-md text-lg mb-0.5"></i><span class="text-[10px] font-bold uppercase">Doctors</span></a>
-<a href="https://maps.google.com/maps?q=R26R%2B4X%20Kurnool,%20Andhra%20Pradesh%20Maya's%20Hospital" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center text-sky-600 p-1.5"><i class="fas fa-directions text-lg mb-0.5"></i><span class="text-[10px] font-bold uppercase">Location</span></a>
+<div class="mobile-nav fixed bottom-0 left-0 w-full md:hidden flex justify-around items-center py-2 px-2 z-50 font-body">
+<a href="#opd-info" class="flex flex-col items-center text-primary p-1.5"><i class="fas fa-calendar-plus text-lg mb-0.5"></i><span class="text-[10px] font-semibold uppercase">Appt.</span></a>
+<a href="#specialties" class="flex flex-col items-center text-slate-600 p-1.5"><i class="fas fa-stethoscope text-lg mb-0.5"></i><span class="text-[10px] font-semibold uppercase">Specialty</span></a>
+<a href="#doctors" class="flex flex-col items-center text-slate-600 p-1.5"><i class="fas fa-user-md text-lg mb-0.5"></i><span class="text-[10px] font-semibold uppercase">Doctors</span></a>
+<a href="https://maps.google.com/maps?q=R26R%2B4X%20Kurnool,%20Andhra%20Pradesh%20Maya's%20Hospital" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center text-sky-600 p-1.5"><i class="fas fa-directions text-lg mb-0.5"></i><span class="text-[10px] font-semibold uppercase">Location</span></a>
 </div>
 
 <!-- CM030 - HTML Lightbox Modal -->
@@ -777,24 +792,24 @@ Providing state-of-the-art technology, precision surgery, and compassionate pati
 
 <!-- CM031 - HTML PWA Install Modal -->
 <div id="install-modal" class="fixed inset-0 install-modal-overlay z-50 hidden items-center justify-center p-4" onclick="if(event.target===this)closeInstallModal()">
-<div class="bg-white rounded-3xl max-w-sm w-full p-6 shadow-2xl border border-rose-100 text-center relative">
+<div class="bg-white rounded-3xl max-w-sm w-full p-6 shadow-2xl border border-rose-100 text-center relative font-body">
 <button onclick="closeInstallModal()" class="absolute top-4 right-4 w-8 h-8 rounded-full bg-slate-100 text-slate-600 hover:bg-rose-500 hover:text-white transition flex items-center justify-center text-xs"><i class="fas fa-times"></i></button>
 <div class="bg-rose-100 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 border border-rose-200"><img src="" alt="App Icon" class="dyn-logo w-10 h-10 object-contain"></div>
 <h3 class="text-xl font-extrabold text-secondary mt-2 font-display">Install Maya's Hospital App</h3>
-<p class="text-xs text-slate-500 mb-5 mt-2">Get quick access to appointments, specialties, and hospital location directly from your home screen.</p>
+<p class="text-xs text-slate-500 mb-5 mt-2 font-normal">Get quick access to appointments, specialties, and hospital location directly from your home screen.</p>
 <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 text-left space-y-3 mb-5">
-<p class="text-sm font-bold text-slate-700 flex items-center"><i class="fab fa-apple text-xl mr-3 text-slate-400"></i>For iPhone (Safari):</p>
-<ul class="text-xs text-slate-600 space-y-1.5 pl-8 list-decimal"><li>Tap the <strong>Share</strong> icon at the bottom.</li><li>Scroll down and select <strong>"Add to Home Screen"</strong>.</li></ul>
+<p class="text-sm font-semibold text-slate-700 flex items-center"><i class="fab fa-apple text-xl mr-3 text-slate-400"></i>For iPhone (Safari):</p>
+<ul class="text-xs text-slate-600 space-y-1.5 pl-8 list-decimal font-normal"><li>Tap the <strong>Share</strong> icon at the bottom.</li><li>Scroll down and select <strong>"Add to Home Screen"</strong>.</li></ul>
 <div class="border-t border-slate-200 my-2"></div>
-<p class="text-sm font-bold text-slate-700 flex items-center"><i class="fab fa-android text-xl mr-3 text-emerald-500"></i>For Android (Chrome):</p>
-<ul class="text-xs text-slate-600 space-y-1.5 pl-8 list-decimal"><li>Tap the <strong>Menu (3 dots)</strong> at the top right.</li><li>Select <strong>"Install App"</strong> or <strong>"Add to Home Screen"</strong>.</li></ul>
+<p class="text-sm font-semibold text-slate-700 flex items-center"><i class="fab fa-android text-xl mr-3 text-emerald-500"></i>For Android (Chrome):</p>
+<ul class="text-xs text-slate-600 space-y-1.5 pl-8 list-decimal font-normal"><li>Tap the <strong>Menu (3 dots)</strong> at the top right.</li><li>Select <strong>"Install App"</strong> or <strong>"Add to Home Screen"</strong>.</li></ul>
 </div>
-<button onclick="closeInstallModal()" class="btn-modern w-full py-3 px-4 rounded-xl text-sm font-bold">Got it, Thanks!</button>
+<button onclick="closeInstallModal()" class="btn-modern w-full py-3 px-4 rounded-xl text-sm font-semibold">Got it, Thanks!</button>
 </div>
 </div>
 
 <!-- CM032 - HTML Toast Notification -->
-<div id="custom-toast" class="fixed bottom-20 md:bottom-7 left-1/2 -translate-x-1/2 z-50 bg-secondary text-white px-5 py-2.5 rounded-full shadow-2xl border border-rose-500/40 flex items-center gap-2.5 text-xs font-bold opacity-0 pointer-events-none transition-all duration-300 translate-y-3">
+<div id="custom-toast" class="fixed bottom-20 md:bottom-7 left-1/2 -translate-x-1/2 z-50 bg-secondary text-white px-5 py-2.5 rounded-full shadow-2xl border border-rose-500/40 flex items-center gap-2.5 text-xs font-semibold opacity-0 pointer-events-none transition-all duration-300 translate-y-3 font-body">
 <i class="fas fa-check-circle text-emerald-400 text-sm"></i>
 <span id="custom-toast-msg">Map link copied to clipboard!</span>
 </div>
@@ -804,18 +819,18 @@ Providing state-of-the-art technology, precision surgery, and compassionate pati
 const CONFIG={doc1:"https://pub-d1f3bed8e9594bb785e31511d12d7c00.r2.dev/DR-SIDDHARTH-SIR.avif",doc2:"https://pub-d1f3bed8e9594bb785e31511d12d7c00.r2.dev/DR-ANNAPURNA-MEDAM.avif",doc3:"https://pub-d1f3bed8e9594bb785e31511d12d7c00.r2.dev/DR-MOUNIKA-MEDAM.avif",doc4:"https://pub-d1f3bed8e9594bb785e31511d12d7c00.r2.dev/DR-SWAMY-SIR.avif",img1:"https://pub-d1f3bed8e9594bb785e31511d12d7c00.r2.dev/MAYAS-IMG(1).jpeg",img2:"https://pub-d1f3bed8e9594bb785e31511d12d7c00.r2.dev/MAYAS-IMG(2).jpeg",img3:"https://pub-d1f3bed8e9594bb785e31511d12d7c00.r2.dev/MAYAS-IMG(3).jpeg",img4:"https://pub-d1f3bed8e9594bb785e31511d12d7c00.r2.dev/MAYAS-IMG(4).jpeg",img5:"https://pub-d1f3bed8e9594bb785e31511d12d7c00.r2.dev/MAYAS-IMG(5).jpeg",img6:"https://pub-d1f3bed8e9594bb785e31511d12d7c00.r2.dev/MAYAS-IMG(6).jpeg",img7:"https://pub-d1f3bed8e9594bb785e31511d12d7c00.r2.dev/MAYAS-IMG(7).jpeg",opRoom:"https://pub-d1f3bed8e9594bb785e31511d12d7c00.r2.dev/MAYAS-IMG(2).jpeg",wardRoom:"https://pub-d1f3bed8e9594bb785e31511d12d7c00.r2.dev/MAYAS-IMG(4).jpeg",corridor:"https://pub-d1f3bed8e9594bb785e31511d12d7c00.r2.dev/MAYAS-IMG(1).jpeg",logo:"https://pub-d1f3bed8e9594bb785e31511d12d7c00.r2.dev/Mayas-logo-fevicon.avif",phone1:"9866237227",phone2:"8500850028",landline:"08518-275507",email:"mayashospitals@gmail.com"};
 
 /* CM034 - JS DOM Injection & Initialization */
-window.onload=()=>{document.title="Maya's Hospital";injectManifest();const link=document.createElement('link');link.rel='icon';link.href=CONFIG.logo;link.type='image/avif';document.head.appendChild(link);const appleLink=document.createElement('link');appleLink.rel='apple-touch-icon';appleLink.href=CONFIG.logo;document.head.appendChild(appleLink);document.querySelectorAll(".dyn-logo").forEach(el=>el.src=CONFIG.logo);document.querySelectorAll(".dyn-img1").forEach(el=>el.src=CONFIG.img1);document.querySelectorAll(".dyn-img2").forEach(el=>el.src=CONFIG.img2);document.querySelectorAll(".dyn-img3").forEach(el=>el.src=CONFIG.img3);document.querySelectorAll(".dyn-img4").forEach(el=>el.src=CONFIG.img4);document.querySelectorAll(".dyn-img5").forEach(el=>el.src=CONFIG.img5);document.querySelectorAll(".dyn-img6").forEach(el=>el.src=CONFIG.img6);document.querySelectorAll(".dyn-img7").forEach(el=>el.src=CONFIG.img7);const opEl=document.querySelector(".dyn-img-op");if(opEl)opEl.src=CONFIG.opRoom;const wardEl=document.querySelector(".dyn-img-ward");if(wardEl)wardEl.src=CONFIG.wardRoom;const corridorEl=document.querySelector(".dyn-img-corridor");if(corridorEl)corridorEl.src=CONFIG.corridor;const doc1El=document.querySelector(".dyn-doc1");if(doc1El)doc1El.src=CONFIG.doc1;const doc2El=document.querySelector(".dyn-doc2");if(doc2El)doc2El.src=CONFIG.doc2;const doc3El=document.querySelector(".dyn-doc3");if(doc3El)doc3El.src=CONFIG.doc3;const doc4El=document.querySelector(".dyn-doc4");if(doc4El)doc4El.src=CONFIG.doc4;document.querySelectorAll(".dyn-phone1").forEach(el=>el.textContent=CONFIG.phone1);document.querySelectorAll(".dyn-phone2").forEach(el=>el.textContent=CONFIG.phone2);document.querySelectorAll(".dyn-landline").forEach(el=>el.textContent=CONFIG.landline);document.querySelectorAll(".dyn-email").forEach(el=>el.textContent=CONFIG.email);document.querySelectorAll(".call-action-btn").forEach(el=>el.href=`tel:${CONFIG.phone1}`);document.querySelectorAll(".call-action-btn2").forEach(el=>el.href=`tel:${CONFIG.phone2}`);initScrollAnimations();initCounters();};
+window.onload=()=>{document.title="Maya's Hospital";registerPWAServiceWorker();const link=document.createElement('link');link.rel='icon';link.href=CONFIG.logo;link.type='image/avif';document.head.appendChild(link);const appleLink=document.createElement('link');appleLink.rel='apple-touch-icon';appleLink.href=CONFIG.logo;document.head.appendChild(appleLink);document.querySelectorAll(".dyn-logo").forEach(el=>el.src=CONFIG.logo);document.querySelectorAll(".dyn-img1").forEach(el=>el.src=CONFIG.img1);document.querySelectorAll(".dyn-img2").forEach(el=>el.src=CONFIG.img2);document.querySelectorAll(".dyn-img3").forEach(el=>el.src=CONFIG.img3);document.querySelectorAll(".dyn-img4").forEach(el=>el.src=CONFIG.img4);document.querySelectorAll(".dyn-img5").forEach(el=>el.src=CONFIG.img5);document.querySelectorAll(".dyn-img6").forEach(el=>el.src=CONFIG.img6);document.querySelectorAll(".dyn-img7").forEach(el=>el.src=CONFIG.img7);const opEl=document.querySelector(".dyn-img-op");if(opEl)opEl.src=CONFIG.opRoom;const wardEl=document.querySelector(".dyn-img-ward");if(wardEl)wardEl.src=CONFIG.wardRoom;const corridorEl=document.querySelector(".dyn-img-corridor");if(corridorEl)corridorEl.src=CONFIG.corridor;const doc1El=document.querySelector(".dyn-doc1");if(doc1El)doc1El.src=CONFIG.doc1;const doc2El=document.querySelector(".dyn-doc2");if(doc2El)doc2El.src=CONFIG.doc2;const doc3El=document.querySelector(".dyn-doc3");if(doc3El)doc3El.src=CONFIG.doc3;const doc4El=document.querySelector(".dyn-doc4");if(doc4El)doc4El.src=CONFIG.doc4;document.querySelectorAll(".dyn-phone1").forEach(el=>el.textContent=CONFIG.phone1);document.querySelectorAll(".dyn-phone2").forEach(el=>el.textContent=CONFIG.phone2);document.querySelectorAll(".dyn-landline").forEach(el=>el.textContent=CONFIG.landline);document.querySelectorAll(".dyn-email").forEach(el=>el.textContent=CONFIG.email);document.querySelectorAll(".call-action-btn").forEach(el=>el.href=`tel:${CONFIG.phone1}`);document.querySelectorAll(".call-action-btn2").forEach(el=>el.href=`tel:${CONFIG.phone2}`);initScrollAnimations();initCounters();};
 
 /* CM035 - JS Mobile Menu & Continuous Scroll Reveal Animations */
 function toggleMobileMenu(){const menu=document.getElementById("mobile-menu");const icon=document.getElementById("mobile-menu-icon");menu.classList.toggle("hidden");icon.classList.toggle("fa-bars");icon.classList.toggle("fa-times");}
 function initScrollAnimations(){const els=document.querySelectorAll('.reveal,.reveal-left,.reveal-right,.reveal-scale');const obs=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('active');}else if(e.boundingClientRect.top>0){e.target.classList.remove('active');}});},{threshold:0.1,rootMargin:'0px 0px -20px 0px'});els.forEach(el=>obs.observe(el));}
 
 /* CM036 - JS Animated Counters & Scroll Progress */
-function initCounters(){const counters=document.querySelectorAll('.counter');const obs=new IntersectionObserver((entries)=>{entries.forEach(e=>{const el=e.target;if(e.isIntersecting){const target=parseInt(el.getAttribute('data-target'),10);let cur=0;const inc=Math.max(1,Math.ceil(target/35));clearInterval(el._timer);el._timer=setInterval(()=>{cur+=inc;if(cur>=target){el.textContent=target;clearInterval(el._timer);}else{el.textContent=cur;}},30);}else{el.textContent='0';}});},{threshold:0.35});counters.forEach(c=>obs.observe(c));}
+function initCounters(){const counters=document.querySelectorAll('.counter');const obs=new IntersectionObserver((entries)=>{entries.forEach(e=>{const el=e.target;if(e.isIntersecting){const target=parseInt(el.getAttribute('data-target'),10);let cur=0;const inc=Math.max(1,Math.ceil(target/35));clearInterval(el._timer);el._timer=setInterval(()=>{cur+=inc;if(cur>=target){el.textContent=target.toLocaleString('en-IN');clearInterval(el._timer);}else{el.textContent=cur.toLocaleString('en-IN');}},30);}else{el.textContent='0';}});},{threshold:0.35});counters.forEach(c=>obs.observe(c));}
 window.addEventListener('scroll',()=>{const st=window.scrollY;const dh=document.documentElement.scrollHeight-window.innerHeight;const bar=document.getElementById('scroll-progress');if(bar)bar.style.width=`${dh>0?(st/dh)*100:0}%`;const btn=document.getElementById('scrollTopBtn');if(btn){if(st>350){btn.classList.remove('opacity-0','pointer-events-none','translate-y-4');}else{btn.classList.add('opacity-0','pointer-events-none','translate-y-4');}}});
 
 /* CM037 - JS Specialties Filter, FAQ & Lightbox */
-function filterSpecialties(cat,btn){document.querySelectorAll('.spec-filter-btn').forEach(b=>b.className='spec-filter-btn bg-slate-100 hover:bg-rose-50 text-slate-700 text-xs sm:text-sm font-bold px-4 py-2 rounded-full transition');btn.className='spec-filter-btn bg-primary text-white text-xs sm:text-sm font-bold px-4 py-2 rounded-full shadow-md transition';document.querySelectorAll('#specialties-grid .specialty-card').forEach(c=>{c.style.display=(cat==='all'||c.getAttribute('data-category')===cat)?'flex':'none';});}
+function filterSpecialties(cat,btn){document.querySelectorAll('.spec-filter-btn').forEach(b=>b.className='spec-filter-btn bg-slate-100 hover:bg-rose-50 text-slate-700 text-xs sm:text-sm font-medium px-4 py-2 rounded-full transition font-body');btn.className='spec-filter-btn bg-primary text-white text-xs sm:text-sm font-semibold px-4 py-2 rounded-full shadow-md transition font-body';document.querySelectorAll('#specialties-grid .specialty-card').forEach(c=>{c.style.display=(cat==='all'||c.getAttribute('data-category')===cat)?'flex':'none';});}
 function toggleFaq(btn){btn.nextElementSibling.classList.toggle('hidden');btn.querySelector('i').classList.toggle('rotate-180');}
 function openLightbox(src){if(!src)return;const m=document.getElementById('lightbox-modal');document.getElementById('lightbox-img').src=src;m.classList.remove('hidden');m.classList.add('flex');}
 function closeLightbox(){const m=document.getElementById('lightbox-modal');m.classList.add('hidden');m.classList.remove('flex');}
@@ -824,11 +839,11 @@ function closeLightbox(){const m=document.getElementById('lightbox-modal');m.cla
 function showToast(msg){const t=document.getElementById('custom-toast');document.getElementById('custom-toast-msg').textContent=msg;t.classList.remove('opacity-0','pointer-events-none','translate-y-3');setTimeout(()=>t.classList.add('opacity-0','pointer-events-none','translate-y-3'),2800);}
 function copyMapLink(){const url="https://maps.google.com/maps?q=R26R%2B4X%20Kurnool,%20Andhra%20Pradesh%20Maya's%20Hospital";const ta=document.createElement("textarea");ta.value=url;document.body.appendChild(ta);ta.select();try{document.execCommand("copy");}catch(e){}document.body.removeChild(ta);showToast("Map link copied to clipboard!");}
 
-/* CM039 - JS PWA App Install Logic & Dynamic Manifest */
+/* CM039 - JS PWA App Install Logic & Service Worker Registration */
 let deferredPrompt;
 window.addEventListener('beforeinstallprompt',(e)=>{e.preventDefault();deferredPrompt=e;});
-function injectManifest(){const m={name:"Maya's Hospital",short_name:"Maya's",start_url:".",display:"standalone",background_color:"#f8fafc",theme_color:"#e11d48",icons:[{src:CONFIG.logo,sizes:"192x192",type:"image/png"},{src:CONFIG.logo,sizes:"512x512",type:"image/png"}]};const b=new Blob([JSON.stringify(m)],{type:'application/json'});const url=URL.createObjectURL(b);const l=document.createElement('link');l.rel='manifest';l.href=url;document.head.appendChild(l);}
-function installPWAApp(){if(deferredPrompt){deferredPrompt.prompt();deferredPrompt.userChoice.then((choiceResult)=>{if(choiceResult.outcome==='accepted'){console.log('User accepted install');}deferredPrompt=null;});}else{const m=document.getElementById('install-modal');m.classList.remove('hidden');m.classList.add('flex');}}
+function registerPWAServiceWorker(){if('serviceWorker' in navigator){const swCode="self.addEventListener('install',e=>self.skipWaiting());self.addEventListener('activate',e=>e.waitUntil(self.clients.claim()));self.addEventListener('fetch',e=>{});";const blob=new Blob([swCode],{type:'application/javascript'});const swUrl=URL.createObjectURL(blob);navigator.serviceWorker.register(swUrl).catch(()=>{});}}
+function installPWAApp(){if(deferredPrompt){deferredPrompt.prompt();deferredPrompt.userChoice.then((choiceResult)=>{if(choiceResult.outcome==='accepted'){showToast("Installing Maya's Hospital App...");}deferredPrompt=null;});}else{const m=document.getElementById('install-modal');m.classList.remove('hidden');m.classList.add('flex');}}
 function closeInstallModal(){const m=document.getElementById('install-modal');m.classList.add('hidden');m.classList.remove('flex');}
 </script>
 </body>
