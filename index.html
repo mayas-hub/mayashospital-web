@@ -62,25 +62,28 @@ body{font-family:'Inter',sans-serif;color:#1e293b;background-color:#f8fafc;overf
 .btn-outline-modern:hover{border-color:#e11d48;color:#e11d48;background:#fff1f2;transform:translateY(-4px) scale(1.02);box-shadow:0 14px 26px -6px rgba(225,29,72,0.22);}
 
 /* CM005 - CSS Top Bar & Glass Header Navigation */
-.nav-link{position:relative;transition:all 0.3s ease;padding:0.5rem 0.95rem;border-radius:9999px;font-family:'Inter',sans-serif;}
+.nav-link{position:relative;transition:all 0.3s ease;padding:0.5rem 1.15rem;border-radius:9999px;font-family:'Inter',sans-serif;}
 .nav-link::after{content:'';position:absolute;bottom:4px;left:50%;width:0;height:2.5px;background:#e11d48;border-radius:9999px;transition:all 0.3s ease;transform:translateX(-50%);}
 .nav-link:hover{color:#e11d48;background-color:#fff1f2;}
 .nav-link:hover::after{width:55%;}
 
-/* CM006 - CSS Hero Collage & Image Overlay */
-.hero-img-wrapper{position:relative;overflow:hidden;border-radius:1.25rem;border:3px solid #ffffff;box-shadow:0 16px 32px -8px rgba(15,23,42,0.16);transition:all 0.45s cubic-bezier(0.16,1,0.3,1);}
+/* CM006 - CSS Hero Collage & Mobile-Impressive Image Overlay */
+.hero-img-wrapper{position:relative;overflow:hidden;border-radius:1.25rem;border:3px solid #ffffff;box-shadow:0 16px 32px -8px rgba(15,23,42,0.18);transition:all 0.45s cubic-bezier(0.16,1,0.3,1);}
 .hero-img-wrapper:hover{transform:translateY(-6px) scale(1.02);box-shadow:0 22px 40px -8px rgba(225,29,72,0.28);border-color:#fecdd3;}
-.hero-img{width:100%;height:165px;object-fit:cover;transition:transform 0.75s cubic-bezier(0.16,1,0.3,1);}
-@media (min-width:768px){.hero-img{height:195px;}}
+.hero-img{width:100%;height:155px;object-fit:cover;transition:transform 0.75s cubic-bezier(0.16,1,0.3,1);}
+@media (min-width:640px){.hero-img{height:180px;}}
+@media (min-width:768px){.hero-img{height:200px;}}
 .hero-img-wrapper:hover .hero-img{transform:scale(1.12);}
-.hero-img-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(15,23,42,0.78) 0%,rgba(225,29,72,0.2) 55%,transparent 100%);opacity:0;transition:opacity 0.35s ease;display:flex;align-items:flex-end;padding:0.85rem 1rem;}
-.hero-img-wrapper:hover .hero-img-overlay{opacity:1;}
+.hero-img-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(15,23,42,0.82) 0%,rgba(15,23,42,0.25) 45%,transparent 100%);opacity:1;transition:opacity 0.35s ease;display:flex;align-items:flex-end;padding:0.65rem 0.85rem;}
+@media (min-width:1024px){.hero-img-overlay{opacity:0;padding:0.85rem 1rem;}.hero-img-wrapper:hover .hero-img-overlay{opacity:1;}}
 
-/* CM007 - CSS Highlights Counter Box */
-.highlight-box{background:linear-gradient(135deg,#0f172a 0%,#1e293b 50%,#881337 100%);border-radius:1.5rem;box-shadow:0 22px 45px -10px rgba(15,23,42,0.4);position:relative;overflow:hidden;}
-.highlight-box::before{content:'';position:absolute;top:-40%;right:-10%;width:320px;height:320px;background:radial-gradient(circle,rgba(244,63,94,0.38) 0%,transparent 70%);pointer-events:none;}
-.stat-card{transition:transform 0.35s ease;padding:0.75rem;}
-.stat-card:hover{transform:translateY(-5px);}
+/* CM007 - CSS Highlights Counter Box (Balanced 6-Item Grid for Mobile & Desktop) */
+.highlight-box{background:linear-gradient(135deg,#0f172a 0%,#1e293b 52%,#881337 100%);border-radius:1.75rem;box-shadow:0 24px 48px -12px rgba(15,23,42,0.45);position:relative;overflow:hidden;}
+.highlight-box::before{content:'';position:absolute;top:-35%;right:-10%;width:340px;height:340px;background:radial-gradient(circle,rgba(244,63,94,0.4) 0%,transparent 70%);pointer-events:none;}
+.highlight-box::after{content:'';position:absolute;bottom:-35%;left:-10%;width:280px;height:280px;background:radial-gradient(circle,rgba(225,29,72,0.25) 0%,transparent 70%);pointer-events:none;}
+.stat-card{position:relative;z-index:10;transition:all 0.35s cubic-bezier(0.16,1,0.3,1);padding:1rem 0.65rem;border-radius:1.25rem;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);backdrop-filter:blur(6px);}
+@media (min-width:768px){.stat-card{padding:1.35rem 1rem;background:rgba(255,255,255,0.025);}}
+.stat-card:hover{transform:translateY(-5px);background:rgba(244,63,94,0.12);border-color:rgba(251,113,133,0.35);box-shadow:0 14px 28px -8px rgba(0,0,0,0.3);}
 
 /* CM008 - CSS About Profile & Why Choose Strip */
 .about-card-wrap{position:relative;overflow:hidden;border-radius:1.25rem;box-shadow:0 14px 28px -8px rgba(15,23,42,0.12);transition:all 0.4s ease;}
@@ -161,7 +164,7 @@ body{font-family:'Inter',sans-serif;color:#1e293b;background-color:#f8fafc;overf
 </div>
 </div>
 
-<!-- CM016 - HTML Glass Header & Navigation -->
+<!-- CM016 - HTML Glass Header & Navigation (Kept 4 Clean Nav Buttons as Requested) -->
 <header id="main-header" class="w-full bg-white/95 backdrop-blur-md border-b border-slate-100 sticky top-0 z-40 transition-all duration-300 shadow-sm">
 <div class="container mx-auto max-w-7xl px-4 sm:px-6 py-3.5 flex justify-between items-center">
 <a href="#" class="flex items-center space-x-3.5 group">
@@ -174,7 +177,7 @@ body{font-family:'Inter',sans-serif;color:#1e293b;background-color:#f8fafc;overf
 <p class="text-[11px] text-slate-500 italic m-0 font-serif-headline">The Healing Touch</p>
 </div>
 </a>
-<nav class="hidden lg:flex items-center space-x-1 text-sm font-medium text-slate-700">
+<nav class="hidden lg:flex items-center space-x-2 text-sm font-medium text-slate-700">
 <a href="#home" class="nav-link">Home</a>
 <a href="#doctors" class="nav-link">Doctors</a>
 <a href="#specialties" class="nav-link">Specialties</a>
@@ -189,50 +192,52 @@ body{font-family:'Inter',sans-serif;color:#1e293b;background-color:#f8fafc;overf
 <a href="#home" class="p-3 rounded-xl text-sm font-semibold text-secondary hover:bg-rose-50 flex items-center justify-between" onclick="toggleMobileMenu()"><span><i class="fas fa-home w-6 text-primary"></i>Home</span><i class="fas fa-chevron-right text-xs text-slate-300"></i></a>
 <a href="#doctors" class="p-3 rounded-xl text-sm font-semibold text-secondary hover:bg-rose-50 flex items-center justify-between" onclick="toggleMobileMenu()"><span><i class="fas fa-user-md w-6 text-primary"></i>Doctors</span><i class="fas fa-chevron-right text-xs text-slate-300"></i></a>
 <a href="#specialties" class="p-3 rounded-xl text-sm font-semibold text-secondary hover:bg-rose-50 flex items-center justify-between" onclick="toggleMobileMenu()"><span><i class="fas fa-stethoscope w-6 text-primary"></i>Specialties</span><i class="fas fa-chevron-right text-xs text-slate-300"></i></a>
+<a href="#contact" class="p-3 rounded-xl text-sm font-semibold text-secondary hover:bg-rose-50 flex items-center justify-between" onclick="toggleMobileMenu()"><span><i class="fas fa-map-marker-alt w-6 text-primary"></i>Contact</span><i class="fas fa-chevron-right text-xs text-slate-300"></i></a>
 <button onclick="toggleMobileMenu();installPWAApp();" class="p-3 rounded-xl text-sm font-semibold text-rose-600 bg-rose-50/80 flex items-center justify-between"><span><i class="fas fa-download w-6 text-primary"></i>Install Mobile App</span><i class="fas fa-sparkles text-xs"></i></button>
-<a href="#opd-info" class="btn-modern p-3.5 rounded-xl text-sm text-center font-semibold text-white flex items-center justify-center" onclick="toggleMobileMenu()"><i class="fas fa-calendar-check mr-2"></i>Book Appointment</a>
+<a href="#opd-info" class="btn-modern p-3.5 rounded-xl text-sm text-center font-semibold text-white flex items-center justify-center" onclick="toggleMobileMenu()"><i class="fas fa-calendar-check mr-2"></i>Book Consultation</a>
 </div>
 </header>
 
-<!-- CM017 - HTML Hero Section -->
-<section id="home" class="pt-8 pb-16 md:pt-14 md:pb-24 bg-gradient-to-br from-rose-50/80 via-white to-slate-50 relative overflow-hidden">
+<!-- CM017 - HTML Hero Section (Mobile-Enhanced Picture Collage) -->
+<section id="home" class="pt-6 pb-16 md:pt-14 md:pb-24 bg-gradient-to-br from-rose-50/80 via-white to-slate-50 relative overflow-hidden">
 <div class="ambient-blob absolute -top-20 -left-20 w-80 h-80 bg-rose-200/45 rounded-full blur-3xl pointer-events-none"></div>
 <div class="ambient-blob-delayed absolute top-1/4 -right-24 w-96 h-96 bg-pink-200/40 rounded-full blur-3xl pointer-events-none"></div>
 <div class="container mx-auto max-w-7xl px-4 sm:px-6 relative z-10">
-<div class="flex flex-col lg:flex-row items-center gap-10 lg:gap-12">
+<div class="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
 <div class="lg:w-1/2 text-center lg:text-left reveal-left">
-<div class="inline-flex items-center gap-2 bg-white text-primary font-semibold px-4 py-1.5 rounded-full text-xs mb-5 shadow-md border border-rose-100 font-body">
-<span class="w-2.5 h-2.5 rounded-full bg-primary animate-ping"></span>
-<i class="fas fa-hospital-symbol"></i>
-<span>WELCOME TO MAYA'S MULTISPECIALITY HOSPITAL &bull; ESTD 2021</span>
+<div class="inline-flex items-center gap-2 bg-white text-primary font-semibold px-3.5 sm:px-4 py-1.5 rounded-full text-[11px] sm:text-xs mb-5 shadow-md border border-rose-100 font-body">
+<span class="w-2.5 h-2.5 rounded-full bg-primary animate-ping shrink-0"></span>
+<i class="fas fa-hospital-symbol shrink-0"></i>
+<span class="tracking-wide">WELCOME TO MAYA'S MULTISPECIALITY HOSPITAL &bull; ESTD 2021</span>
 </div>
-<h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-secondary leading-tight mb-5 font-display">
+<h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-secondary leading-tight mb-4 sm:mb-5 font-display">
 Advanced Medical Care,<br>
 <span class="animated-gradient-text font-serif-headline italic font-bold">Exceptional Healing</span>
 </h2>
-<p class="text-slate-600 text-sm sm:text-base mb-8 max-w-xl mx-auto lg:mx-0 font-normal leading-relaxed font-body">
+<p class="text-slate-600 text-sm sm:text-base mb-7 sm:mb-8 max-w-xl mx-auto lg:mx-0 font-normal leading-relaxed font-body">
 Providing state-of-the-art technology, precision surgery, and compassionate patient care under one roof in Kurnool. Specialized excellence in <strong class="text-secondary font-semibold">Dermatology, Plastic &amp; Cosmetic Surgery, Obstetrics &amp; Gynecology, and Aesthetic Medicine</strong>.
 </p>
-<div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 mb-8">
+<div class="flex flex-col sm:flex-row justify-center lg:justify-start gap-3.5 sm:gap-4 mb-7 sm:mb-8">
 <a href="#opd-info" class="btn-modern pulse-glow-btn px-8 py-3.5 rounded-full font-semibold text-sm flex items-center justify-center"><i class="fas fa-calendar-check mr-2.5 text-base"></i>Book Your Consultation</a>
 <a href="#specialties" class="btn-outline-modern px-8 py-3.5 rounded-full font-semibold text-sm flex items-center justify-center"><i class="fas fa-stethoscope mr-2.5 text-primary text-base"></i>Explore Our Services</a>
 </div>
-<div class="grid grid-cols-3 gap-4 max-w-lg mx-auto lg:mx-0 pt-5 border-t border-slate-200">
-<div class="flex items-center gap-3 justify-center lg:justify-start">
-<div class="w-10 h-10 rounded-xl bg-rose-100 text-primary flex items-center justify-center shrink-0 shadow-sm"><i class="fas fa-user-md text-base"></i></div>
-<div class="text-left"><p class="text-sm font-bold text-secondary leading-tight font-display">4+ Doctors</p><p class="text-xs text-slate-500 font-normal font-body">Super-Specialists</p></div>
+<div class="grid grid-cols-3 gap-2.5 sm:gap-4 max-w-lg mx-auto lg:mx-0 pt-5 border-t border-slate-200">
+<div class="flex flex-col sm:flex-row items-center gap-2 sm:gap-3 justify-center lg:justify-start bg-white/80 sm:bg-transparent p-2.5 sm:p-0 rounded-2xl border border-rose-100 sm:border-0 shadow-sm sm:shadow-none">
+<div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-rose-100 text-primary flex items-center justify-center shrink-0 shadow-sm"><i class="fas fa-user-md text-sm sm:text-base"></i></div>
+<div class="text-center sm:text-left"><p class="text-xs sm:text-sm font-bold text-secondary leading-tight font-display">4+ Doctors</p><p class="text-[10px] sm:text-xs text-slate-500 font-normal font-body">Super-Specialists</p></div>
 </div>
-<div class="flex items-center gap-3 justify-center lg:justify-start">
-<div class="w-10 h-10 rounded-xl bg-rose-100 text-primary flex items-center justify-center shrink-0 shadow-sm"><i class="fas fa-shield-alt text-base"></i></div>
-<div class="text-left"><p class="text-sm font-bold text-secondary leading-tight font-display">Cashless TPA</p><p class="text-xs text-slate-500 font-normal font-body">12+ Insurances</p></div>
+<div class="flex flex-col sm:flex-row items-center gap-2 sm:gap-3 justify-center lg:justify-start bg-white/80 sm:bg-transparent p-2.5 sm:p-0 rounded-2xl border border-rose-100 sm:border-0 shadow-sm sm:shadow-none">
+<div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-rose-100 text-primary flex items-center justify-center shrink-0 shadow-sm"><i class="fas fa-shield-alt text-sm sm:text-base"></i></div>
+<div class="text-center sm:text-left"><p class="text-xs sm:text-sm font-bold text-secondary leading-tight font-display">Cashless TPA</p><p class="text-[10px] sm:text-xs text-slate-500 font-normal font-body">12+ Insurances</p></div>
 </div>
-<div class="flex items-center gap-3 justify-center lg:justify-start">
-<div class="w-10 h-10 rounded-xl bg-rose-100 text-primary flex items-center justify-center shrink-0 shadow-sm"><i class="fas fa-magic text-base"></i></div>
-<div class="text-left"><p class="text-sm font-bold text-secondary leading-tight font-display">US-FDA Tech</p><p class="text-xs text-slate-500 font-normal font-body">Lasers &amp; 3 OTs</p></div>
+<div class="flex flex-col sm:flex-row items-center gap-2 sm:gap-3 justify-center lg:justify-start bg-white/80 sm:bg-transparent p-2.5 sm:p-0 rounded-2xl border border-rose-100 sm:border-0 shadow-sm sm:shadow-none">
+<div class="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-rose-100 text-primary flex items-center justify-center shrink-0 shadow-sm"><i class="fas fa-magic text-sm sm:text-base"></i></div>
+<div class="text-center sm:text-left"><p class="text-xs sm:text-sm font-bold text-secondary leading-tight font-display">US-FDA Tech</p><p class="text-[10px] sm:text-xs text-slate-500 font-normal font-body">Lasers &amp; 3 OTs</p></div>
 </div>
 </div>
 </div>
-<div class="lg:w-1/2 w-full relative reveal-right">
+<div class="lg:w-1/2 w-full relative reveal-right mt-2 lg:mt-0">
+<!-- Desktop Floating Badges -->
 <div class="float-badge hidden sm:flex absolute -top-5 -left-5 z-20 bg-white/95 backdrop-blur-md px-4 py-2.5 rounded-2xl shadow-xl border border-rose-100 items-center gap-3">
 <div class="w-10 h-10 rounded-xl bg-emerald-500 text-white flex items-center justify-center text-base shadow"><i class="fas fa-heartbeat"></i></div>
 <div><p class="text-xs font-bold text-secondary font-display">24/7 ICU &amp; Emergency</p><p class="text-[11px] text-primary font-medium font-body">Maternity Services 24/7</p></div>
@@ -241,22 +246,34 @@ Providing state-of-the-art technology, precision surgery, and compassionate pati
 <div class="w-10 h-10 rounded-xl bg-primary text-white flex items-center justify-center text-base shadow"><i class="fas fa-award"></i></div>
 <div><p class="text-xs font-bold text-secondary font-display">Zero-Infection OTs</p><p class="text-[11px] text-slate-500 font-normal font-body">3 Laminar-Flow Theatres</p></div>
 </div>
-<div class="grid grid-cols-2 gap-4">
+<!-- Mobile Top Feature Pills above Pictures -->
+<div class="flex sm:hidden items-center justify-between gap-2 mb-3">
+<div class="flex-1 bg-white/95 backdrop-blur-md px-3 py-2 rounded-2xl shadow-md border border-rose-100 flex items-center gap-2">
+<div class="w-8 h-8 rounded-lg bg-emerald-500 text-white flex items-center justify-center text-xs shrink-0 shadow"><i class="fas fa-heartbeat"></i></div>
+<div class="text-left leading-tight"><p class="text-[11px] font-bold text-secondary font-display">24/7 ICU Care</p><p class="text-[9px] text-primary font-semibold font-body">Maternity 24/7</p></div>
+</div>
+<div class="flex-1 bg-white/95 backdrop-blur-md px-3 py-2 rounded-2xl shadow-md border border-rose-100 flex items-center gap-2">
+<div class="w-8 h-8 rounded-lg bg-primary text-white flex items-center justify-center text-xs shrink-0 shadow"><i class="fas fa-award"></i></div>
+<div class="text-left leading-tight"><p class="text-[11px] font-bold text-secondary font-display">Zero-Infection</p><p class="text-[9px] text-slate-500 font-semibold font-body">3 Modular OTs</p></div>
+</div>
+</div>
+<!-- 2x2 Picture Collage (Balanced & Impressive on Mobile and Desktop) -->
+<div class="grid grid-cols-2 gap-3 sm:gap-4 bg-white/60 sm:bg-transparent p-2.5 sm:p-0 rounded-3xl border border-rose-100/80 sm:border-0 shadow-soft sm:shadow-none">
 <div class="hero-img-wrapper cursor-pointer" onclick="openLightbox(this.querySelector('img').src)">
 <img src="" alt="Hospital View 1" class="dyn-img6 hero-img">
-<div class="hero-img-overlay"><span class="text-white text-xs font-medium"><i class="fas fa-search-plus mr-1.5"></i>Hospital Exterior</span></div>
+<div class="hero-img-overlay"><span class="text-white text-[11px] sm:text-xs font-semibold tracking-wide drop-shadow"><i class="fas fa-hospital text-rose-400 mr-1.5"></i>Hospital Exterior</span></div>
 </div>
-<div class="hero-img-wrapper cursor-pointer mt-4" onclick="openLightbox(this.querySelector('img').src)">
+<div class="hero-img-wrapper cursor-pointer sm:mt-4" onclick="openLightbox(this.querySelector('img').src)">
 <img src="" alt="Hospital View 2" class="dyn-img2 hero-img">
-<div class="hero-img-overlay"><span class="text-white text-xs font-medium"><i class="fas fa-search-plus mr-1.5"></i>Modular OT Complex</span></div>
+<div class="hero-img-overlay"><span class="text-white text-[11px] sm:text-xs font-semibold tracking-wide drop-shadow"><i class="fas fa-shield-virus text-rose-400 mr-1.5"></i>Modular OT Complex</span></div>
 </div>
-<div class="hero-img-wrapper cursor-pointer -mt-4" onclick="openLightbox(this.querySelector('img').src)">
+<div class="hero-img-wrapper cursor-pointer sm:-mt-4" onclick="openLightbox(this.querySelector('img').src)">
 <img src="" alt="Hospital View 3" class="dyn-img3 hero-img">
-<div class="hero-img-overlay"><span class="text-white text-xs font-medium"><i class="fas fa-search-plus mr-1.5"></i>Patient Care Area</span></div>
+<div class="hero-img-overlay"><span class="text-white text-[11px] sm:text-xs font-semibold tracking-wide drop-shadow"><i class="fas fa-procedures text-rose-400 mr-1.5"></i>Patient Care Area</span></div>
 </div>
 <div class="hero-img-wrapper cursor-pointer" onclick="openLightbox(this.querySelector('img').src)">
 <img src="" alt="Hospital View 4" class="dyn-img7 hero-img">
-<div class="hero-img-overlay"><span class="text-white text-xs font-medium"><i class="fas fa-search-plus mr-1.5"></i>Reception Lobby</span></div>
+<div class="hero-img-overlay"><span class="text-white text-[11px] sm:text-xs font-semibold tracking-wide drop-shadow"><i class="fas fa-concierge-bell text-rose-400 mr-1.5"></i>Reception Lobby</span></div>
 </div>
 </div>
 </div>
@@ -264,47 +281,45 @@ Providing state-of-the-art technology, precision surgery, and compassionate pati
 </div>
 </section>
 
-<!-- CM018 - HTML Highlights Counter Section (With All 7 Key Highlights Together) -->
-<section class="container mx-auto max-w-6xl px-4 sm:px-6 relative z-20 -mt-10 mb-6 reveal-scale">
-<div class="highlight-box py-7 px-6 sm:px-10 border-4 border-white">
-<div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center divide-y md:divide-y-0 md:divide-x divide-slate-700/80">
-<div class="stat-card flex flex-col items-center">
-<div class="w-12 h-12 rounded-2xl bg-rose-500/20 border border-rose-400/30 flex items-center justify-center mb-2.5"><i class="fas fa-procedures text-rose-400 text-2xl"></i></div>
-<h4 class="font-extrabold text-white text-2xl sm:text-3xl font-display"><span class="counter" data-target="50">0</span>+ Beds</h4>
-<p class="text-xs text-rose-200 uppercase font-normal tracking-wider mt-1 font-body">Inpatient Capacity</p>
+<!-- CM018 - HTML Highlights Counter Section (Central AC Removed, 6 Balanced Cards in 2x3 Mobile & 3x2 Desktop Grid) -->
+<section class="container mx-auto max-w-6xl px-4 sm:px-6 relative z-20 -mt-8 sm:-mt-10 mb-6 reveal-scale">
+<div class="highlight-box py-6 px-4 sm:py-8 sm:px-8 border-4 border-white">
+<div class="grid grid-cols-2 md:grid-cols-3 gap-3.5 sm:gap-5 text-center">
+<!-- Highlight 1: 50+ Beds -->
+<div class="stat-card flex flex-col items-center justify-center">
+<div class="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-rose-500/20 border border-rose-400/35 flex items-center justify-center mb-2.5 shadow-inner"><i class="fas fa-procedures text-rose-400 text-xl sm:text-2xl"></i></div>
+<h4 class="font-extrabold text-white text-lg sm:text-2xl lg:text-3xl font-display leading-tight"><span class="counter" data-target="50">0</span>+ Beds</h4>
+<p class="text-[10px] sm:text-xs text-rose-200 uppercase font-normal tracking-wider mt-1 font-body">Inpatient Capacity</p>
 </div>
-<div class="stat-card flex flex-col items-center">
-<div class="w-12 h-12 rounded-2xl bg-rose-500/20 border border-rose-400/30 flex items-center justify-center mb-2.5"><i class="fas fa-microscope text-rose-400 text-2xl"></i></div>
-<h4 class="font-extrabold text-white text-2xl sm:text-3xl font-display"><span class="counter" data-target="3">0</span> Modular OTs</h4>
-<p class="text-xs text-rose-200 uppercase font-normal tracking-wider mt-1 font-body">Laminar-Flow</p>
+<!-- Highlight 2: 3 Modular OTs -->
+<div class="stat-card flex flex-col items-center justify-center">
+<div class="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-rose-500/20 border border-rose-400/35 flex items-center justify-center mb-2.5 shadow-inner"><i class="fas fa-microscope text-rose-400 text-xl sm:text-2xl"></i></div>
+<h4 class="font-extrabold text-white text-lg sm:text-2xl lg:text-3xl font-display leading-tight"><span class="counter" data-target="3">0</span> Modular OTs</h4>
+<p class="text-[10px] sm:text-xs text-rose-200 uppercase font-normal tracking-wider mt-1 font-body">Laminar-Flow</p>
 </div>
-<div class="stat-card flex flex-col items-center">
-<div class="w-12 h-12 rounded-2xl bg-rose-500/20 border border-rose-400/30 flex items-center justify-center mb-2.5"><i class="fas fa-heartbeat text-rose-400 text-2xl"></i></div>
-<h4 class="font-extrabold text-white text-2xl sm:text-3xl font-display"><span class="counter" data-target="24">0</span>/7 ICU</h4>
-<p class="text-xs text-rose-200 uppercase font-normal tracking-wider mt-1 font-body">Critical Care Support</p>
+<!-- Highlight 3: 24/7 ICU -->
+<div class="stat-card flex flex-col items-center justify-center">
+<div class="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-rose-500/20 border border-rose-400/35 flex items-center justify-center mb-2.5 shadow-inner"><i class="fas fa-heartbeat text-rose-400 text-xl sm:text-2xl"></i></div>
+<h4 class="font-extrabold text-white text-lg sm:text-2xl lg:text-3xl font-display leading-tight"><span class="counter" data-target="24">0</span>/7 ICU</h4>
+<p class="text-[10px] sm:text-xs text-rose-200 uppercase font-normal tracking-wider mt-1 font-body">Critical Care Support</p>
 </div>
-<div class="stat-card flex flex-col items-center">
-<div class="w-12 h-12 rounded-2xl bg-rose-500/20 border border-rose-400/30 flex items-center justify-center mb-2.5"><i class="fas fa-snowflake text-rose-400 text-2xl"></i></div>
-<h4 class="font-extrabold text-white text-2xl sm:text-3xl font-display"><span class="counter" data-target="100">0</span>% Central AC</h4>
-<p class="text-xs text-rose-200 uppercase font-normal tracking-wider mt-1 font-body">Sterile Environment</p>
+<!-- Highlight 4: Treated 10,000+ Patients -->
+<div class="stat-card flex flex-col items-center justify-center">
+<div class="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-rose-500/20 border border-rose-400/35 flex items-center justify-center mb-2.5 shadow-inner"><i class="fas fa-users text-rose-400 text-xl sm:text-2xl"></i></div>
+<h4 class="font-extrabold text-white text-base sm:text-xl lg:text-2xl font-display leading-tight">Treated <span class="counter" data-target="10000">0</span>+ Patients</h4>
+<p class="text-[10px] sm:text-xs text-rose-200 uppercase font-normal tracking-wider mt-1 font-body">Trusted Patient Care</p>
 </div>
+<!-- Highlight 5: 1,000+ Hair Transplants -->
+<div class="stat-card flex flex-col items-center justify-center">
+<div class="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-rose-500/20 border border-rose-400/35 flex items-center justify-center mb-2.5 shadow-inner"><i class="fas fa-user-md text-rose-400 text-xl sm:text-2xl"></i></div>
+<h4 class="font-extrabold text-white text-base sm:text-xl lg:text-2xl font-display leading-tight"><span class="counter" data-target="1000">0</span>+ Hair Transplants</h4>
+<p class="text-[10px] sm:text-xs text-rose-200 uppercase font-normal tracking-wider mt-1 font-body">Successful Restorations</p>
 </div>
-<!-- Added 3 Highlights Below Inside the Same Highlight Box -->
-<div class="mt-6 pt-6 border-t border-slate-700/80 grid grid-cols-1 sm:grid-cols-3 gap-6 text-center divide-y sm:divide-y-0 sm:divide-x divide-slate-700/80">
-<div class="stat-card flex flex-col items-center">
-<div class="w-12 h-12 rounded-2xl bg-rose-500/20 border border-rose-400/30 flex items-center justify-center mb-2.5"><i class="fas fa-users text-rose-400 text-2xl"></i></div>
-<h4 class="font-extrabold text-white text-xl sm:text-2xl font-display">Treated <span class="counter" data-target="10000">0</span>+ Patients</h4>
-<p class="text-xs text-rose-200 uppercase font-normal tracking-wider mt-1 font-body">Trusted Patient Care</p>
-</div>
-<div class="stat-card flex flex-col items-center">
-<div class="w-12 h-12 rounded-2xl bg-rose-500/20 border border-rose-400/30 flex items-center justify-center mb-2.5"><i class="fas fa-user-md text-rose-400 text-2xl"></i></div>
-<h4 class="font-extrabold text-white text-xl sm:text-2xl font-display"><span class="counter" data-target="1000">0</span>+ Hair Transplants</h4>
-<p class="text-xs text-rose-200 uppercase font-normal tracking-wider mt-1 font-body">Successful Restorations</p>
-</div>
-<div class="stat-card flex flex-col items-center">
-<div class="w-12 h-12 rounded-2xl bg-rose-500/20 border border-rose-400/30 flex items-center justify-center mb-2.5"><i class="fas fa-baby text-rose-400 text-2xl"></i></div>
-<h4 class="font-extrabold text-white text-xl sm:text-2xl font-display"><span class="counter" data-target="24">0</span>/7 Maternity Services</h4>
-<p class="text-xs text-rose-200 uppercase font-normal tracking-wider mt-1 font-body">Safe Mother &amp; Child Care</p>
+<!-- Highlight 6: 24/7 Maternity Services -->
+<div class="stat-card flex flex-col items-center justify-center">
+<div class="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-rose-500/20 border border-rose-400/35 flex items-center justify-center mb-2.5 shadow-inner"><i class="fas fa-baby text-rose-400 text-xl sm:text-2xl"></i></div>
+<h4 class="font-extrabold text-white text-base sm:text-xl lg:text-2xl font-display leading-tight"><span class="counter" data-target="24">0</span>/7 Maternity Services</h4>
+<p class="text-[10px] sm:text-xs text-rose-200 uppercase font-normal tracking-wider mt-1 font-body">Safe Mother &amp; Child Care</p>
 </div>
 </div>
 </div>
@@ -315,19 +330,19 @@ Providing state-of-the-art technology, precision surgery, and compassionate pati
 <div class="container mx-auto px-4 sm:px-6 max-w-7xl">
 <div class="flex flex-col lg:flex-row gap-10 lg:gap-14 items-center">
 <div class="lg:w-1/2 w-full reveal-left">
-<div class="grid grid-cols-12 gap-4 items-stretch">
+<div class="grid grid-cols-12 gap-3.5 sm:gap-4 items-stretch">
 <div class="col-span-7 about-card-wrap border border-slate-100 cursor-pointer" onclick="openLightbox(this.querySelector('img').src)">
-<img src="" alt="OP Room" class="dyn-img-op about-card-img w-full h-full min-h-[280px] object-cover">
-<div class="absolute bottom-3 left-3 bg-secondary/85 backdrop-blur-md text-white text-xs font-medium px-3.5 py-1.5 rounded-full font-body"><i class="fas fa-shield-virus text-rose-400 mr-1.5"></i>Modular OT Complex</div>
+<img src="" alt="OP Room" class="dyn-img-op about-card-img w-full h-full min-h-[250px] sm:min-h-[280px] object-cover">
+<div class="absolute bottom-3 left-3 bg-secondary/85 backdrop-blur-md text-white text-[11px] sm:text-xs font-medium px-3 sm:px-3.5 py-1.5 rounded-full font-body"><i class="fas fa-shield-virus text-rose-400 mr-1.5"></i>Modular OT Complex</div>
 </div>
-<div class="col-span-5 flex flex-col gap-4">
-<div class="about-card-wrap border border-slate-100 h-36 flex-1 cursor-pointer" onclick="openLightbox(this.querySelector('img').src)">
+<div class="col-span-5 flex flex-col gap-3.5 sm:gap-4">
+<div class="about-card-wrap border border-slate-100 h-32 sm:h-36 flex-1 cursor-pointer" onclick="openLightbox(this.querySelector('img').src)">
 <img src="" alt="Ward Room" class="dyn-img-ward about-card-img w-full h-full object-cover">
-<div class="absolute bottom-2.5 left-2.5 bg-secondary/85 text-white text-[11px] font-medium px-3 py-1 rounded-full font-body">Suite &amp; AC Wards</div>
+<div class="absolute bottom-2.5 left-2.5 bg-secondary/85 text-white text-[10px] sm:text-[11px] font-medium px-2.5 sm:px-3 py-1 rounded-full font-body">Suite &amp; AC Wards</div>
 </div>
-<div class="about-card-wrap border border-slate-100 h-36 flex-1 cursor-pointer" onclick="openLightbox(this.querySelector('img').src)">
+<div class="about-card-wrap border border-slate-100 h-32 sm:h-36 flex-1 cursor-pointer" onclick="openLightbox(this.querySelector('img').src)">
 <img src="" alt="Corridor" class="dyn-img-corridor about-card-img w-full h-full object-cover">
-<div class="absolute bottom-2.5 left-2.5 bg-secondary/85 text-white text-[11px] font-medium px-3 py-1 rounded-full font-body">Reception &amp; Lobby</div>
+<div class="absolute bottom-2.5 left-2.5 bg-secondary/85 text-white text-[10px] sm:text-[11px] font-medium px-2.5 sm:px-3 py-1 rounded-full font-body">Reception &amp; Lobby</div>
 </div>
 </div>
 </div>
