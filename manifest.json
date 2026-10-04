@@ -1,0 +1,30 @@
+{
+"name": "Maya's Multispeciality Hospital",
+"short_name": "Maya's Hospital",
+"description": "Maya's Multispeciality Hospital in Kurnool - Dermatology, Plastic & Cosmetic Surgery, Obstetrics & Gynecology, and 24/7 Maternity Care.",
+"start_url": "./index.html",
+"scope": "./",
+"display": "standalone",
+"orientation": "portrait-primary",
+"background_color": "#f8fafc",
+"theme_color": "#e11d48",
+"categories": [
+"medical",
+"health",
+"lifestyle"
+],
+"icons": [
+{
+"src": "https://pub-d1f3bed8e9594bb785e31511d12d7c00.r2.dev/Mayas-logo-fevicon.avif",
+"sizes": "192x192",
+"type": "image/avif",
+"purpose": "any maskable"
+},
+{
+"src": "https://pub-d1f3bed8e9594bb785e31511d12d7c00.r2.dev/Mayas-logo-fevicon.avif",
+"sizes": "512x512",
+"type": "image/avif",
+"purpose": "any maskable"
+}
+]
+}
